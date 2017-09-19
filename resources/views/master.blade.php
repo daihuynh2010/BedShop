@@ -4,7 +4,7 @@
       <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="shortcut icon" href="images/favicon.png">
+      <link rel="shortcut icon" href="images/favicon.png"> <!-- icon title -->
       <title> @yield('title')</title>
       <link href="css/bootstrap.css" rel="stylesheet">
       <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,500italic,100italic,100' rel='stylesheet' type='text/css'>
@@ -12,6 +12,7 @@
       <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen"/>
       <link href="css/sequence-looptheme.css" rel="stylesheet" media="all"/>
       <link href="css/style.css" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="css/custom.css">
    </head>
     <body id="home">
       <div class="wrapper">
@@ -55,9 +56,10 @@
                               </div>
                            </div>
                            <div class="col-md-3">
-                              <ul class="usermenu">
-                                 <li><a href="checkout.html" class="log">Login</a></li>
-                                 <li><a href="checkout2.html" class="reg">Register</a></li>
+                              <ul class="btn btn-block usermenu">
+                                 <!-- iformation-->
+                                  @yield('information')
+                                 
                               </ul>
                            </div>
                         </div>
@@ -215,11 +217,15 @@
             </div>
          </div>
       </div>
+      <!-- modal -->
+       @yield('modals')
       <!-- Bootstrap core JavaScript==================================================-->
      <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
      <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
      <script type="text/javascript" src="js/bootstrap.min.js"></script>
      <script type="text/javascript" src="js/jquery.sequence-min.js"></script>
+     <script type="text/javascript" src="js/custom.js"></script>
+     <script type="text/javascript" src="js/app.js"></script>
      <script type="text/javascript" src="js/jquery.carouFredSel-6.2.1-packed.js"></script>
      <script defer src="js/jquery.flexslider.js"></script>
      <script type="text/javascript" src="js/script.min.js" ></script>
