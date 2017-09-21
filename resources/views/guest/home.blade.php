@@ -3,8 +3,8 @@
 @section('title', "BedShop | Welcome")
 
 @section('information')
-<li><a id="LoginModal" class="log ">Login</a></li>
-<li><a class="reg">Register</a></li>
+<li><a href="{{ route('guest_login_route') }}" id="LoginModal" class="log ">Login</a></li>
+<li><a href="{{ route('guest_register_route') }}" class="reg">Register</a></li>
 @stop
 
 @section('main_content')
@@ -301,43 +301,5 @@
 @stop
 
 @section('modals')
-<div id="login_modal" class="modal" style="display:none;">
-   <!-- Modal content -->
-   <div class="modal-content">
-      <div class="modal-header">
-         <span class="close">&times;</span>
-         <h2>Khách hàng có tài khoản</h2>
-      </div>
-      <div class="modal-body">
-         <div class="x_panel">
-            <div class="x_content"><br/>
-               <form class="form-horizontal" action="" method="POST">
-                  <div class="item form-group">
-                     <label class="control-label col-md-3 col-sm-3 col-xs-3">Email : </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                           <input type="text" class="form-control" name="txtAddClassName" value="" required>
-                        </div>
-                  </div>
-                  <div class="item form-group">
-                     <label class="control-label col-md-3 col-sm-3 col-xs-3">Mật Khẩu : </label>
-                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" class="form-control" name="txtAddClassName" value="" required>
-                     </div>
-                  </div>
-                  <div class="ln_solid col-md-offset-3">
-                     <a href="" style="color: blue">Quên mật khẩu ?</a>
-                  </div>
-                  <br></br>
-                  <div class="form-group">
-                     <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-4">
-                        <button type="button" class="btn btn-primary btncancel">Cancel</button>
-                        <button type="submit" class="btn btn-success">Đăng Nhập</button>
-                     </div>
-                  </div>
-               </form>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
+
 @stop
