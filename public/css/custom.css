@@ -1,9 +1,73 @@
 /* Đăng Nhập*/
 
 .container_login{
-    height: 300px;
+    height: 400px;
+    margin-left: 10%;
+	padding: 10px;
+	padding-top: 30px;
+    background: white;
+    width: 70%;
+}
+.in_lineblock{
+	color: black;
+	width: 90%;
+	margin:  10px 0 0 10px;
 }
 .login_form{
-    
-    width: 50%;
+	font-size: 14px;
+	text-align: center;
+}
+#uname,#psw {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    width: 40%;
+}
+.stylelogin{
+	width: 25%;
+	background-color:  #FF3399;
+	border-radius: 0px;
+}
+.forgot_pass{
+	color: #199cb7;
+}
+.container {
+    padding: 16px;
+    width: 100%;
+}
+.left{
+	width: 60%;
+	height: 90%;
+	padding: 0px;
+	float: left;
+}
+.center{
+	float: left;
+	height: 90%;
+	width: 5%;
+}
+.right{
+	width: 35%;
+	float: left;
+	height: 90%;
+}
+.inner{
+	border-left: 1px dotted #b6b6b6;
+	height: 100%;
+	margin-left: 30px;
+}
+.social_inner{
+	height: 100%;
+	width: 40%;
+	margin-left: 30px;
+	margin-top: 20px;
+	vertical-align: middle;
+}
+.fb_wrapper{
+	border: 1px solid  #3B5997;
+	margin:  0px;
+	vertical-align: sub;
+}
+.google_wrapper{
+	border: 1px solid  #ea4335;
+	margin:  20px 0 0 0;
 }
