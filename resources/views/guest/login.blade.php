@@ -2,9 +2,13 @@
 
 @section('title', "BedShop | Login")
 
+@section('logo')
+<div class="logo"><a href="{{ route('guest_home_route') }}"><img src="{{URL ('images/logo.png') }}" alt="FlatShop"></a></div>
+@stop
+
 @section('information')
-<li><a id="LoginModal" class="log ">Login</a></li>
-<li><a class="reg">Register</a></li>
+<li><a href="{{ route('guest_login_route') }}" id="LoginModal" class="log ">Đăng Nhập</a></li>
+<li><a href="{{ route('guest_register_route') }}" class="reg">Đăng Ký</a></li>
 @stop
 
 @section('main_content')
@@ -19,27 +23,27 @@
 	    <form class="login_form">
 	    	<div class="row container">
 	    		<div class="row">
-				    <label style="width: 12% ;text-align: right;"><b>Email :</b></label>
-				    <input id="uname" type="text" placeholder="Enter Username" name="uname" required>
+				    <label class="label_register" ><b>Email :</b></label>
+				    <input class="input_register" id="uname" type="text" placeholder="Username" name="uname" required>
 			    </div>
 			    <div class="row">
-				    <label style="width: 12%;text-align: right;"><b>Mật Khẩu :</b></label>
-				    <input id="psw" type="password" placeholder="Enter Password" name="psw" required>
+				    <label class="label_register"><b>Mật Khẩu :</b></label>
+				    <input class="input_register" id="psw" type="password" placeholder="Password" name="psw" required>
 				</div>
 
 				<div class="row">
 			   	<span id="mess"></span>
 				</div>
 				<div class="row">
-				    <button class="stylelogin">Login</button>
+				    <button class="stylelogin">Đăng Nhập</button>
 				</div>
 			</div>
 			
 			<div class="container" >
 			    <span > 
-			    	<a class="forgot_pass" href="#">Forgot password?</a>
+			    	<a class="forgot_pass" href="#">Quên mật khẩu?</a>
 			      	/
-			    	<a class="forgot_pass" href="#">Register</a>
+			    	<a href="{{ route('guest_register_route') }}" class="forgot_pass" href="#">Đăng Ký</a>
 			    </span>
 			</div>
 	    </form>

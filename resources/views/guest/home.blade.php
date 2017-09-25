@@ -2,9 +2,13 @@
 
 @section('title', "BedShop | Welcome")
 
+@section('logo')
+<div class="logo"><a href="{{ route('guest_home_route') }}"><img src="{{URL ('images/logo.png') }}" alt="FlatShop"></a></div>
+@stop
+
 @section('information')
-<li><a href="{{ route('guest_login_route') }}" id="LoginModal" class="log ">Login</a></li>
-<li><a href="{{ route('guest_register_route') }}" class="reg">Register</a></li>
+<li><a href="{{ route('guest_login_route') }}" id="LoginModal" class="log ">Đăng Nhập</a></li>
+<li><a href="{{ route('guest_register_route') }}" class="reg">Đăng Ký</a></li>
 @stop
 
 @section('main_content')

@@ -4,8 +4,9 @@
     height: 400px;
     margin-left: 10%;
 	padding: 10px;
-	padding-top: 30px;
-    background: white;
+	margin-top: 20px;
+	margin-bottom: 30px;
+    background-color:  white;
     width: 70%;
 }
 .in_lineblock{
@@ -17,8 +18,16 @@
 	font-size: 14px;
 	text-align: center;
 }
-#uname,#psw {
-    margin-left: 20px;
+.label_register{
+	margin-top: 10px;
+	width: 25%;
+	float: left;
+	margin-left: 10%;
+	text-align: right;
+}
+.input_register {
+	margin-left: 15px;
+   	float: left;
     margin-bottom: 20px;
     width: 40%;
 }

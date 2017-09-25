@@ -21,14 +21,14 @@
             <div class="container">
                <div class="row">
                   <div class="col-md-2 col-sm-2">
-                     <div class="logo"><a href=""><img src="{{URL ('images/logo.png') }}" alt="FlatShop"></a></div>
+                     @yield('logo')
                   </div>
                   <div class="col-md-10 col-sm-10">
                      <div class="header_top">
                         <div class="row">
                            <div class="col-md-7 col-md-offset-1" style="padding: 0px" >
                               <div class="col-md-10" style="padding: 0px;">
-                                 <input style="width: 100%" placeholder="Enter your search ..." type="text" value="" name="search">
+                                 <input style="width: 100%" placeholder="Nhập sản phẩm hay thương hiệu ..." type="text" value="" name="search">
                               </div>
                               <div class="col-md-2" style="padding-top:2px;padding-bottom: 0px;padding-right: 5px;padding-left: 2px;">
                                  <input style="width: 100%;background-color: #FF3399" class="search-submit" type="submit" value="">
@@ -37,7 +37,7 @@
                            <div class="col-md-3 col-md-offset-1">
                               <ul class="btn btn-block usermenu">
                                  <!-- iformation-->
-                                  @yield('information')
+                                 @yield('information')
                                  
                               </ul>
                            </div>
