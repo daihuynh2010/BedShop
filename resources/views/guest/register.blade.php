@@ -1,15 +1,7 @@
-@extends('master')
+@extends('master_guest')
 
 @section('title', "BedShop | Register")
 
-@section('logo')
-<div class="logo"><a href="{{ route('guest_home_route') }}"><img src="{{URL ('images/logo.png') }}" alt="FlatShop"></a></div>
-@stop
-
-@section('information')
-<li><a href="{{ route('guest_login_route') }}" id="LoginModal" class="log ">Đăng Nhập</a></li>
-<li><a href="{{ route('guest_register_route') }}" class="reg">Đăng Ký</a></li>
-@stop
 
 @section('main_content')
 <div class="clearfix"></div>
@@ -62,14 +54,18 @@
    	<div class="right">
    		<h4 style="padding-left: 10px;">Đăng Nhập Bằng</h4>
    		<hr class="in_lineblock"></hr>
-   		<div class="social_inner" style="margin-top: 70px;">
+   		<div class="social_inner">
    			<div class="fb_wrapper">
-   				<img style=" width: 30%;" src="{{URL ('images/facebook_icon.png ') }}">
-   				<span style="color: #3B5997;font-weight: 700;margin-left: 15px;text-align: center;font-size: 12px;">Facebook</span>
+   				<a href="" >
+	   				<img style=" width: 30%;" src="{{URL ('images/facebook_icon.png ') }}">
+	   				<span style="color: #3B5997;font-weight: 700;margin-left: 15px;text-align: center;font-size: 12px;">Facebook</span>
+   				</a>
    			</div>
    			<div class="google_wrapper">
-   				<img style=" width: 30%;" src="{{URL ('images/google_icon.png ') }}">
-   				<span style="color: #ea4335;font-weight: 700;margin-left: 15px;text-align: center;font-size: 12px;">Google</span>
+   				<a href="">
+	   				<img style=" width: 30%;" src="{{URL ('images/google_icon.png ') }}">
+	   				<span style="color: #ea4335;font-weight: 700;margin-left: 15px;text-align: center;font-size: 12px;">Google</span>
+   				</a>
    			</div>
    		</div>
    	</div>

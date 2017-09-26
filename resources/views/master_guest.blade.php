@@ -17,11 +17,13 @@
     <body id="home">
       <div class="wrapper">
          <!-- header page -->
-         <div class="header">
+         <div class="header" >
             <div class="container">
-               <div class="row">
-                  <div class="col-md-2 col-sm-2">
-                     @yield('logo')
+               <div class="row" style=" padding-left: 5%; padding-right: 2%;"> 
+                  <div class="col-md-2 col-sm-2 " style="padding: 0;">
+                     <div class="logo" >
+                        <a href="{{ route('guest_home_route') }}"><img src="{{URL ('images/logo.png') }}" alt="FlatShop"></a>
+                     </div>
                   </div>
                   <div class="col-md-10 col-sm-10">
                      <div class="header_top">
@@ -36,9 +38,8 @@
                            </div>
                            <div class="col-md-3 col-md-offset-1">
                               <ul class="btn btn-block usermenu">
-                                 <!-- iformation-->
-                                 @yield('information')
-                                 
+                                 <li><a href="{{ route('guest_login_route') }}" id="LoginModal" class="log ">Đăng Nhập</a></li>
+                                 <li><a href="{{ route('guest_register_route') }}" class="reg">Đăng Ký</a></li>
                               </ul>
                            </div>
                         </div>
@@ -79,59 +80,14 @@
                               </ul>
                            </li>
                         </ul>
-                        <div class="navbar-collapse collapse">
+                        <div class="navbar-collapse collapse navbar-menu">
                            <ul class="nav navbar-nav">
-                              <li class="active dropdown">
-                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Trang Chủ</a>
-                                <!-- <div class="dropdown-menu">
-                                    <ul class="mega-menu-links">
-                                       <li><a href="index.html">home</a></li>
-                                       <li><a href="home2.html">home2</a></li>
-                                       <li><a href="home3.html">home3</a></li>
-                                       <li><a href="productlitst.html">Productlitst</a></li>
-                                       <li><a href="#">Productgird</a></li>
-                                       <li><a href="details.html">Details</a></li>
-                                       <li><a href="cart.html">Cart</a></li>
-                                       <li><a href="checkout.html">CheckOut</a></li>
-                                       <li><a href="checkout2.html">CheckOut2</a></li>
-                                       <li><a href="contact.html">contact</a></li>
-                                    </ul>
-                                 </div> -->
-                              </li>
-                              <li><a href="#">Nam</a></li>
-                              <li><a href="#">Nữ</a></li>
-                              <li class="dropdown">
-                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fashion</a>
-                                 <div class="dropdown-menu mega-menu">
-                                    <div class="row">
-                                       <div class="col-md-6 col-sm-6">
-                                          <ul class="mega-menu-links">
-                                             <li><a href="#">New Collection</a></li>
-                                             <li><a href="#">Shirts & tops</a></li>
-                                             <li><a href="#">Laptop & Brie</a></li>
-                                             <li><a href="#">Dresses</a></li>
-                                             <li><a href="#">Blazers & Jackets</a></li>
-                                             <li><a href="#">Shoulder Bags</a></li>
-                                          </ul>
-                                       </div>
-                                       <div class="col-md-6 col-sm-6">
-                                          <ul class="mega-menu-links">
-                                             <li><a href="#">New Collection</a></li>
-                                             <li><a href="#">Shirts & tops</a></li>
-                                             <li><a href="#">Laptop & Brie</a></li>
-                                             <li><a href="#">Dresses</a></li>
-                                             <li><a href="#">Blazers & Jackets</a></li>
-                                             <li><a href="#">Shoulder Bags</a></li>
-                                          </ul>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </li>
-                              <li><a href="#">gift</a></li>
-                              <li><a href="#">kids</a></li>
-                              <li><a href="#">blog</a></li>
-                              <li><a href="#">jewelry</a></li>
-                              <li><a href="contact.html">contact us</a></li>
+                              <li class="active"><a href="{{ route('guest_home_route') }}"  >Trang Chủ</a></li>
+                              <li><a href="#">Thời Trang Nam</a></li>
+                              <li><a href="#">Thời Trang Nữ</a></li>
+                              <li><a href="#">Mỹ Phẩm</a></li>
+                              <li><a href="#">Mới Nhất</a></li>
+                              <li><a href="#">Khuyến Mãi</a></li>>
                            </ul>
                         </div>
                      </div>
@@ -152,7 +108,7 @@
                      </div>
                      <div class="col-md-3 col-sm-6">
                         <h4 class="title">Contact <strong>Info</strong></h4>
-                        <p>No. 08, Nguyen Trai, Hanoi , Vietnam</p>
+                        <p>No. 01, Vo Van Ngan, TPHCM , Vietnam</p>
                         <p>Call Us : (084) 1900 1008</p>
                         <p>Email : michael@leebros.us</p>
                      </div>

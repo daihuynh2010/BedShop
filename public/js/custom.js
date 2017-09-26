@@ -1,6 +1,6 @@
-$('#LoginModal').on('click', function () {
-    $('#login_modal').css('display', 'block');
-});
-$('.close').on('click', function () {
-    $('#login_modal').css('display', 'none');
+var $NAVBAR_MENU = $('.navbar-menu');
+
+$NAVBAR_MENU.find('a').on('click', function (ev) {
+ 	$('li.active').removeClass('active');
+ 	$(this).parent('li').addClass('active');
 });
