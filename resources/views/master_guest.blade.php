@@ -163,5 +163,6 @@
      <script type="text/javascript" src="{{URL ('js/jquery.carouFredSel-6.2.1-packed.js') }}"></script>
      <script defer src="{{URL ('js/jquery.flexslider.js') }}"></script>
      <script type="text/javascript" src="{{URL ('js/script.min.js') }}" ></script>
+     <script type="text/javascript" src="{{URL ('js/jquery.elevatezoom.js') }}"></script>
    </body>
 </html>
