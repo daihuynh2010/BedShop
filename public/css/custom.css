@@ -55,6 +55,13 @@
 	width: 5%;
 	padding-top: 33px;
 }
+.or_center{
+	position: absolute;
+	top:25%;
+	left: 53.5%;
+	background-color: white;
+	font-weight: 800;
+}
 .right{
 	width: 35%;
 	float: left;

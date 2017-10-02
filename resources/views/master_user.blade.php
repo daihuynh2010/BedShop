@@ -22,7 +22,7 @@
                <div class="row" style=" padding-left: 5%; padding-right: 2%;"> 
                   <div class="col-md-2 col-sm-2 " style="padding: 0;">
                      <div class="logo" >
-                        <a href="{{ route('guest_home_route') }}"><img src="{{URL ('images/logo.png') }}" alt="FlatShop"></a>
+                        <a href="{{ route('user_home_route') }}"><img src="{{URL ('images/logo.png') }}" alt="FlatShop"></a>
                      </div>
                   </div>
                   <div class="col-md-10 col-sm-10">
@@ -38,8 +38,8 @@
                            </div>
                            <div class="col-md-3 col-md-offset-1">
                               <ul class="btn btn-block usermenu">
-                                 <li><a href="{{ route('guest_login_route') }}" id="LoginModal" class="log ">Đăng Nhập</a></li>
-                                 <li><a href="{{ route('guest_register_route') }}" class="reg">Đăng Ký</a></li>
+                                 <li><a href="#" id="LoginModal" class="log ">Quốc Đại</a></li><!--thông tin user -->
+                                 <li><a href="{{ route('guest_home_route') }}" class="reg">Đăng Xuất</a></li>
                               </ul>
                            </div>
                         </div>
@@ -82,7 +82,7 @@
                         </ul>
                         <div class="navbar-collapse collapse navbar-menu">
                            <ul class="nav navbar-nav">
-                              <li class="active"><a href="{{ route('guest_home_route') }}"  >Trang Chủ</a></li>
+                              <li class="active"><a href="{{ route('user_home_route') }}"  >Trang Chủ</a></li>
                               <li><a href="#">Thời Trang Nam</a></li>
                               <li><a href="#">Thời Trang Nữ</a></li>
                               <li><a href="#">Mỹ Phẩm</a></li>

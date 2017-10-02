@@ -1,4 +1,4 @@
-@extends('master_guest')
+@extends('master_user')
 
 @section('title', "BedShop | Welcome")
 
@@ -381,7 +381,7 @@
                             - %20
                           </div>
                           <div class="thumbnail">
-                            <a href=" {{ route('guest_detail_sp_route') }}"><img  src="{{ URL ('images/products/small/products-01.png') }}" alt="Product Name"></a>
+                            <a href=" {{ route('user_detail_sp_route') }}"><img  src="{{ URL ('images/products/small/products-01.png') }}" alt="Product Name"></a>
                           </div>
                           <div class="productname">
                             Đầm
@@ -404,7 +404,7 @@
                       <div class="col-md-4 col-sm-4">
                         <div class="products">
                           <div class="thumbnail">
-                            <a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-02.png') }}" alt="Product Name"></a>
+                            <a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-02.png') }}" alt="Product Name"></a>
                           </div>
                           <div class="productname">
                             Đầm
@@ -430,7 +430,7 @@
                             New
                           </div>
                           <div class="thumbnail">
-                            <a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-03.png') }}" alt="Product Name"></a>
+                            <a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-03.png') }}" alt="Product Name"></a>
                           </div>
                           <div class="productname">
                             Đầm
@@ -460,7 +460,7 @@
                             - %20
                           </div>
                           <div class="thumbnail">
-                            <a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-01.png') }}" alt="Product Name"></a>
+                            <a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-01.png') }}" alt="Product Name"></a>
                           </div>
                           <div class="productname">
                             Đầm
@@ -483,7 +483,7 @@
                       <div class="col-md-4 col-sm-4">
                         <div class="products">
                           <div class="thumbnail">
-                            <a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-02.png') }}" alt="Product Name"></a>
+                            <a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-02.png') }}" alt="Product Name"></a>
                           </div>
                           <div class="productname">
                             Đầm
@@ -509,7 +509,7 @@
                             New
                           </div>
                           <div class="thumbnail">
-                            <a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-03.png') }}" alt="Product Name"></a>
+                            <a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-03.png') }}" alt="Product Name"></a>
                           </div>
                           <div class="productname">
                             Đầm
@@ -539,7 +539,7 @@
                             - %20
                           </div>
                           <div class="thumbnail">
-                            <a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-01.png') }}" alt="Product Name"></a>
+                            <a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-01.png') }}" alt="Product Name"></a>
                           </div>
                           <div class="productname">
                             Đầm
@@ -562,7 +562,7 @@
                       <div class="col-md-4 col-sm-4">
                         <div class="products">
                           <div class="thumbnail">
-                            <a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-02.png') }}" alt="Product Name"></a>
+                            <a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-02.png') }}" alt="Product Name"></a>
                           </div>
                           <div class="productname">
                             Đầm
@@ -588,7 +588,7 @@
                             New
                           </div>
                           <div class="thumbnail">
-                            <a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-03.png') }}" alt="Product Name"></a>
+                            <a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-03.png') }}" alt="Product Name"></a>
                           </div>
                           <div class="productname">
                             Đầm
@@ -615,7 +615,9 @@
           <div class="clearfix">
           </div>
           <div class="our-brand">
-            CÁCH THỨC THANH TOÁN
+            <h3 class="title">
+              CÁCH THỨC THANH TOÁN
+            </h3>
             <div class="control">
               <a id="prev_brand" class="prev" href="#">
                 &lt;

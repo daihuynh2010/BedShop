@@ -41,8 +41,11 @@
 	    </form>
    	</div>
    	<div class="center">
+   		<p class="or_center">OR</p>
    		<div class="inner">
+
    		</div>
+
    	</div>
    	<div class="right">
    		<h4 style="padding-left: 10px;">Đăng Nhập Bằng</h4>
