@@ -1,6 +1,6 @@
 @extends('master_user')
 
-@section('title', "BedShop | Welcome")
+@section('title', "BedShop | Home")
 
 @section('main_content')
 <div class="clearfix"></div>
@@ -76,7 +76,14 @@
                                  <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-01.png') }}" alt="Product Name"></a></div>
                                  <div class="productname">Đầm </div>
                                  <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Add To Cart</button><button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
+                                 <div class="button_group">
+                                    <button class="button add-cart" type="button" onclick="location.href ='{{ route('user_detail_sp_route') }}';">
+                                       Mua Ngay
+                                    </button>
+                                    <button class="button wishlist" type="button">
+                                       <i class="fa fa-heart-o"></i>
+                                    </button>
+                                 </div>
                               </div>
                            </div>
                            <div class="col-md-3 col-sm-6">
@@ -84,7 +91,7 @@
                                  <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-02.png') }}" alt="Product Name"></a></div>
                                  <div class="productname">Đầm </div>
                                  <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Add To Cart</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
+                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
                               </div>
                            </div>
                            <div class="col-md-3 col-sm-6">
@@ -93,7 +100,7 @@
                                  <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-03.png') }}" alt="Product Name"></a></div>
                                  <div class="productname">Đầm </div>
                                  <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Add To Cart</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
+                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
                               </div>
                            </div>
                            <div class="col-md-3 col-sm-6">
@@ -101,7 +108,7 @@
                                  <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-04.png') }}" alt="Product Name"></a></div>
                                  <div class="productname">Đầm </div>
                                  <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Add To Cart</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
+                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
                               </div>
                            </div>
                         </div>
@@ -114,7 +121,7 @@
                                  <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-01.png') }}" alt="Product Name"></a></div>
                                  <div class="productname">Đầm </div>
                                  <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Add To Cart</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
+                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
                               </div>
                            </div>
                            <div class="col-md-3 col-sm-6">
@@ -122,7 +129,7 @@
                                  <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-02.png') }}" alt="Product Name"></a></div>
                                  <div class="productname">Đầm </div>
                                  <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Add To Cart</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
+                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
                               </div>
                            </div>
                            <div class="col-md-3 col-sm-6">
@@ -131,7 +138,7 @@
                                  <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-03.png') }}" alt="Product Name"></a></div>
                                  <div class="productname">Đầm </div>
                                  <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Add To Cart</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
+                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
                               </div>
                            </div>
                            <div class="col-md-3 col-sm-6">
@@ -139,7 +146,7 @@
                                  <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-04.png') }}" alt="Product Name"></a></div>
                                  <div class="productname">Đầm </div>
                                  <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Add To Cart</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
+                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
                               </div>
                            </div>
                         </div>
@@ -158,7 +165,7 @@
                                  <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-05.png') }}" alt="Product Name"></a></div>
                                  <div class="productname">Đầm </div>
                                  <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Add To Cart</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
+                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
                               </div>
                            </div>
                            <div class="col-md-3 col-sm-6">
@@ -166,7 +173,7 @@
                                  <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-06.png') }}" alt="Product Name"></a></div>
                                  <div class="productname">Đầm </div>
                                  <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Add To Cart</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
+                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
                               </div>
                            </div>
                            <div class="col-md-3 col-sm-6">
@@ -175,7 +182,7 @@
                                  <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-07.png') }}" alt="Product Name"></a></div>
                                  <div class="productname">Đầm </div>
                                  <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Add To Cart</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
+                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
                               </div>
                            </div>
                            <div class="col-md-3 col-sm-6">
@@ -183,7 +190,7 @@
                                  <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-04.png') }}" alt="Product Name"></a></div>
                                  <div class="productname">Đầm </div>
                                  <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Add To Cart</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
+                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
                               </div>
                            </div>
                         </div>
@@ -195,7 +202,7 @@
                                  <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-01.png') }}" alt="Product Name"></a></div>
                                  <div class="productname">Đầm </div>
                                  <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Add To Cart</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
+                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
                               </div>
                            </div>
                            <div class="col-md-3 col-sm-6">
@@ -203,7 +210,7 @@
                                  <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-02.png') }}" alt="Product Name"></a></div>
                                  <div class="productname">Đầm </div>
                                  <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Add To Cart</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
+                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
                               </div>
                            </div>
                            <div class="col-md-3 col-sm-6">
@@ -211,7 +218,7 @@
                                  <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-03.png') }}" alt="Product Name"></a></div>
                                  <div class="productname">Đầm </div>
                                  <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Add To Cart</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
+                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
                               </div>
                            </div>
                            <div class="col-md-3 col-sm-6">
@@ -219,7 +226,7 @@
                                  <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-04.png') }}" alt="Product Name"></a></div>
                                  <div class="productname">Đầm </div>
                                  <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Add To Cart</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
+                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
                               </div>
                            </div>
                         </div>

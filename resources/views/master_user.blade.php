@@ -38,7 +38,7 @@
                            </div>
                            <div class="col-md-3 col-md-offset-1">
                               <ul class="btn btn-block usermenu">
-                                 <li><a href="#" id="LoginModal" class="log ">Quốc Đại</a></li><!--thông tin user -->
+                                 <li><a href="{{ route('user_info_route') }}" id="LoginModal" class="log ">Quốc Đại</a></li><!--thông tin user -->
                                  <li><a href="{{ route('guest_home_route') }}" class="reg">Đăng Xuất</a></li>
                               </ul>
                            </div>

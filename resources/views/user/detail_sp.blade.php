@@ -1,6 +1,6 @@
 @extends('master_user')
 
-@section('title', "BedShop | Welcome")
+@section('title', "BedShop | Detail")
 
 @section('main_content')
 
@@ -101,9 +101,9 @@
                       </select>
                     </div>
                     <div class="button_group">
-                      <a href="{{ route('user_buy_sp_route') }}" class="button" style="border-radius: 0px;background-color: orange" >
-                        MUA NGAY
-                      </a>
+                      <button href="{{ route('user_buy_sp_route') }}" class="button" style="border-radius: 0px;background-color: orange;">
+                        Đặt Hàng
+                      </button>
                       <button class="button favorite">
                         <i class="fa fa-heart-o">
                         </i>
@@ -131,7 +131,12 @@
                     </li>
                     <li>
                       <a href="#Reviews">
-                        Bình luận
+                        Đánh Giá
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#tags">
+                        Bình Luận
                       </a>
                     </li>
                   </ul>
@@ -147,9 +152,6 @@
                       <table>
                         <thead>
                           <tr>
-                            <th>
-                              &nbsp;
-                            </th>
                             <th>
                               1 star
                             </th>
@@ -170,9 +172,6 @@
                         <tbody>
                           <tr>
                             <td>
-                              Quality
-                            </td>
-                            <td>
                               <input type="radio" name="quality" value="Blue"/>
                             </td>
                             <td>
@@ -188,52 +187,51 @@
                               <input type="radio" name="quality" value="">
                             </td>
                           </tr>
-                          <tr>
-                            <td>
-                              Price
-                            </td>
-                            <td>
-                              <input type="radio" name="price" value="">
-                            </td>
-                            <td>
-                              <input type="radio" name="price" value="">
-                            </td>
-                            <td>
-                              <input type="radio" name="price" value="">
-                            </td>
-                            <td>
-                              <input type="radio" name="price" value="">
-                            </td>
-                            <td>
-                              <input type="radio" name="price" value="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              Value
-                            </td>
-                            <td>
-                              <input type="radio" name="value" value="">
-                            </td>
-                            <td>
-                              <input type="radio" name="value" value="">
-                            </td>
-                            <td>
-                              <input type="radio" name="value" value="">
-                            </td>
-                            <td>
-                              <input type="radio" name="value" value="">
-                            </td>
-                            <td>
-                              <input type="radio" name="value" value="">
-                            </td>
-                          </tr>
                         </tbody>
                       </table>
-                    
+                      <div style="margin-left: 78%;">
+                        <button class="change_pass_button_luu">Đánh Giá</button>
+                      </div>
                     </form>
                   </div>
                   
+                  <div class="tab-content" id="tags" >
+                    <div style="margin-bottom: 20px;">
+                      <h5 style="font-weight: 300;margin-bottom: 10px;"><strong>Bình Luận Về Sản Phẩm Này</strong></h5>
+                      <div style="width: 100%;padding-left: 5%">
+                        <input style="width: 70%; border-radius: 0px;" type="text" name="">
+                        <button class="change_pass_button_luu" style="width: 20%;">Bình Luận</button>
+                      </div>
+                    </div>
+                    <h6 style="border-bottom:  2px solid #F1F1F1;margin-bottom: 20px;padding-bottom: 10px;">Các bình luận khác về sản phẩm</h6>
+                    <div class="review" style="border-bottom:  1px solid  #F1F1F1;">
+                      <!-- hiện đánh giá -->
+                      <p class="rating">
+                        <i class="fa fa-star light-red">
+                        </i>
+                        <i class="fa fa-star light-red">
+                        </i>
+                        <i class="fa fa-star light-red">
+                        </i>
+                        <i class="fa fa-star-half-o gray">
+                        </i>
+                        <i class="fa fa-star-o gray">
+                        </i>
+                      </p>
+                      <h5 class="reviewer">
+                        Quốc Đại
+                      </h5>
+                      <p class="review-date">
+                        Date: 01/01/2014
+                      </p>
+                      <p>
+                        Sản phẩm vừa ý mình
+                      </p>
+                      
+                    </div>
+                  </div>
+                 
+
                 </div>
               </div>
               <div class="clearfix">

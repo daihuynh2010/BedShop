@@ -1,6 +1,6 @@
 @extends('master_user')
 
-@section('title', "BedShop | Welcome")
+@section('title', "BedShop | Buy")
 
 @section('main_content')
 
@@ -33,9 +33,17 @@
 							    <input class="input_register input_buy" type="text" placeholder="Số điện thoại"  required>
 							    <label style="width: 20%; font-weight: 100">Số điện thoại liên lạc khi chúng tôi giao hàng</label>
 						    </div>
+
+                            <div class="row">
+                                 <label class="label_register label_buy" ><b>Phương thức thanh toán :</b></label>
+                                 <select class="input_register input_buy" style="color: black">
+                                     <option selected="selected">Thanh toán khi nhận hàng</option>
+                                     <option>Thẻ ATM/Internet Banking</option>
+                                 </select>
+                            </div>
 						   
 							<div class="row">
-							    <button class="stylelogin button_buy">TIẾP TỤC</button>
+							    <button class="stylelogin button_buy">ĐẶT HÀNG</button>
 							</div>
 						</div>
 	    			</form>

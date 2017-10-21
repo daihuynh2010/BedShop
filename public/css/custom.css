@@ -1,7 +1,7 @@
 /* Đăng Nhập*/
 
 .container_login{
-    height: 400px;
+    height:500px;
     margin-left: 10%;
 	padding: 10px;
 	margin-top: 20px;
@@ -22,14 +22,14 @@
 	margin-top: 10px;
 	width: 25%;
 	float: left;
-	margin-left: 10%;
+	margin-left: 5%;
 	text-align: right;
 }
 .input_register {
 	margin-left: 15px;
    	float: left;
     margin-bottom: 20px;
-    width: 40%;
+    width: 60%;
 }
 .stylelogin{
 	width: 25%;
@@ -51,13 +51,13 @@
 }
 .center{
 	float: left;
-	height: 90%;
+	height: 95%;
 	width: 5%;
 	padding-top: 33px;
 }
 .or_center{
 	position: absolute;
-	top:25%;
+	top:50%;
 	left: 53.5%;
 	background-color: white;
 	font-weight: 800;
@@ -95,10 +95,12 @@
 	width: 100%;
 }
 .ship_form{
+	padding: 0px;
 	margin-left: 5%;
 	border: 1px solid  #CFCFCF;
 }
 .header_buy{
+	width: 100%;
 	padding: 10px;
 	border-bottom: 1px solid  #CFCFCF;
 }
@@ -107,7 +109,8 @@
 	
 }
 .input_buy{
-	border-radius: 0px;
+	border-radius: 10px;
+	border-color: #e7e7e7;
 }
 .button_buy{
 	float: left;
@@ -158,4 +161,167 @@
 .table_ship_order{
 	width: 100%;
 	color: black;
+}
+
+/* sidebar Information */
+.account_menu{
+	float: left;
+	width: 10%;
+	margin-left: 5%;
+}
+.account_menu_list{
+	font-size: 14px;
+	padding-top: 10px;
+}
+.account_menu_group{
+	padding:0px;
+	color: black;
+}
+.account_menu_item{
+	margin: 5px 0 5px 0;
+}
+.account_menu_link_active{
+	color: black;
+}
+.account_menu_item a{
+	color: #1a9cb7;
+}
+.account_menu_item a:focus  {
+	color: black;
+}
+.account_menu_item a:hover{
+	text-decoration: underline;
+}
+/* Information */
+.account_content{
+	float: left;
+	width: 75%;
+	margin: 0 5% 0 5%;
+	font-size: 14px;
+	color: #202020;
+}
+.account_form_content{
+	margin-top: 15px;
+	width: 100%;
+	padding: 10px;
+	background: white;
+}
+.label_info{
+	margin-top: 10px;
+	width: 20%;
+	float: left;
+	text-align: right;
+}
+.input_info{
+	margin-left: 15px;
+   	float: left;
+    margin-bottom: 20px;
+    width: 60%;
+    padding-top: 7px;
+}
+.info_change a{
+	color: #1a9cb7;
+}
+.info_change a:hover{
+	text-decoration: underline;
+}
+/* List_order */
+.list_order_form_content{
+	width:100%;
+	height: 100%;
+	margin-top: 10px;
+	background: white;
+}
+.list_order_table{
+	height: 100%;
+	width: 100%;
+}
+.list_order_table_th{
+	display: table-cell;
+    padding: 12px 15px;
+}
+.list_order_table a:hover{
+	text-decoration: underline;
+}
+
+/*change_Pass*/
+.change_pass_row{
+	padding-left: 38%;
+}
+.change_pass_button_luu{
+	width: 200px;
+	border-radius: 0px;
+	background-color: #f57224
+}
+.change_pass_button_huy{
+	width: 200px;
+	border-radius: 0px;
+}
+/* change_info */
+.change_info_row{
+	padding-left: 22%;
+}
+/* Follow_order */
+.follow_order_form_head{
+	background-color: white; 
+	margin-bottom: 15px;
+}
+.follow_order_table{
+	width: 100%;
+	height: 100%;
+}
+.follow_order_form_content{
+	background-color: white;
+}
+.status_order{
+	border-bottom: 1px solid #f1f1f1;
+	padding: 15px 0 10px 15px;
+	font-size: 18px;
+	font-weight: 400;
+}
+.follow_order_info{
+
+}
+.follow_order_detail_progress{
+	padding: 10px 100px 10px 150px;
+	align-items: center;
+	display: flex;
+}
+.follow_order_detail_state{
+	background-color: gray;
+	border-radius: 50%;
+	height: 14px;
+	width: 14px;
+}
+.follow_order_detail_state_name{
+	left: 32%;
+	top: 68%;
+    padding: 10px 0;
+    position: absolute;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+/*Admin*/
+.admin_content{
+	padding:20px 5% 0 5%;
+	font-size: 14px;
+}
+.admin_table{
+	margin-top: 15px;
+	width: 100%;
+	background-color: white;
+	border-collapse: collapse;
+}
+.admin_th{
+	text-align: center;
+	padding: 12px 15px;
+}
+.admin_table tr:hover {
+	background-color: #f5f5f5;
+	color: black;
+}
+.admin_table th,td{
+	border: 1px solid black;
 }
