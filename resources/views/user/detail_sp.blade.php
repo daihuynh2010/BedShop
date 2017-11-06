@@ -101,9 +101,9 @@
                       </select>
                     </div>
                     <div class="button_group">
-                      <button href="{{ route('user_buy_sp_route') }}" class="button" style="border-radius: 0px;background-color: orange;">
+                      <a  href="{{ route('user_buy_sp_route') }}" class="button" style="border-radius: 0px;background-color: orange;">
                         Đặt Hàng
-                      </button>
+                      </a>
                       <button class="button favorite">
                         <i class="fa fa-heart-o">
                         </i>

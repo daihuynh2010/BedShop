@@ -5577,8 +5577,14 @@ $('#addSchoolYear').on('click', function () {
 });
 
 //Js process Class Add and edit Modal
+
+ //Modal Send Email
+ $('.send_mail_button').on('click', function () {
+    $('#send_mail_modal').css('display', 'block');
+});
+
 $('#UserAdd').on('click', function () {
-    $('#add_user_modal form').attr('action', URI + '/class/add');
+    //$('#add_user_modal form').attr('action', URI + '/class/add');
 
     $('#add_user_modal').css('display', 'block');
 });
@@ -5654,6 +5660,10 @@ $('.info_student').on('click', function () {
     });
 });
 
+$('.info_product').on('click',function(){
+    $('#profile_product').css('display', 'block');
+});
+
 $('#edit_class_modal #btnSubmit').on('click', function () {
     var id = $('#edit_class_modal input[name="txtIdClass"]').val();
     $('#edit_class_modal form').attr('action', URI + '/class/edit/' + id);
@@ -5674,9 +5684,47 @@ $('#edit_class_modal .close_add_class, #edit_class_modal .btncancel').on('click'
 });
 
 $('.delete_user_button').on('click', function () {
-    var id = $(this).attr('data-id');
+    //var id = $(this).attr('data-id');
 
     $("#dialog-confirm-delete-class").dialog({
+        resizable: false,
+        height: "auto",
+        width: 400,
+        modal: true,
+        buttons: {
+            "Có": function () {
+                //window.location.href = URI + '/class/delete/' + id;
+            },
+            "Không": function () {
+                $(this).dialog("close");
+            }
+        }
+    });
+});
+
+$('.delete_new_order_button').on('click', function () {
+    //var id = $(this).attr('data-id');
+
+    $("#dialog-confirm-delete-class").dialog({
+        resizable: false,
+        height: "auto",
+        width: 400,
+        modal: true,
+        buttons: {
+            "Có": function () {
+                //window.location.href = URI + '/class/delete/' + id;
+            },
+            "Không": function () {
+                $(this).dialog("close");
+            }
+        }
+    });
+});
+
+$('.confim_new_order_button').on('click', function () {
+    //var id = $(this).attr('data-id');
+
+    $("#dialog-confirm-class").dialog({
         resizable: false,
         height: "auto",
         width: 400,

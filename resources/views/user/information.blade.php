@@ -11,7 +11,7 @@
     <div class="container">
     	<div class="account_menu">
     		<h5>Quốc Đại</h5>
-            @include('common_components.sidebar')
+            @include('user.common_components_user.sidebar')
     	</div>
 
     	<div class="account_content">

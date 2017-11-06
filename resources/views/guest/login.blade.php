@@ -16,18 +16,18 @@
 		    	<div class="row container">
 		    		<div class="row">
 					    <label class="label_register" ><b>Email :</b></label>
-					    <input class="input_register" type="Email" placeholder="Email"  required>
+					    <input id="guest_txtemail" class="input_register" type="Email" placeholder="Email"  required>
 				    </div>
 				    <div class="row">
 					    <label class="label_register"><b>Mật Khẩu :</b></label>
-					    <input class="input_register" id="psw" type="password" placeholder="Password" name="psw" required>
+					    <input class="input_register" id="guest_txtpas" type="password" placeholder="Password" name="psw" required>
 					</div>
 
 					<div class="row">
 				   		<span id="mess"></span>
 					</div>
 					<div class="row">
-					    <button class="stylelogin">Đăng Nhập</button>
+					    <button id="guest_btnlogin" class="stylelogin">Đăng Nhập</button>
 					</div>
 				</div>
 				

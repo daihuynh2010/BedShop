@@ -44,13 +44,17 @@
          <!-- header page -->
          <div class="header" >
             <div class="container">
-               <div class="row" style=" padding-left: 5%; padding-right: 2%;"> 
+               <div class="row" style=" padding-left: 5%; padding-right: 2%; "> 
                   <div class="col-md-2 col-sm-2 " style="padding: 0;">
                      <div class="logo" >
                         <a href="{{ route('user_home_route') }}"><img src="{{URL ('images/logo.png') }}" alt="FlatShop"></a>
                      </div>
                   </div>
-                  
+                  <div class="col-md-1 col-md-offset-9" style="padding: 30px 30px 0 0;">
+                     <ul class="btn btn-block usermenu">
+                        <li><a href="{{ route('guest_home_route') }}" class="reg">Đăng Xuất</a></li>
+                     </ul>
+                  </div>
                </div>
             </div>
          </div>
@@ -191,6 +195,16 @@
                            </div>
                         </div>
                         <div class="item form-group">
+                           <label class="control-label col-md-3 col-sm-3 col-xs-3">Chức Vụ : </label>
+                           <div class="col-md-6 col-sm-6 col-xs-12">
+                              <select id="ChooseChucVu_Add">
+                                 <option value="1">Thành Viên</option>
+                                 <option value="2">Quản Lý</option>
+                                 <option value="3">Quản Trị Viên</option>
+                              </select>
+                           </div>
+                        </div>
+                        <div class="item form-group " id="ChooseUser_Add">
                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Địa Điểm Giao Hàng :</label>
                            <div class="col-md-6 col-sm-6 col-xs-12"> 
                               <input type="text" class="form-control"  required >
@@ -235,6 +249,16 @@
                            </div>
                         </div>
                         <div class="item form-group">
+                           <label class="control-label col-md-3 col-sm-3 col-xs-3">Chức Vụ : </label>
+                           <div class="col-md-6 col-sm-6 col-xs-12">
+                              <select id="ChooseChucVu_Edit">
+                                 <option value="1">Thành Viên</option>
+                                 <option value="2">Quản Lý</option>
+                                 <option value="3">Quản Trị Viên</option>
+                              </select>
+                           </div>
+                        </div>
+                        <div class="item form-group" id="ChooseUser_Edit">
                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Địa Điểm Giao Hàng :</label>
                            <div class="col-md-6 col-sm-6 col-xs-12">
                               <input type="text" class="form-control" required value="ĐH SPKT HCM">
@@ -261,28 +285,22 @@
          <div class="modal-content_add_class">
             <div class="modal-header_add_class">
                <span class="close_add_class">&times;</span>
-               <h2>Chỉnh Sửa Tài Khoản</h2>
+               <h2>Gửi Email Cho Thành Viên</h2>
             </div>
             <div class="modal-body_add_class">
                <div class="x_panel">
                   <div class="x_content"><br/>
-                     <form class="form-horizontal" action="#" method="POST">
+                     <form class="form-horizontal" action="#" method="">
                         <div class="item form-group">
-                           <label class="control-label col-md-3 col-sm-3 col-xs-3">Email :</label>
+                           <label class="control-label col-md-3 col-sm-3 col-xs-3">Tiêu Đề :</label>
                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" class="form-control" required value="daihuynh2010@gmail.com">
+                              <input type="text" class="form-control" required value="Hello ">
                            </div>
                         </div>
                         <div class="item form-group">
-                           <label class="control-label col-md-3 col-sm-3 col-xs-3">Họ Tên :</label>
+                           <label class="control-label col-md-3 col-sm-3 col-xs-3">Nội Dung :</label>
                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" class="form-control" required value="Huỳnh Quốc Đại">
-                           </div>
-                        </div>
-                        <div class="item form-group">
-                           <label class="control-label col-md-3 col-sm-3 col-xs-3">Địa Điểm Giao Hàng :</label>
-                           <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" class="form-control" required value="ĐH SPKT HCM">
+                              <textarea type="text" class="form-control" required ></textarea>
                            </div>
                         </div>
                         <div class="ln_solid"></div>
@@ -300,11 +318,11 @@
             </div>
         </div>
       </div>
-       <!-- Form confirm delete class -->
-      <div id="dialog-confirm-delete-class" class="jquery-ui-dialog" title="Xóa Lớp học?" hidden>
+       <!-- Form confirm delete User -->
+      <div id="dialog-confirm-delete-class" class="jquery-ui-dialog" title="Xóa Thành Viên?" hidden>
          <p><span class="ui-icon ui-icon-alert"></span>Bạn có chắc muốn <strong>Xóa Tài Khoản</strong> này ?</p>
       </div>
-      <!-- /Form confirm delete class -->
+      <!-- /Form confirm delete User -->
 
       <!-- Bootstrap core JavaScript==================================================-->
       <script type="text/javascript" src="{{URL ('js/jquery-1.10.2.min.js') }}"></script>

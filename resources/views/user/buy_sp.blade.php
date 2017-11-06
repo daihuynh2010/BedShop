@@ -19,19 +19,19 @@
 	    				<div class="row container">
 				    		<div class="row">
 							    <label class="label_register label_buy" ><b>Họ và Tên :</b></label>
-							    <input class="input_register input_buy" type="text" placeholder="Họ & tên"  required>
+							    <input class="input_register " type="text" placeholder="Họ & tên"  required>
 						    </div>
 
 						    <div class="row">
 							    <label class="label_register label_buy" ><b>Địa chỉ giao hàng :</b></label>
-							    <input class="input_register input_buy" style="height: 100px;" type="text" placeholder="Thông tin giao hàng"  required>
-							    <label style="width: 20%; font-weight: 100">Vui lòng điền CHÍNH XÁC "tầng, số nhà, đường" để tránh trường hợp đơn hàng bị hủy ngoài ý muốn</label>
+							    <textarea class="input_register " style="height: 100px;" type="text" placeholder='Vui lòng điền CHÍNH XÁC "tầng, số nhà, đường" để tránh trường hợp đơn hàng bị hủy ngoài ý muốn'  required></textarea>
+							   <!--  <label style="width: 20%; font-weight: 100"></label> -->
 						    </div>
 
 						    <div class="row">
 							    <label class="label_register label_buy" ><b>Số điện thoại di động :</b></label>
-							    <input class="input_register input_buy" type="text" placeholder="Số điện thoại"  required>
-							    <label style="width: 20%; font-weight: 100">Số điện thoại liên lạc khi chúng tôi giao hàng</label>
+							    <input class="input_register input_buy" type="text" placeholder="Số điện thoại liên lạc khi chúng tôi giao hàng"  required>
+							    <!-- <label style="width: 20%; font-weight: 100"></label> -->
 						    </div>
 
                             <div class="row">
@@ -42,7 +42,7 @@
                                  </select>
                             </div>
 						   
-							<div class="row">
+							<div class="row col-md-offset-3">
 							    <button class="stylelogin button_buy">ĐẶT HÀNG</button>
 							</div>
 						</div>
@@ -70,7 +70,7 @@
     							<tr style="border-bottom: 1px solid  #CFCFCF;">
     								<td class="table_order_left">Đầm</td>
     								<td class="table_order_center">1</td>
-    								<td class="table_order_right">500.000</td>
+    								<td class="table_order_right">450.000 VND</td>
     							</tr>
     						</tbody>
     					</table>
