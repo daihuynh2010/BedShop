@@ -80,9 +80,11 @@
                 </div>
                 <div class="item form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-3">Hình Ảnh : </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="flie"  class="form-control" required="required">
+                    <div class="col-md-2 col-sm-6 col-xs-12 btn btn-danger">
+                        <input type="file" id="manager_add_product_image" style="position:absolute;opacity:0"  required="required">
+                        Tải Hình Lên
                     </div>
+                    <div class="col-md-8 col-md-offset-2"  id="manager_product_image"></div>
                 </div>
                 <div class="ln_solid"></div>
                 <div class="form-group">

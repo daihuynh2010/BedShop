@@ -35,3 +35,34 @@ $("#ChooseChucVu_Edit").change(function(){
         $("#ChooseUser_Edit").hide();
     }
 });
+
+//manage
+if(window.File && window.FileList && window.FileReader)
+{
+    var filesInput = document.getElementById("manager_add_product_image");
+    filesInput.addEventListener("change", function(event){
+        var files = event.target.files; //FileList object
+        var output = document.getElementById("manager_product_image");
+        for(var i = 0; i< files.length; i++)
+        {
+            var file = files[i];
+            //Only pics
+            if(!file.type.match('image'))
+                continue;
+            var picReader = new FileReader();
+            picReader.addEventListener("load",function(event){
+                var picFile = event.target;
+                var div = document.createElement("div");
+                div.innerHTML = "<img class='thumbnail' style='width:100px;height:auto' src='" + picFile.result + "'" +
+                "title='" + picFile.name + "'/>";
+                output.insertBefore(div,null);
+            });
+            //Read the image
+            picReader.readAsDataURL(file);
+        }
+    });
+}
+else
+{
+    console.log("Không load được ảnh");
+}
