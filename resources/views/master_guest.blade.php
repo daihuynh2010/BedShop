@@ -164,7 +164,6 @@
      <script defer src="{{URL ('js/jquery.flexslider.js') }}"></script>
      <script type="text/javascript" src="{{URL ('js/script.min.js') }}" ></script>
      <script type="text/javascript" src="{{URL ('js/jquery.elevatezoom.js') }}"></script>
-     <!-- Firebase -->
-     <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+     
    </body>
 </html>

@@ -193,7 +193,6 @@
       <script src="{{ URL ('admin_design/vendors/tinymce/tinymce.min.js') }}"></script>
       <!-- Custom Theme Scripts -->
       <script src="{{ URL ('admin_design/custom.js') }}"></script>
-      <!-- Firebase -->
-     <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+      
    </body>
 </html>
