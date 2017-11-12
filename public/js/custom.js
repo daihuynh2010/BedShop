@@ -39,8 +39,7 @@ $("#ChooseChucVu_Edit").change(function(){
 //manage
 if(window.File && window.FileList && window.FileReader)
 {
-    var filesInput = document.getElementById("manager_add_product_image");
-    filesInput.addEventListener("change", function(event){
+    $('#manager_add_product_image').on("change", function(event){
         var files = event.target.files; //FileList object
         var output = document.getElementById("manager_product_image");
         for(var i = 0; i< files.length; i++)
