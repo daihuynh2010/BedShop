@@ -17,4 +17,9 @@ class Loai_SP extends Model
     protected $dates = ['deleted_at', 'created_at', 'updated_at'];
     
     public $timestamps = true;
+
+    public function SanPham()
+    {
+        return $this->hasMany('App\SanPham','sp_idloai','id_sp');
+    }
 }

@@ -17,4 +17,8 @@ class MauSac_SP extends Model
     protected $dates = ['deleted_at', 'created_at', 'updated_at'];
     
     public $timestamps = true;
+
+    public function SanPham(){
+        return $this->belongsToMany('App\SanPham', 'CT_MauSac_SP', 'id_mau', 'id_sp');
+    }
 }

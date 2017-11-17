@@ -17,4 +17,13 @@ class Tai_Khoan extends Model
     protected $dates = ['deleted_at', 'created_at', 'updated_at'];
     
     public $timestamps = true;
+
+    public function SanPham(){
+        return $this->belongsToMany('App\SanPham', 'BL_NX_YT', 'id_user', 'id_sp')->withPivot('danh_gia','noi_dung','is_thich');
+    }
+
+    public function HoaDon()
+    {
+        return $this->hasMany('App\Hoa_Don','id_user','id_hd');
+    }
 }

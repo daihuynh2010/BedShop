@@ -17,4 +17,9 @@ class Hinh_SP extends Model
     protected $dates = ['deleted_at', 'created_at', 'updated_at'];
     
     public $timestamps = true;
+
+    public function SanPham()
+    {
+        return $this->belongsTo('App\SanPham','hinh_idsp','id_sp');
+    }
 }

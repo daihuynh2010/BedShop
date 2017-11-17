@@ -17,4 +17,13 @@ class Hoa_Don extends Model
     protected $dates = ['deleted_at', 'created_at', 'updated_at'];
     
     public $timestamps = true;
+
+    public function SanPham(){
+        return $this->belongsToMany('App\SanPham', 'CT_HoaDon', 'id_hd', 'id_sp')->withPivot('so_luong','so_tien');
+    }
+
+    public function TaiKhoan()
+    {
+        return $this->belongsTo('App\Tai_Khoan','id_user','id_user');
+    }
 }
