@@ -21,7 +21,7 @@ class CreateSanPhamTable extends Migration
             $table->increments('id_sp');
             $table->string('sp_ten');
             $table->integer('sp_gia')->unsigned();
-            $table->integer('sp_giasaukm')->unsigned();
+            $table->integer('sp_km')->unsigned();
             $table->string('sp_hsd');
             $table->text('sp_mota');
             $table->text('sp_gioithieu');

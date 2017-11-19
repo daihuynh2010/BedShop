@@ -14,7 +14,7 @@ class SanPhamTableSeeder extends Seeder
         DB::table('SanPham')->insert([
             ['sp_ten'=> 'Sản Phẩm 1',
             'sp_gia'=>'200000',
-            'sp_giasaukm'=>'0',
+            'sp_km'=>'0',
            'sp_hsd'=>'không có',
            'sp_mota'=>'sản phẩm tốt',
            'sp_gioithieu'=>'sản phẩm được nhập từ trung quốc',

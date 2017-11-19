@@ -12,7 +12,7 @@ class CT_HoaDonTableSeeder extends Seeder
     public function run()
     {
         DB::table('CT_HoaDon')->insert([
-            ['id_hd'=> '1',
+            ['id_hd'=> '2',
             'id_sp'=>'1',
             'so_luong'=>'1',
             'so_tien'=>'200000'
