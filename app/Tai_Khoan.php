@@ -26,4 +26,9 @@ class Tai_Khoan extends Model
     {
         return $this->hasMany('App\Hoa_Don','id_user','id_hd');
     }
+
+    public function GioHang()
+    {
+        return $this->hasMany('App\GioHang','id_user','id_gh');
+    }
 }

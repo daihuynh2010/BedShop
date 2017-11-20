@@ -16,7 +16,15 @@ $account_menu_list.find('a').on('click',function (ev){
 	$(this).removeClass('account_menu_link');
 })*/
 
-/* information */
+/* Register */
+
+$('#confim_psw_register').on('keyup', function () {
+    if ( $('#psw_register').val() == $('#confim_psw_register').val() )  {
+        $("#register_mess").html("Matching").css("color", "green");
+    } else{
+        $("#register_mess").html("Not Matching").css("color", "red");
+    }
+});
 
 
 /*Admin*/

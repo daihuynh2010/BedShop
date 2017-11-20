@@ -42,6 +42,10 @@ class SanPham extends Model
         return $this->belongsToMany('App\Hoa_Don');
     }
 
+    public function GioHang(){
+        return $this->belongsToMany('App\GioHang');
+    }
+
     public function TaiKhoan(){
         return $this->belongsToMany('App\Tai_Khoan');
     }

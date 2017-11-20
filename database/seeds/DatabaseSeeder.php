@@ -21,5 +21,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(NSXTableSeeder::class);
         // $this->call(SanPhamTableSeeder::class);
         // $this->call(TaiKhoanTableSeeder::class);
+        //$this->call(GioHangTableSeeder::class);
+        // $this->call(CT_GioHangTableSeeder::class);
     }
 }

@@ -1,7 +1,8 @@
 /*Master*/
 .master_dropdow_list{
 	position: relative;
-    display: inline-block;
+	display: inline-block;
+	width: 165px;
 }
 .master_dropdow_list:hover .master_dropdow_list_content{
 	display: block;
@@ -15,40 +16,15 @@
     top: 100%;
     z-index: 9999;
     background: #7c8490;
-    min-width: 150px;
+    width:100%;
     margin-top: -2px;
     padding-top: 5px;
-}
-.master_dropdow_child:hover{
-	background-color: #FF3399;
 }
 .master_dropdow_child_list:hover{
 	background-color: #FF3399;
 }
 .master_dropdow_child_list{
 	width: 100%;
-}
-.master_dropdow_child{
-	text-align: left;
-    padding: 5px 0px;
-    width: 100%;
-}
-.master_dropdow_child_content{
-	display: none;
-    position: absolute;
-    top: -8px;
-    left: 100%;
-    right: auto;
-    width: 150px;
-    overflow: hidden;
-    padding: 10px 0;
-    background: #7c8490;
-    min-width: 230px;
-    margin-top: -2px;
-
-}
-.master_dropdow_child:hover .master_dropdow_child_content{
-	display: block;
 }
 /* Đăng Nhập*/
 .container_login{
