@@ -107,13 +107,13 @@
                         <div class="footer-logo"><a href="#"><img src="{{URL ('images/logo.png') }}" alt=""></a></div>
                      </div>
                      <div class="col-md-3 col-sm-6">
-                        <h4 class="title">Contact <strong>Info</strong></h4>
-                        <p>No. 01, Vo Van Ngan, TPHCM , Vietnam</p>
-                        <p>Call Us : (084) 1900 1008</p>
-                        <p>Email : michael@leebros.us</p>
+                        <h4 class="title"></h4>
+                        <p>Địa Chỉ: 01, Vo Van Ngan, TPHCM , Vietnam</p>
+                        <p>Điện Thoại : (084) 1900 1008</p>
+                        <p>Email : daihuynh2010@gmail.com</p>
                      </div>
                      <div class="col-md-3 col-sm-6">
-                        <h4 class="title">Customer<strong> Support</strong></h4>
+                        <h4 class="title">Trung Tâm Hỗ Trợ Khách Hàng</h4>
                         <ul class="support">
                            <li><a href="#">FAQ</a></li>
                            <li><a href="#">Payment Option</a></li>
@@ -122,11 +122,10 @@
                         </ul>
                      </div>
                      <div class="col-md-3">
-                        <h4 class="title">Get Our <strong>Newsletter </strong></h4>
-                        <p>Lorem ipsum dolor ipsum dolor.</p>
+                        <h4 class="title">Để Biết Sản Phẩm Mới Nhanh Nhất</h4>
                         <form class="newsletter">
-                     <input type="text" name="" placeholder="Type your email....">
-                     <input type="submit" value="SignUp" class="button">
+                     <input type="text" name="" placeholder="Nhập Email của bạn....">
+                     <input type="submit" value="Đăng Ký" class="button">
                   </form>
                      </div>
                   </div>
@@ -135,11 +134,9 @@
             <div class="copyright-info">
                <div class="container">
                   <div class="row">
-                     <div class="col-md-6">
-                        <p>Copyright © 2012. Designed by <a href="#">Michael Lee</a>. All rights reseved</p>
-                     </div>
-                     <div class="col-md-6">
+                     <div class="col-md-6 col-md-offset-5">
                         <ul class="social-icon">
+                        <h5 style="margin-bottom:10px;color:white">Liên hệ với chúng tôi</h5>
                            <li><a href="#" class="linkedin"></a></li>
                            <li><a href="#" class="google-plus"></a></li>
                            <li><a href="#" class="twitter"></a></li>
@@ -159,11 +156,16 @@
      <script type="text/javascript" src="{{URL ('js/bootstrap.min.js') }}"></script>
      <script type="text/javascript" src="{{URL ('js/jquery.sequence-min.js') }}"></script>
      <script type="text/javascript" src="{{URL ('js/custom.js') }}"></script>
-     <script type="text/javascript" src="{{URL ('js/app.js') }}"></script>
+     <!-- <script type="text/javascript" src="{{URL ('js/app.js') }}"></script> -->
      <script type="text/javascript" src="{{URL ('js/jquery.carouFredSel-6.2.1-packed.js') }}"></script>
      <script defer src="{{URL ('js/jquery.flexslider.js') }}"></script>
      <script type="text/javascript" src="{{URL ('js/script.min.js') }}" ></script>
      <script type="text/javascript" src="{{URL ('js/jquery.elevatezoom.js') }}"></script>
-    
+      <!--AngularJS-->
+    <script src="{{ URL ('app/lib/angular.min.js') }}"></script>
+    <script>
+      var UrlAngular="{{URL('/angular')}}/";
+    </script>
+    <script src="{{ URL ('app/app.js') }}"></script>
    </body>
 </html>

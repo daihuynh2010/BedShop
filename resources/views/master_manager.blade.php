@@ -81,57 +81,7 @@
 
          <div class="clearfix"></div>
          <!--footer page -->
-         <div class="footer">
-            <div class="footer-info">
-               <div class="container">
-                  <div class="row">
-                     <div class="col-md-3">
-                        <div class="footer-logo"><a href="#"><img src="{{URL ('images/logo.png') }}" alt=""></a></div>
-                     </div>
-                     <div class="col-md-3 col-sm-6">
-                        <h4 class="title">Contact <strong>Info</strong></h4>
-                        <p>No. 01, Vo Van Ngan, TPHCM , Vietnam</p>
-                        <p>Call Us : (084) 1900 1008</p>
-                        <p>Email : michael@leebros.us</p>
-                     </div>
-                     <div class="col-md-3 col-sm-6">
-                        <h4 class="title">Customer<strong> Support</strong></h4>
-                        <ul class="support">
-                           <li><a href="#">FAQ</a></li>
-                           <li><a href="#">Payment Option</a></li>
-                           <li><a href="#">Booking Tips</a></li>
-                           <li><a href="#">Infomation</a></li>
-                        </ul>
-                     </div>
-                     <div class="col-md-3">
-                        <h4 class="title">Get Our <strong>Newsletter </strong></h4>
-                        <p>Lorem ipsum dolor ipsum dolor.</p>
-                        <form class="newsletter">
-                     <input type="text" name="" placeholder="Type your email....">
-                     <input type="submit" value="SignUp" class="button">
-                  </form>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="copyright-info">
-               <div class="container">
-                  <div class="row">
-                     <div class="col-md-6">
-                        <p>Copyright © 2012. Designed by <a href="#">Michael Lee</a>. All rights reseved</p>
-                     </div>
-                     <div class="col-md-6">
-                        <ul class="social-icon">
-                           <li><a href="#" class="linkedin"></a></li>
-                           <li><a href="#" class="google-plus"></a></li>
-                           <li><a href="#" class="twitter"></a></li>
-                           <li><a href="#" class="facebook"></a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
+         
       </div>
       @yield('modal')
       <!-- Bootstrap core JavaScript==================================================-->
@@ -140,10 +90,10 @@
       <script type="text/javascript" src="{{URL ('js/bootstrap.min.js') }}"></script>
       <script type="text/javascript" src="{{URL ('js/jquery.sequence-min.js') }}"></script>
       <script type="text/javascript" src="{{URL ('js/custom.js') }}"></script>
-      <script type="text/javascript" src="{{URL ('js/app.js') }}"></script>
+      <!-- <script type="text/javascript" src="{{URL ('js/app.js') }}"></script> -->
       <script type="text/javascript" src="{{URL ('js/jquery.carouFredSel-6.2.1-packed.js') }}"></script>
       <script defer src="{{URL ('js/jquery.flexslider.js') }}"></script>
-      <script type="text/javascript" src="{{URL ('js/script.min.js') }}" ></script>
+      <!-- <script type="text/javascript" src="{{URL ('js/script.min.js') }}" ></script> -->
       <script type="text/javascript" src="{{URL ('js/jquery.elevatezoom.js') }}"></script>
       <!-- jQuery -->
       <script src="{{ URL ('admin_design/vendors/jquery/dist/jquery.min.js') }}"></script>
@@ -193,6 +143,11 @@
       <script src="{{ URL ('admin_design/vendors/tinymce/tinymce.min.js') }}"></script>
       <!-- Custom Theme Scripts -->
       <script src="{{ URL ('admin_design/custom.js') }}"></script>
-      
+      <!--AngularJS-->
+      <script src="{{ URL ('app/lib/angular.min.js') }}"></script>
+      <script>
+        var UrlAngular="{{URL('/angular')}}/";
+      </script>
+      <script src="{{ URL ('app/app.js') }}"></script>
    </body>
 </html>

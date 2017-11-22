@@ -4,8 +4,8 @@
 
 @section('main_content')
 <div class="clearfix"></div>
-<div class="hom-slider">
-            <div class="container">
+<div class="hom-slider" > 
+            <!-- <div class="container">
                <div id="sequence">
                   <div class="sequence-prev"><i class="fa fa-angle-left"></i></div>
                   <div class="sequence-next"><i class="fa fa-angle-right"></i></div>
@@ -43,8 +43,8 @@
                      </li>
                   </ul>
                </div>
-            </div>
-            <div class="promotion-banner">
+            </div> -->
+            <!-- <div class="promotion-banner">
                <div class="container">
                   <div class="row">
                      <div class="col-md-4 col-sm-4 col-xs-4">
@@ -58,97 +58,36 @@
                      </div>
                   </div>
                </div>
-            </div>
+            </div> -->
 </div>
 
 <div class="clearfix"></div>
-<div class="container_fullwidth">
+<div class="container_fullwidth" ng-controller="SanPhamControllerNG">
             <div class="container">
                <div class="hot-products">
-                  <h3 class="title"><strong>Hot</strong> Products</h3>
-                  <div class="control"><a id="prev_hot" class="prev" href="#">&lt;</a><a id="next_hot" class="next" href="#">&gt;</a></div>
+                  <h3 class="title">Sản Phẩm Mới </h3>
+                  <div class="control"><a id="prev_hot" class="prev" href="#" style="display: inline;">&lt;</a><a style="display: inline;" id="next_hot" class="next" href="#">&gt;</a></div>
                   <ul id="hot">
-                     <li>
-                        <div class="row">
-                           <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="offer">- %20</div>
+                     <li> 
+                        <div class="row" >
+                           <div class="col-md-3 col-sm-6" ng-repeat="sanphamOb in sanphamList">
+                              <div class="products" onclick="location.href ='{{ route('user_detail_sp_route') }}';">
+                                 <div class="offer">- @{{ sanphamOb.sp_km }} %</div>
                                  <div class="thumbnail"><a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-01.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button><button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
+                                 <div class="productname">@{{ sanphamOb.sp_ten }} </div>
+                                 <h4 class="price">@{{ sanphamOb.sp_gia -sanphamOb.sp_gia * sanphamOb.sp_km/100}}</h4>
+                                 <div class="button_group"><button class="button add-cart" type="button" onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button><button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
                               </div>
                            </div>
-                           <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="thumbnail"><a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-02.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
-                              </div>
-                           </div>
-                           <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="offer">New</div>
-                                 <div class="thumbnail"><a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-03.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
-                              </div>
-                           </div>
-                           <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="thumbnail"><a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-04.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
-                              </div>
-                           </div>
+                          
                         </div>
                      </li>
-                     <li>
-                        <div class="row">
-                           <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="offer">- %20</div>
-                                 <div class="thumbnail"><a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-01.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
-                              </div>
-                           </div>
-                           <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="thumbnail"><a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-02.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
-                              </div>
-                           </div>
-                           <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="offer">New</div>
-                                 <div class="thumbnail"><a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-03.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
-                              </div>
-                           </div>
-                           <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="thumbnail"><a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-04.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
-                              </div>
-                           </div>
-                        </div>
-                     </li>
+                     
                   </ul>
                </div>
                <div class="clearfix"></div>
                <div class="featured-products">
-                  <h3 class="title"><strong>Featured </strong> Products</h3>
+                  <h3 class="title">Sản Phẩm Bán Chạy Nhất</h3>
                   <div class="control"><a id="prev_featured" class="prev" href="#">&lt;</a><a id="next_featured" class="next" href="#">&gt;</a></div>
                   <ul id="featured">
                      <li>
@@ -156,7 +95,7 @@
                            <div class="col-md-3 col-sm-6">
                               <div class="products">
                                  <div class="thumbnail"><a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-05.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
+                                 <div class="productname">Đầm9 </div>
                                  <h4 class="price">$451.00</h4>
                                  <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
                               </div>
@@ -164,7 +103,7 @@
                            <div class="col-md-3 col-sm-6">
                               <div class="products">
                                  <div class="thumbnail"><a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-06.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
+                                 <div class="productname">Đầm10 </div>
                                  <h4 class="price">$451.00</h4>
                                  <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
                               </div>
@@ -173,7 +112,7 @@
                               <div class="products">
                                  <div class="offer">New</div>
                                  <div class="thumbnail"><a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-07.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
+                                 <div class="productname">Đầm11 </div>
                                  <h4 class="price">$451.00</h4>
                                  <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
                               </div>
@@ -181,7 +120,7 @@
                            <div class="col-md-3 col-sm-6">
                               <div class="products">
                                  <div class="thumbnail"><a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-04.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
+                                 <div class="productname">Đầm12 </div>
                                  <h4 class="price">$451.00</h4>
                                  <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
                               </div>
@@ -193,7 +132,7 @@
                            <div class="col-md-3 col-sm-6">
                               <div class="products">
                                  <div class="thumbnail"><a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-01.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
+                                 <div class="productname">Đầm13 </div>
                                  <h4 class="price">$451.00</h4>
                                  <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
                               </div>
@@ -201,7 +140,7 @@
                            <div class="col-md-3 col-sm-6">
                               <div class="products">
                                  <div class="thumbnail"><a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-02.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
+                                 <div class="productname">Đầm14 </div>
                                  <h4 class="price">$451.00</h4>
                                  <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
                               </div>
@@ -209,7 +148,7 @@
                            <div class="col-md-3 col-sm-6">
                               <div class="products">
                                  <div class="thumbnail"><a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-03.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
+                                 <div class="productname">Đầm15 </div>
                                  <h4 class="price">$451.00</h4>
                                  <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
                               </div>
@@ -217,7 +156,7 @@
                            <div class="col-md-3 col-sm-6">
                               <div class="products">
                                  <div class="thumbnail"><a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-04.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
+                                 <div class="productname">Đầm16 </div>
                                  <h4 class="price">$451.00</h4>
                                  <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
                               </div>
@@ -229,63 +168,11 @@
                <div class="clearfix"></div>
                <div class="our-brand">
                   <h3 class="title">CÁCH THỨC THANH TOÁN</h3>
-                  <div class="control"><a id="prev_brand" class="prev" href="#">&lt;</a><a id="next_brand" class="next" href="#">&gt;</a></div>
                   <ul id="braldLogo">
                      <li>
                         <ul class="brand_item">
                            <li>
-                              <a href="#">
-                                 <div class="brand-logo"><img src="{{ URL ('images/envato.png') }}" alt=""></div>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <div class="brand-logo"><img src="{{ URL ('images/themeforest.png') }}" alt=""></div>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <div class="brand-logo"><img src="{{ URL ('images/photodune.png') }}" alt=""></div>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <div class="brand-logo"><img src="{{ URL ('images/activeden.png') }}" alt=""></div>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <div class="brand-logo"><img src="{{ URL ('images/envato.png') }}" alt=""></div>
-                              </a>
-                           </li>
-                        </ul>
-                     </li>
-                     <li>
-                        <ul class="brand_item">
-                           <li>
-                              <a href="#">
-                                 <div class="brand-logo"><img src="{{ URL ('images/envato.png') }}" alt=""></div>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <div class="brand-logo"><img src="{{ URL ('images/themeforest.png') }}" alt=""></div>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <div class="brand-logo"><img src="{{ URL ('images/photodune.png') }}" alt=""></div>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <div class="brand-logo"><img src="{{ URL ('images/activeden.png') }}" alt=""></div>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <div class="brand-logo"><img src="{{ URL ('images/envato.png') }}" alt=""></div>
-                              </a>
+                                <div class="brand-logo"><img src="{{ URL ('images/envato.png') }}" alt=""></div>
                            </li>
                         </ul>
                      </li>

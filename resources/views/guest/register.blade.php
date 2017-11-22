@@ -12,38 +12,34 @@
 		    </h4>
 		    <hr class="in_lineblock"></hr>
 		    
-		    <form class="login_form">
+		    <form class="login_form" ng-controller="RegisterControllerNG">
 		    	<div class="row container">
 		    		<div class="row">
 					    <label class="label_register"  ><b>Email :</b></label>
-					    <input class="input_register" id="uname" type="Email" placeholder="Username" name="uname" required>
-				    </div>
-				    <div class="row">
-					    <label class="label_register"  ><b>Tên :</b></label>
-					    <input class="input_register" type="text" placeholder="Your Name" required>
+					    <input class="input_register" id="email" ng-model="taikhoan.email" type="Email" placeholder="Username"  required>
 				    </div>
 				    <div class="row">
 					    <label class="label_register"  ><b>Mật Khẩu :</b></label>
-					    <input class="input_register" id="psw" type="password" placeholder="Password"  required>
+					    <input class="input_register"" id="psw_register" type="password" ng-model="taikhoan.pws" placeholder="Password"  required>
 					</div>
 					<div class="row">
 					    <label class="label_register"  >Nhập lại mật Khẩu :</label>
-					    <input class="input_register" id="psw" type="password" placeholder="Comfim Password" required>
+					    <input class="input_register" id="confim_psw_register" type="password" placeholder="Comfim Password" required>
+					</div>
+					<div class="row">
+				   		<span id="register_mess"></span>
 					</div>
 					<div class="row">
 					    <label 	   class="label_register"  >Địa chỉ nhận hàng :</label>
-					    <textarea  class="input_register" style="height: 100px;" type="text" placeholder="Vui lòng nhập rõ địa chỉ"  required></textarea>
+					    <textarea  class="input_register"  style="height: 100px;" ng-model="taikhoan.ddnhanhang" type="text" placeholder="Vui lòng nhập rõ địa chỉ"  required></textarea>
 					</div>
 
-					<div class="row">
-				   		<span id="mess"></span>
-					</div>
 					<div class="row" style="padding-bottom: 15px;" >
 					    <input type="checkbox" name="">
 					    <span>Nhận thông tin khuyến mãi qua email</span>
 					</div>
 					<div class="row">
-						<button class="stylelogin">Đăng Ký</button>
+						<button class="stylelogin" ng-click="register()">Đăng Ký</button>
 					</div>
 				</div>
 				

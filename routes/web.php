@@ -14,12 +14,23 @@
 Route::get('/', function () {
     return view('welcome');
 });
+//Route Angular API
+Route::prefix('angular')->group(function() {
+	Route::get('list-sanpham', 'SanPhamController@getList' );
+	Route::post('register-user','TaiKhoanController@register');
+	Route::get('list-loai_sp/{colum}', 'LoaiSP_Controller@getList' );
+	Route::get('list-sanpham-by-loai/{loai}', 'SanPhamController@getSPByLoai' );
+});
 
 //Route guest
 Route::prefix('guest')->group(function() {
    	Route::get('/',  function(){
 		return view('guest.home');
 	})->name('guest_home_route');
+
+	Route::get('search',  function(){
+		return view('guest.home_timkiem');
+	})->name('guest_home_search_route');
 
 	Route::get('login', function(){
 		return view('guest.login');

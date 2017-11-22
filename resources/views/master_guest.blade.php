@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="bedshop">
    <head>
       <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
       <meta name="description" content="">
@@ -46,48 +46,23 @@
                      </div>
                      <div class="clearfix"></div>
                      <div class="header_bottom">
-                        <ul class="option">
-                           <li class="option-cart">
-                              <a href="#" class="cart-icon"><span class="cart_no">02</span></a>
-                              <ul class="option-cart-item">
-                                 <li>
-                                    <div class="cart-item">
-                                       <div class="image"><img src="{{URL ('images/products/thum/products-01.png') }}" alt=""></div>
-                                       <div class="item-description">
-                                          <p class="name">Đầm</p>
-                                          <p>Size: <span class="light-red"> M</span><br>Só lượng: <span class="light-red">01</span></p>
-                                       </div>
-                                       <div class="right">
-                                          <p class="price">$30.00</p>
-                                          <a href="#" class="remove"><img src="{{URL ('images/remove.png') }}" alt="remove"></a>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li>
-                                    <div class="cart-item">
-                                       <div class="image"><img src="{{URL ('images/products/thum/products-02.png') }}" alt=""></div>
-                                       <div class="item-description">
-                                          <p class="name">Đầm</p>
-                                          <p>Size: <span class="light-red"> M</span><br>Só lượng: <span class="light-red">01</span></p>
-                                       </div>
-                                       <div class="right">
-                                          <p class="price">$30.00</p>
-                                          <a href="#" class="remove"><img src="{{URL ('images/remove.png') }}" alt="remove"></a>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li><span class="total">Tổng Tiền <strong>$60.00</strong></span><button class="checkout" onClick="location.href='#'">Thanh toán</button></li>
-                              </ul>
-                           </li>
-                        </ul>
-                        <div class="navbar-collapse collapse navbar-menu">
-                           <ul class="nav navbar-nav">
+                        
+                        <div class="navbar-collapse collapse navbar-menu" ng-controller="LoaiSanPhamNG">
+                           <ul class="nav navbar-nav"> 
                               <li class="active"><a href="{{ route('guest_home_route') }}"  >Trang Chủ</a></li>
-                              <li><a href="#">Thời Trang Nam</a></li>
-                              <li><a href="#">Thời Trang Nữ</a></li>
-                              <li><a href="#">Mỹ Phẩm</a></li>
-                              <li><a href="#">Mới Nhất</a></li>
-                              <li><a href="#">Khuyến Mãi</a></li>>
+                              <li class="master_dropdow_list"  ng-mouseover="chon('nam')"><a href="#">Thời Trang Nam</a>
+                                <ul class="master_dropdow_list_content" >
+                                  <li class="master_dropdow_child_list" ng-repeat="loaiSP_Ob in loaiSPList" >
+                                    <a ng-click="timkiem(loaiSP_Ob.id_loaisp,'Thời Trang Nam',loaiSP_Ob.loaisp_ten)" href="{{route('guest_home_search_route')}}">@{{ loaiSP_Ob.loaisp_ten }}</a>
+                                  
+                                  </li>
+                                </ul>
+                              </li>
+                              
+                              <li class=""><a href="#">Thời Trang Nữ</a></li>
+                              <li class=""><a href="#">Mỹ Phẩm</a></li>
+                              <li class=""><a href="#">Mới Nhất</a></li>
+                              <li class=""><a href="#">Khuyến Mãi</a></li>>
                            </ul>
                         </div>
                      </div>
@@ -107,13 +82,13 @@
                         <div class="footer-logo"><a href="#"><img src="{{URL ('images/logo.png') }}" alt=""></a></div>
                      </div>
                      <div class="col-md-3 col-sm-6">
-                        <h4 class="title">Contact <strong>Info</strong></h4>
-                        <p>No. 01, Vo Van Ngan, TPHCM , Vietnam</p>
-                        <p>Call Us : (084) 1900 1008</p>
-                        <p>Email : michael@leebros.us</p>
+                        <h4 class="title"></h4>
+                        <p>Địa Chỉ: 01, Vo Van Ngan, TPHCM , Vietnam</p>
+                        <p>Điện Thoại : (084) 1900 1008</p>
+                        <p>Email : daihuynh2010@gmail.com</p>
                      </div>
                      <div class="col-md-3 col-sm-6">
-                        <h4 class="title">Customer<strong> Support</strong></h4>
+                        <h4 class="title">Trung Tâm Hỗ Trợ Khách Hàng</h4>
                         <ul class="support">
                            <li><a href="#">FAQ</a></li>
                            <li><a href="#">Payment Option</a></li>
@@ -122,11 +97,10 @@
                         </ul>
                      </div>
                      <div class="col-md-3">
-                        <h4 class="title">Get Our <strong>Newsletter </strong></h4>
-                        <p>Lorem ipsum dolor ipsum dolor.</p>
+                        <h4 class="title">Để Biết Sản Phẩm Mới Nhanh Nhất</h4>
                         <form class="newsletter">
-                     <input type="text" name="" placeholder="Type your email....">
-                     <input type="submit" value="SignUp" class="button">
+                     <input type="text" name="" placeholder="Nhập Email của bạn....">
+                     <input type="submit" value="Đăng Ký" class="button">
                   </form>
                      </div>
                   </div>
@@ -135,11 +109,9 @@
             <div class="copyright-info">
                <div class="container">
                   <div class="row">
-                     <div class="col-md-6">
-                        <p>Copyright © 2012. Designed by <a href="#">Michael Lee</a>. All rights reseved</p>
-                     </div>
-                     <div class="col-md-6">
+                     <div class="col-md-6 col-md-offset-5">
                         <ul class="social-icon">
+                        <h5 style="margin-bottom:10px;color:white">Liên hệ với chúng tôi</h5>
                            <li><a href="#" class="linkedin"></a></li>
                            <li><a href="#" class="google-plus"></a></li>
                            <li><a href="#" class="twitter"></a></li>
@@ -159,11 +131,18 @@
      <script type="text/javascript" src="{{URL ('js/bootstrap.min.js') }}"></script>
      <script type="text/javascript" src="{{URL ('js/jquery.sequence-min.js') }}"></script>
      <script type="text/javascript" src="{{URL ('js/custom.js') }}"></script>
-     <script type="text/javascript" src="{{URL ('js/app.js') }}"></script>
+     <!-- <script type="text/javascript" src="{{URL ('js/app.js') }}"></script> -->
      <script type="text/javascript" src="{{URL ('js/jquery.carouFredSel-6.2.1-packed.js') }}"></script>
      <script defer src="{{URL ('js/jquery.flexslider.js') }}"></script>
-     <script type="text/javascript" src="{{URL ('js/script.min.js') }}" ></script>
+     <!-- <script type="text/javascript" src="{{URL ('js/script.min.js') }}" ></script> -->
      <script type="text/javascript" src="{{URL ('js/jquery.elevatezoom.js') }}"></script>
-     
+     <!-- jQuery -->
+     <script src="{{ URL ('admin_design/vendors/jquery/dist/jquery.min.js') }}"></script>
+     <!--AngularJS-->
+    <script src="{{ URL ('app/lib/angular.min.js') }}"></script>
+    <script>
+      var UrlAngular="{{URL('/angular')}}/";
+    </script>
+    <script src="{{ URL ('app/app.js') }}"></script>
    </body>
 </html>
