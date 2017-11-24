@@ -47,6 +47,6 @@ class SanPham extends Model
     }
 
     public function TaiKhoan(){
-        return $this->belongsToMany('App\Tai_Khoan');
+        return $this->belongsToMany('App\TaiKhoan' ,'bl_nx_yt', 'id_sp', 'id_user')->withPivot('danh_gia','noi_dung','is_thich','created_at');
     }
 }

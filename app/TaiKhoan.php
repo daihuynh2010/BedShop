@@ -4,12 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Foundation\Auth\TaiKhoan as Authenticatable;
 
-class Tai_Khoan extends Model
+class TaiKhoan extends Authenticatable
 {
-    use SoftDeletes;
+    use Notifiable;
+    // use SoftDeletes;
     
-    protected $table = 'TaiKhoan';
+    protected $table = 'taikhoan';
     public $incrementing = false;
     
     protected $primaryKey = 'id_user';
@@ -19,7 +21,7 @@ class Tai_Khoan extends Model
     public $timestamps = true;
 
     public function SanPham(){
-        return $this->belongsToMany('App\SanPham', 'BL_NX_YT', 'id_user', 'id_sp')->withPivot('danh_gia','noi_dung','is_thich');
+        return $this->belongsToMany('App\SanPham','bl_nx_yt', 'id_user', 'id_sp');
     }
 
     public function HoaDon()

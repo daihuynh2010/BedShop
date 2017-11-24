@@ -71,12 +71,12 @@
                      <li> 
                         <div class="row" >
                            <div class="col-md-3 col-sm-6" ng-repeat="sanphamOb in sanphamList">
-                              <div class="products" onclick="location.href ='{{ route('user_detail_sp_route') }}';">
+                              <div class="products" onclick="location.href ='{{ route('guest_detail_sp_route') }}'" ng-click="detail(sanphamOb.id_sp,sanphamOb.sp_idloai)">
                                  <div class="offer">- @{{ sanphamOb.sp_km }} %</div>
-                                 <div class="thumbnail"><a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-01.png') }}" alt="Product Name"></a></div>
+                                 <div class="thumbnail"><a href=" {{ route('guest_detail_sp_route') }}" ng-click="detail(sanphamOb.id_sp,sanphamOb.sp_idloai)"><img src="{{ URL ('images/products/small/products-03.png') }}" alt="Product Name"></a></div>
                                  <div class="productname">@{{ sanphamOb.sp_ten }} </div>
                                  <h4 class="price">@{{ sanphamOb.sp_gia -sanphamOb.sp_gia * sanphamOb.sp_km/100}}</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button" onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button><button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
+                                 <div class="button_group"><button class="button add-cart" ng-click="detail(sanphamOb.id_sp,sanphamOb.sp_idloai)" type="button" onclick="location.href ='{{ route('guest_detail_sp_route') }}';">Mua Ngay</button><button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
                               </div>
                            </div>
                         </div>

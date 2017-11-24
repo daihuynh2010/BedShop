@@ -13,7 +13,7 @@ class CreateTaiKhoanTable extends Migration
      */
     public function up()
     {
-        Schema::create('TaiKhoan', function (Blueprint $table) {
+        Schema::create('taikhoan', function (Blueprint $table) {
             $table->charset = 'utf8';
             $table->collation = 'utf8_unicode_ci';
             $table->engine = 'InnoDB';
@@ -24,6 +24,7 @@ class CreateTaiKhoanTable extends Migration
             $table->integer('chuc_vu')->unsigned();
             $table->integer('tich_diem')->unsigned()->default(0);
             $table->text('dd_giaohang_md');
+            $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();
         });

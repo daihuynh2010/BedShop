@@ -13,7 +13,8 @@ class Hinh_SPTableSeeder extends Seeder
     {
         DB::table('Hinh_SP')->insert([
             ['vitri_hinh'=> 'data/imahgeacsacdscasdvsavsdddddddddddddddddvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv',
-            'hinh_idsp'=>'1'
+            'hinh_idsp'=>'1',
+            'is_hinhchinh'=>true,
         ]
         ]);
     }

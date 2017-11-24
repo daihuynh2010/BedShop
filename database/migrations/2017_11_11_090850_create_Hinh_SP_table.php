@@ -21,6 +21,7 @@ class CreateHinhSPTable extends Migration
             $table->increments('id_hinh');
             $table->text('vitri_hinh');
             $table->integer('hinh_idsp')->unsigned();
+            $table->boolean('is_hinhchinh')->default(false);
             $table->softDeletes();
             $table->timestamps();
 

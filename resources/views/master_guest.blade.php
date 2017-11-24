@@ -126,18 +126,17 @@
       <!-- modal -->
        @yield('modals')
       <!-- Bootstrap core JavaScript==================================================-->
-     <script type="text/javascript" src="{{URL ('js/jquery-1.10.2.min.js') }}"></script>
+     <!-- <script type="text/javascript" src="{{URL ('js/jquery-1.10.2.min.js') }}"></script> -->
+     <script type="text/javascript" src="{{URL ('js/jquery-3.2.1.min.js') }}"></script>
      <script type="text/javascript" src="{{URL ('js/jquery.easing.1.3.js') }}"></script>
      <script type="text/javascript" src="{{URL ('js/bootstrap.min.js') }}"></script>
      <script type="text/javascript" src="{{URL ('js/jquery.sequence-min.js') }}"></script>
      <script type="text/javascript" src="{{URL ('js/custom.js') }}"></script>
-     <!-- <script type="text/javascript" src="{{URL ('js/app.js') }}"></script> -->
+     <script type="text/javascript" src="{{URL ('js/app.js') }}"></script>
      <script type="text/javascript" src="{{URL ('js/jquery.carouFredSel-6.2.1-packed.js') }}"></script>
      <script defer src="{{URL ('js/jquery.flexslider.js') }}"></script>
-     <!-- <script type="text/javascript" src="{{URL ('js/script.min.js') }}" ></script> -->
+     <script type="text/javascript" src="{{URL ('js/script.min.js') }}" ></script>
      <script type="text/javascript" src="{{URL ('js/jquery.elevatezoom.js') }}"></script>
-     <!-- jQuery -->
-     <script src="{{ URL ('admin_design/vendors/jquery/dist/jquery.min.js') }}"></script>
      <!--AngularJS-->
     <script src="{{ URL ('app/lib/angular.min.js') }}"></script>
     <script>

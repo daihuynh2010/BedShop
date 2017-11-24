@@ -2,8 +2,15 @@ var app = angular.module('bedshop',[]).constant('API_URL',UrlAngular);
 
 app.controller('SanPhamControllerNG',function($scope,$http,API_URL){
     $http.get(API_URL+'list-sanpham').then(function(response){
-        $scope.sanphamList=response.data;
+        $scope.sanphamListnew=response.data.sanphamListnew;
+        $scope.sanphamListsale=response.data.sanphamListsale;
+        // console.log(response.data.sanphamListnew);
     }).catch(angular.noop);
+
+    $scope.detail=function(idsp,idloai){
+        localStorage.setItem('idsp', idsp);
+        localStorage.setItem('idloai', idloai);
+    }
 });
 
 app.controller('LoaiSanPhamNG',function($scope,$http,API_URL){
@@ -24,11 +31,20 @@ app.controller('SanPhamTimKiemByLoaiControllerNG',function($scope,$http,API_URL)
     var idloai=localStorage.getItem('idloai');
     // console.log(idloai);
     $http.get(API_URL+'list-sanpham-by-loai/'+idloai).then(function(response){
-        $scope.sanphamList=response.data;
+        $scope.sanphamList=response.data.sanphamList;
         $scope.nameloai=localStorage.getItem('nameloai');
         $scope.colum=localStorage.getItem('colum');
-        // console.log(response);
+        console.log(response.data);
     }).catch(angular.noop);
+});
+
+app.controller('DetailSanPhamControllerNG',function($scope,$http,API_URL){
+    var idsp=localStorage.getItem('idsp');
+    $http.get(API_URL+'detail-sanpham/'+idsp).then(function(response){
+        $scope.Detailsanpham=response.data.sanphamDetail;
+        $scope.bl_nx_yt=response.data.bl_nx_yt;
+        // console.log(response.data.bl_nx_yt);
+    });
 });
 
 
@@ -45,5 +61,21 @@ app.controller('RegisterControllerNG',function($scope,$http,API_URL){
         },function(error){
             console.log(error);
         });
+    }
+});
+
+app.controller('LoginControllerNG',function($scope,$http,API_URL){
+    $scope.login=function(){
+        $http({
+            method:'POST',
+            url:API_URL+'login-user',
+            data:  $.param($scope.taikhoanlogin),
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        })
+        .then(function (){
+            console.log('đăng nhập thành công');
+        },function(error){
+            console.log(error);
+        });;
     }
 });

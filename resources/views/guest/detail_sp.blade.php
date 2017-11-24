@@ -6,8 +6,8 @@
 
       <div class="clearfix">
       </div>
-      <div class="container_fullwidth">
-        <div class="container">
+      <div class="container_fullwidth"  >
+        <div class="container" ng-controller="DetailSanPhamControllerNG">
           <div class="row">
             <div class="col-md-9">
               <div class="products-details">
@@ -53,55 +53,41 @@
                     </a>
                   </div>
                 </div>
-                <div class="products-description">
-                  <h5 class="name">
-                      <!--name-->
-                      Đầm
-                  </h5>
+                <div class="products-description" >
+                  <h3 class="name">@{{Detailsanpham.sp_ten}}</h3>
                   <p>
                     <img alt="" src="{{ URL ('images/star.png') }}">
                     <a class="review_num" href="#">
-                      02 Đánh giá(s)
+                      @{{ bl_nx_yt.length }} đánh giá
                     </a>
                   </p>
                   <p>
-                    <span class=" light-red">
-                      Còn Hàng
+                    <span class=" light-red" ng-if="Detailsanpham.sp_soluong>0">
+                      Còn @{{Detailsanpham.sp_soluong}} sản phẩm
+                    </span>
+                    <span class=" light-red" ng-if="Detailsanpham.sp_soluong<=0">
+                      Hết Hàng
                     </span>
                   </p>
                   <p style="color: orange;font-size: 17px;">
                     Mua hàng tích 10 Gcoin
                   </p>
                   <p>
-                    Thông tin sản phẩm
+                    @{{Detailsanpham.sp_mota}}
                   </p>
                   <hr class="border">
                   <div class="price">
-                    <span class="new_price">
-                      450.00
-                      <sup>
-                        $
-                      </sup>
-                    </span>
-                    <span class="old_price">
-                      450.00
-                      <sup>
-                        $
-                      </sup>
-                    </span>
+                    <span class="new_price">@{{ Detailsanpham.sp_gia -Detailsanpham.sp_gia * Detailsanpham.sp_km/100}} VNĐ</span>
+                    <span class="old_price">@{{ Detailsanpham.sp_gia}} VNĐ</span>
                   </div>
                   <hr class="border">
                   <div class="wided">
                     <div class="qty">
                       Số lượng &nbsp;&nbsp;: 
-                      <select>
-                        <option>
-                          1
-                        </option>
-                      </select>
+                      <input type="text"/>
                     </div>
                     <div class="button_group">
-                      <button class="button" style="border-radius: 0px;background-color: orange" >
+                      <button  onclick="location.href ='{{ route('guest_login_route') }}'" class="button" style="border-radius: 0px;background-color: orange" >
                         Đặt Hàng
                       </button>
                       <button class="button favorite">
@@ -144,7 +130,7 @@
                 <div class="tab-content-wrap">
                   <div class="tab-content" id="Descraption">
                     <p>
-                       chi tiết của sản phẩm, thông số
+                       @{{Detailsanpham.sp_gioithieu}}
                     </p>
                   </div>
                   <div class="tab-content" id="Reviews">
@@ -171,26 +157,16 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <td>
-                              <input type="radio" name="quality" value="Blue"/>
-                            </td>
-                            <td>
-                              <input type="radio" name="quality" value="">
-                            </td>
-                            <td>
-                              <input type="radio" name="quality" value="">
-                            </td>
-                            <td>
-                              <input type="radio" name="quality" value="">
-                            </td>
-                            <td>
-                              <input type="radio" name="quality" value="">
-                            </td>
+                            <td><input type="radio" name="quality" value="Blue"/></td>
+                            <td><input type="radio" name="quality" value=""></td>
+                            <td><input type="radio" name="quality" value=""></td>
+                            <td><input type="radio" name="quality" value=""></td>
+                            <td><input type="radio" name="quality" value=""></td>
                           </tr>
                         </tbody>
                       </table>
                       <div style="margin-left: 78%;">
-                        <button class="change_pass_button_luu">Đánh Giá</button>
+                        <button class="change_pass_button_luu"  onclick="location.href ='{{ route('guest_login_route') }}'">Đánh Giá</button>
                       </div>
                     </form>
                   </div>
@@ -200,34 +176,42 @@
                       <h5 style="font-weight: 300;margin-bottom: 10px;"><strong>Bình Luận Về Sản Phẩm Này</strong></h5>
                       <div style="width: 100%;padding-left: 5%">
                         <input style="width: 70%; border-radius: 0px;" type="text" name="">
-                        <button class="change_pass_button_luu" style="width: 20%;">Bình Luận</button>
+                        <button class="change_pass_button_luu"  onclick="location.href ='{{ route('guest_login_route') }}'" style="width: 20%;">Bình Luận</button>
                       </div>
                     </div>
                     <h6 style="border-bottom:  2px solid #F1F1F1;margin-bottom: 20px;padding-bottom: 10px;">Các bình luận khác về sản phẩm</h6>
-                    <div class="review" style="border-bottom:  1px solid  #F1F1F1;">
+                    <div class="review" style="border-bottom:  1px solid  #F1F1F1;" ng-repeat="bl_nx_yt in bl_nx_yt">
                       <!-- hiện đánh giá -->
-                      <p class="rating">
-                        <i class="fa fa-star light-red">
-                        </i>
-                        <i class="fa fa-star light-red">
-                        </i>
-                        <i class="fa fa-star light-red">
-                        </i>
-                        <i class="fa fa-star-half-o gray">
-                        </i>
-                        <i class="fa fa-star-o gray">
-                        </i>
-                      </p>
-                      <h5 class="reviewer">
-                        Quốc Đại
-                      </h5>
-                      <p class="review-date">
-                        Date: 01/01/2014
-                      </p>
-                      <p>
-                        Sản phẩm vừa ý mình
-                      </p>
-                      
+                      <div ng-switch="bl_nx_yt.pivot.danh_gia">
+                        <p class="rating" ng-switch-when="0">
+                          <i class="fa fa-star-o gray"></i><i class="fa fa-star-o gray"></i><i class="fa fa-star-o gray"></i><i class="fa fa-star-o gray"></i><i class="fa fa-star-o gray"></i>
+                        </p>
+                        <p class="rating" ng-switch-when="1">
+                          <i class="fa fa-star light-red"></i><i class="fa fa-star-o gray"></i><i class="fa fa-star-o gray"></i><i class="fa fa-star-o gray"></i><i class="fa fa-star-o gray"></i>
+                        </p>
+                        <p class="rating" ng-switch-when="2">
+                          <i class="fa fa-star light-red"></i><i class="fa fa-star light-red"></i><i class="fa fa-star-o gray"></i><i class="fa fa-star-o gray"></i><i class="fa fa-star-o gray"></i>
+                        </p>
+                        <p class="rating" ng-switch-when="3">
+                          <i class="fa fa-star light-red"></i><i class="fa fa-star light-red"></i><i class="fa fa-star light-red"></i><i class="fa fa-star-o gray"></i><i class="fa fa-star-o gray"></i>
+                        </p>
+                        <p class="rating" ng-switch-when="4">
+                          <i class="fa fa-star light-red"></i><i class="fa fa-star light-red"></i><i class="fa fa-star light-red"></i><i class="fa fa-star light-red"></i><i class="fa fa-star-o gray"></i>
+                        </p>
+                        <p class="rating" ng-switch-when="5">
+                          <i class="fa fa-star light-red"></i><i class="fa fa-star light-red"></i><i class="fa fa-star light-red"></i><i class="fa fa-star light-red"></i><i class="fa fa-star light-red"></i>
+                        </p>
+                      </div>
+                        <h4 class="reviewer">
+                          @{{bl_nx_yt.email}}
+                        </h4>
+                        <br>
+                        <p class="review-date">
+                          @{{bl_nx_yt.pivot.created_at}}
+                        </p>
+                        <p>
+                        @{{bl_nx_yt.pivot.noi_dung}}
+                        </p>
                     </div>
                   </div>
                  
@@ -257,36 +241,6 @@
                     </h5>
                   </div>
                 </div>
-                <div class="special-item">
-                  <div class="product-image">
-                    <a href="#">
-                      <img src="{{ URL ('images/products/thum/products-02.png') }}" alt="">
-                    </a>
-                  </div>
-                  <div class="product-info">
-                    <p>
-                      Váy
-                    </p>
-                    <h5 class="price">
-                      $300.00
-                    </h5>
-                  </div>
-                </div>
-                <div class="special-item">
-                  <div class="product-image">
-                    <a href="#">
-                      <img src="{{ URL ('images/products/thum/products-03.png') }}" alt="">
-                    </a>
-                  </div>
-                  <div class="product-info">
-                    <p>
-                      Váy
-                    </p>
-                    <h5 class="price">
-                      $300.00
-                    </h5>
-                  </div>
-                </div>
               </div>
               <div class="clearfix">
               </div>
@@ -296,7 +250,7 @@
              
               <div class="clearfix">
               </div>
-              <div class="fbl-box leftbar">
+              <!-- <div class="fbl-box leftbar">
                 <h3 class="title">
                   Facebook
                 </h3>
@@ -350,7 +304,7 @@
                     Facebook social plugin
                   </a>
                 </div>
-              </div>
+              </div> -->
               <div class="clearfix">
               </div>
             </div>
@@ -358,7 +312,7 @@
           
               <div class="clearfix">
               </div>
-              <div id="productsDetails" class="hot-products">
+              <div id="productsDetails" class="hot-products" ng-controller="SanPhamTimKiemByLoaiControllerNG">
                 <h3 class="title">
                   Bạn có thể thích những sản phẩm này
                 </h3>
@@ -373,238 +327,14 @@
                 <ul id="hot">
                   <li>
                     <div class="row">
-                      <div class="col-md-4 col-sm-4">
-                        <div class="products">
-                          <div class="offer">
-                            - %20
-                          </div>
-                          <div class="thumbnail">
-                            <a href=" {{ route('guest_detail_sp_route') }}"><img  src="{{ URL ('images/products/small/products-01.png') }}" alt="Product Name"></a>
-                          </div>
-                          <div class="productname">
-                            Đầm
-                          </div>
-                          <h4 class="price">
-                            $451.00
-                          </h4>
-                          <div class="button_group">
-                            <button class="button add-cart" type="button">
-                              Add To Cart
-                            </button>
-                            
-                            <button class="button wishlist" type="button">
-                              <i class="fa fa-heart-o">
-                              </i>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 col-sm-4">
-                        <div class="products">
-                          <div class="thumbnail">
-                            <a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-02.png') }}" alt="Product Name"></a>
-                          </div>
-                          <div class="productname">
-                            Đầm
-                          </div>
-                          <h4 class="price">
-                            $451.00
-                          </h4>
-                          <div class="button_group">
-                            <button class="button add-cart" type="button">
-                              Add To Cart
-                            </button>
-                              
-                            <button class="button wishlist" type="button">
-                              <i class="fa fa-heart-o">
-                              </i>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 col-sm-4">
-                        <div class="products">
-                          <div class="offer">
-                            New
-                          </div>
-                          <div class="thumbnail">
-                            <a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-03.png') }}" alt="Product Name"></a>
-                          </div>
-                          <div class="productname">
-                            Đầm
-                          </div>
-                          <h4 class="price">
-                            $451.00
-                          </h4>
-                          <div class="button_group">
-                            <button class="button add-cart" type="button">
-                              Add To Cart
-                            </button>
-                              
-                            <button class="button wishlist" type="button">
-                              <i class="fa fa-heart-o">
-                              </i>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="row">
-                      <div class="col-md-4 col-sm-4">
-                        <div class="products">
-                          <div class="offer">
-                            - %20
-                          </div>
-                          <div class="thumbnail">
-                            <a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-01.png') }}" alt="Product Name"></a>
-                          </div>
-                          <div class="productname">
-                            Đầm
-                          </div>
-                          <h4 class="price">
-                            $451.00
-                          </h4>
-                          <div class="button_group">
-                            <button class="button add-cart" type="button">
-                              Add To Cart
-                            </button>
-                              
-                            <button class="button wishlist" type="button">
-                              <i class="fa fa-heart-o">
-                              </i>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 col-sm-4">
-                        <div class="products">
-                          <div class="thumbnail">
-                            <a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-02.png') }}" alt="Product Name"></a>
-                          </div>
-                          <div class="productname">
-                            Đầm
-                          </div>
-                          <h4 class="price">
-                            $451.00
-                          </h4>
-                          <div class="button_group">
-                            <button class="button add-cart" type="button">
-                              Add To Cart
-                            </button>
-                              
-                            <button class="button wishlist" type="button">
-                              <i class="fa fa-heart-o">
-                              </i>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 col-sm-4">
-                        <div class="products">
-                          <div class="offer">
-                            New
-                          </div>
-                          <div class="thumbnail">
-                            <a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-03.png') }}" alt="Product Name"></a>
-                          </div>
-                          <div class="productname">
-                            Đầm
-                          </div>
-                          <h4 class="price">
-                            $451.00
-                          </h4>
-                          <div class="button_group">
-                            <button class="button add-cart" type="button">
-                              Add To Cart
-                            </button>
-                              
-                            <button class="button wishlist" type="button">
-                              <i class="fa fa-heart-o">
-                              </i>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="row">
-                      <div class="col-md-4 col-sm-4">
-                        <div class="products">
-                          <div class="offer">
-                            - %20
-                          </div>
-                          <div class="thumbnail">
-                            <a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-01.png') }}" alt="Product Name"></a>
-                          </div>
-                          <div class="productname">
-                            Đầm
-                          </div>
-                          <h4 class="price">
-                            $451.00
-                          </h4>
-                          <div class="button_group">
-                            <button class="button add-cart" type="button">
-                              Add To Cart
-                            </button>
-                              
-                            <button class="button wishlist" type="button">
-                              <i class="fa fa-heart-o">
-                              </i>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 col-sm-4">
-                        <div class="products">
-                          <div class="thumbnail">
-                            <a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-02.png') }}" alt="Product Name"></a>
-                          </div>
-                          <div class="productname">
-                            Đầm
-                          </div>
-                          <h4 class="price">
-                            $451.00
-                          </h4>
-                          <div class="button_group">
-                            <button class="button add-cart" type="button">
-                              Add To Cart
-                            </button>
-                              
-                            <button class="button wishlist" type="button">
-                              <i class="fa fa-heart-o">
-                              </i>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 col-sm-4">
-                        <div class="products">
-                          <div class="offer">
-                            New
-                          </div>
-                          <div class="thumbnail">
-                            <a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-03.png') }}" alt="Product Name"></a>
-                          </div>
-                          <div class="productname">
-                            Đầm
-                          </div>
-                          <h4 class="price">
-                            $451.00
-                          </h4>
-                          <div class="button_group">
-                            <button class="button add-cart" type="button">
-                              Add To Cart
-                            </button>
-                              
-                            <button class="button wishlist" type="button">
-                              <i class="fa fa-heart-o">
-                              </i>
-                            </button>
-                          </div>
-                        </div>
+                      <div class="col-md-4 col-sm-4" ng-repeat="sanphamOb in sanphamList">
+                      <div class="products" onclick="location.href ='{{ route('guest_detail_sp_route') }}';">
+                      <div class="offer">- @{{ sanphamOb.sp_km }} %</div>
+                      <div class="thumbnail"><a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-03.png') }}" alt="Product Name"></a></div>
+                      <div class="productname">@{{ sanphamOb.sp_ten }} </div>
+                      <h4 class="price">@{{ sanphamOb.sp_gia -sanphamOb.sp_gia * sanphamOb.sp_km/100}}</h4>
+                      <div class="button_group"><button class="button add-cart" type="button" onclick="location.href ='{{ route('guest_detail_sp_route') }}';">Mua Ngay</button><button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
+                   </div>
                       </div>
                     </div>
                   </li>
@@ -613,96 +343,17 @@
           <div class="clearfix">
           </div>
           <div class="our-brand">
-            CÁCH THỨC THANH TOÁN
-            <div class="control">
-              <a id="prev_brand" class="prev" href="#">
-                &lt;
-              </a>
-              <a id="next_brand" class="next" href="#">
-                &gt;
-              </a>
-            </div>
-            <ul id="braldLogo">
-              <li>
+          <h3 class="title">CÁCH THỨC THANH TOÁN</h3>
+          <ul id="braldLogo">
+             <li>
                 <ul class="brand_item">
-                  <li>
-                    <a href="#">
-                      <div class="brand-logo">
-                        <img src="{{ URL ('images/envato.png') }}" alt="">
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="brand-logo">
-                        <img src="{{ URL ('images/themeforest.png') }}" alt="">
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="brand-logo">
-                        <img src="{{ URL ('images/photodune.png') }}" alt="">
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="brand-logo">
-                        <img src="{{ URL ('images/activeden.png') }}" alt="">
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="brand-logo">
-                        <img src="{{ URL ('images/envato.png') }}" alt="">
-                      </div>
-                    </a>
-                  </li>
+                   <li>
+                        <div class="brand-logo"><img src="{{ URL ('images/envato.png') }}" alt=""></div>
+                   </li>
                 </ul>
-              </li>
-              <li>
-                <ul class="brand_item">
-                  <li>
-                    <a href="#">
-                      <div class="brand-logo">
-                        <img src="{{ URL ('images/envato.png') }}" alt="">
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="brand-logo">
-                        <img src="{{ URL ('images/themeforest.png') }}" alt="">
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="brand-logo">
-                        <img src="{{ URL ('images/photodune.png') }}" alt="">
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="brand-logo">
-                        <img src="{{ URL ('images/activeden.png') }}" alt="">
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="brand-logo">
-                        <img src="{{ URL ('images/envato.png') }}" alt="">
-                      </div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
+             </li>
+          </ul>
+       </div>
 
         </div>
       </div>

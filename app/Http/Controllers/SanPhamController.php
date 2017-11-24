@@ -4,16 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\SanPham;
+use App\TaiKhoan;
 
 class SanPhamController extends Controller
 {
     public function getList(){
-        // $sanphamList=SanPham::orderBy('id','asc')->get();
+        $sanphamListnew=SanPham::orderBy('created_at','desc')->get();
+        $sanphamListsale=SanPham::orderBy('sp_km','desc')->get();
         // return view('guest.home',['sanphamList'=>$sanphamList]);
-        return SanPham::orderBy('id_sp','asc')->get();
+        return response(['sanphamListnew'=>$sanphamListnew,'sanphamListsale'=>$sanphamListsale]);
     }
 
     public function getSPByLoai($loai){
-        return SanPham::orderBy('id_sp','asc')->where('sp_idloai',$loai)->get();
+        $sanphamList=SanPham::orderBy('created_at','desc')->where('sp_idloai',$loai)->get();
+        return response(['sanphamList'=>$sanphamList]);
+    }
+
+    public function detailSP($id){
+        $sanphamDetail=SanPham::orderBy('id_sp',$id)->find($id);
+        $bl_nx_yt=$sanphamDetail->TaiKhoan;
+        return response(['sanphamDetail'=>$sanphamDetail,'bl_nx_yt'=>$bl_nx_yt]);
     }
 }

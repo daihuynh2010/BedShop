@@ -20,7 +20,7 @@
 				    </div>
 				    <div class="row">
 					    <label class="label_register"  ><b>Mật Khẩu :</b></label>
-					    <input class="input_register"" id="psw_register" type="password" ng-model="taikhoan.pws" placeholder="Password"  required>
+					    <input class="input_register" id="psw_register" type="password" ng-model="taikhoan.pws" placeholder="Password"  required>
 					</div>
 					<div class="row">
 					    <label class="label_register"  >Nhập lại mật Khẩu :</label>

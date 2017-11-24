@@ -13,7 +13,7 @@ class Hinh_SP extends Model
     public $incrementing = false;
     
     protected $primaryKey = 'id_hinh';
-    protected $fillable = ['vitri_hinh','hinh_idsp'];
+    protected $fillable = ['vitri_hinh','hinh_idsp','is_hinhchinh'];
     protected $dates = ['deleted_at', 'created_at', 'updated_at'];
     
     public $timestamps = true;
