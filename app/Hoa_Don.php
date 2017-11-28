@@ -22,8 +22,8 @@ class Hoa_Don extends Model
         return $this->belongsToMany('App\SanPham', 'CT_HoaDon', 'id_hd', 'id_sp')->withPivot('so_luong','so_tien');
     }
 
-    public function TaiKhoan()
+    public function Users()
     {
-        return $this->belongsTo('App\Tai_Khoan','id_user','id_user');
+        return $this->belongsTo('App\Users','id_user','id');
     }
 }

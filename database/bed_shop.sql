@@ -2,10 +2,10 @@
 -- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 24, 2017 lúc 04:17 PM
--- Phiên bản máy phục vụ: 10.1.24-MariaDB
--- Phiên bản PHP: 7.1.6
+-- Host: 127.0.0.1
+-- Generation Time: Nov 26, 2017 at 12:37 PM
+-- Server version: 10.1.24-MariaDB
+-- PHP Version: 7.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `bed_shop`
+-- Database: `bed_shop`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `bl_nx_yt`
+-- Table structure for table `bl_nx_yt`
 --
 
 CREATE TABLE `bl_nx_yt` (
@@ -40,16 +40,16 @@ CREATE TABLE `bl_nx_yt` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `bl_nx_yt`
+-- Dumping data for table `bl_nx_yt`
 --
 
 INSERT INTO `bl_nx_yt` (`id_user`, `id_sp`, `danh_gia`, `noi_dung`, `is_thich`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 1, 2, 'Rất Tốt', 0, NULL, '2016-01-01 17:00:00', NULL);
+(1, 1, 0, 'Rất Tốt', 0, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `ct_giohang`
+-- Table structure for table `ct_giohang`
 --
 
 CREATE TABLE `ct_giohang` (
@@ -61,18 +61,10 @@ CREATE TABLE `ct_giohang` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Đang đổ dữ liệu cho bảng `ct_giohang`
---
-
-INSERT INTO `ct_giohang` (`id_gh`, `id_sp`, `so_luong`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, NULL, NULL, NULL),
-(1, 2, 3, NULL, NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `ct_hoadon`
+-- Table structure for table `ct_hoadon`
 --
 
 CREATE TABLE `ct_hoadon` (
@@ -85,17 +77,10 @@ CREATE TABLE `ct_hoadon` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Đang đổ dữ liệu cho bảng `ct_hoadon`
---
-
-INSERT INTO `ct_hoadon` (`id_hd`, `id_sp`, `so_luong`, `so_tien`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(2, 1, 1, 200000, NULL, NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `ct_mausac_sp`
+-- Table structure for table `ct_mausac_sp`
 --
 
 CREATE TABLE `ct_mausac_sp` (
@@ -107,7 +92,7 @@ CREATE TABLE `ct_mausac_sp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `ct_mausac_sp`
+-- Dumping data for table `ct_mausac_sp`
 --
 
 INSERT INTO `ct_mausac_sp` (`id_mau`, `id_sp`, `deleted_at`, `created_at`, `updated_at`) VALUES
@@ -116,7 +101,7 @@ INSERT INTO `ct_mausac_sp` (`id_mau`, `id_sp`, `deleted_at`, `created_at`, `upda
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `giohang`
+-- Table structure for table `giohang`
 --
 
 CREATE TABLE `giohang` (
@@ -130,7 +115,7 @@ CREATE TABLE `giohang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `giohang`
+-- Dumping data for table `giohang`
 --
 
 INSERT INTO `giohang` (`id_gh`, `tongtien`, `tong_sp`, `id_user`, `deleted_at`, `created_at`, `updated_at`) VALUES
@@ -139,7 +124,7 @@ INSERT INTO `giohang` (`id_gh`, `tongtien`, `tong_sp`, `id_user`, `deleted_at`, 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `hinh_sp`
+-- Table structure for table `hinh_sp`
 --
 
 CREATE TABLE `hinh_sp` (
@@ -153,7 +138,7 @@ CREATE TABLE `hinh_sp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `hinh_sp`
+-- Dumping data for table `hinh_sp`
 --
 
 INSERT INTO `hinh_sp` (`id_hinh`, `vitri_hinh`, `hinh_idsp`, `is_hinhchinh`, `deleted_at`, `created_at`, `updated_at`) VALUES
@@ -162,7 +147,7 @@ INSERT INTO `hinh_sp` (`id_hinh`, `vitri_hinh`, `hinh_idsp`, `is_hinhchinh`, `de
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `hoadon`
+-- Table structure for table `hoadon`
 --
 
 CREATE TABLE `hoadon` (
@@ -179,16 +164,16 @@ CREATE TABLE `hoadon` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `hoadon`
+-- Dumping data for table `hoadon`
 --
 
 INSERT INTO `hoadon` (`id_hd`, `cach_thanh_toan`, `tongtien`, `tinh_trang_hang`, `dd_giao_hang`, `tong_sp`, `id_user`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(2, 'Tiền mặt khi giao hàng', 1000000, 'Đang Giao', 'Số 1-Võ Văn Ngân', 1, 1, NULL, NULL, NULL);
+(1, 'Tiền mặt khi giao hàng', 1000000, 'Đang Giao', 'Số 1-Võ Văn Ngân', 1, 1, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `loai_sp`
+-- Table structure for table `loai_sp`
 --
 
 CREATE TABLE `loai_sp` (
@@ -200,18 +185,16 @@ CREATE TABLE `loai_sp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `loai_sp`
+-- Dumping data for table `loai_sp`
 --
 
 INSERT INTO `loai_sp` (`id_loaisp`, `loaisp_ten`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'Loai Sản Phẩm 1', NULL, NULL, NULL),
-(2, 'quần nam\r\n', NULL, NULL, NULL),
-(3, 'áo nam', NULL, NULL, NULL);
+(1, 'Loai Sản Phẩm 1', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `mausac_sp`
+-- Table structure for table `mausac_sp`
 --
 
 CREATE TABLE `mausac_sp` (
@@ -223,7 +206,7 @@ CREATE TABLE `mausac_sp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `mausac_sp`
+-- Dumping data for table `mausac_sp`
 --
 
 INSERT INTO `mausac_sp` (`id_mau`, `mau_ten`, `deleted_at`, `created_at`, `updated_at`) VALUES
@@ -234,7 +217,7 @@ INSERT INTO `mausac_sp` (`id_mau`, `mau_ten`, `deleted_at`, `created_at`, `updat
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -244,27 +227,27 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2017_11_11_090314_create_MauSac_SP_table', 1),
-(3, '2017_11_11_091156_create_NSX_table', 1),
-(4, '2017_11_11_091512_create_Loai_SP_table', 1),
-(5, '2017_11_11_091642_create_TaiKhoan_table', 1),
-(6, '2017_11_11_084026_create_SanPham_table', 2),
-(7, '2017_11_11_090456_create_CT_MauSac_SP_table', 2),
-(9, '2017_11_11_091949_create_BL_NX_YT_table', 2),
-(10, '2017_11_11_092613_create_HoaDon_table', 2),
-(11, '2017_11_11_093106_create_CT_HoaDon_table', 2),
-(12, '2017_11_20_025304_create_GioHang_table', 3),
-(13, '2017_11_20_025519_create_CT_GioHang_table', 4),
-(14, '2017_11_11_090850_create_Hinh_SP_table', 5);
+(3, '2017_11_11_090314_create_MauSac_SP_table', 1),
+(4, '2017_11_11_091156_create_NSX_table', 1),
+(5, '2017_11_11_091512_create_Loai_SP_table', 1),
+(6, '2017_11_26_101227_create_users_table', 1),
+(7, '2017_11_11_084026_create_SanPham_table', 2),
+(8, '2017_11_11_090456_create_CT_MauSac_SP_table', 2),
+(9, '2017_11_11_090850_create_Hinh_SP_table', 2),
+(10, '2017_11_11_091949_create_BL_NX_YT_table', 2),
+(11, '2017_11_11_092613_create_HoaDon_table', 2),
+(12, '2017_11_11_093106_create_CT_HoaDon_table', 2),
+(13, '2017_11_20_025304_create_GioHang_table', 2),
+(14, '2017_11_20_025519_create_CT_GioHang_table', 2);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `nsx`
+-- Table structure for table `nsx`
 --
 
 CREATE TABLE `nsx` (
@@ -277,7 +260,7 @@ CREATE TABLE `nsx` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `nsx`
+-- Dumping data for table `nsx`
 --
 
 INSERT INTO `nsx` (`id_nsx`, `nsx_ten`, `nsx_diachi`, `deleted_at`, `created_at`, `updated_at`) VALUES
@@ -286,7 +269,7 @@ INSERT INTO `nsx` (`id_nsx`, `nsx_ten`, `nsx_diachi`, `deleted_at`, `created_at`
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `sanpham`
+-- Table structure for table `sanpham`
 --
 
 CREATE TABLE `sanpham` (
@@ -309,121 +292,117 @@ CREATE TABLE `sanpham` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `sanpham`
+-- Dumping data for table `sanpham`
 --
 
 INSERT INTO `sanpham` (`id_sp`, `sp_ten`, `sp_gia`, `sp_km`, `sp_hsd`, `sp_mota`, `sp_gioithieu`, `sp_trongluong`, `sp_kichthuoc`, `sp_soluong`, `sp_somausac`, `sp_idnsx`, `sp_idloai`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'Sản Phẩm 1', 200000, 0, 'không có', 'sản phẩm tốt', 'sản phẩm được nhập từ trung quốc', '500gr', '10x10', 100, 5, 1, 1, NULL, '2017-10-31 17:00:00', NULL),
-(2, 'test', 100000, 20, 'ffcd', 'dcsacdv', 'ewvsadv', 'acdca', 'vasvds', 23, 3, 1, 3, NULL, '2017-11-01 17:00:00', NULL),
-(3, 'casdc', 300000, 50, 'sdcsd', 'casdcds', 'vadsv', 'ddascs', 'sdvds', 0, 21, 1, 2, NULL, '2017-11-05 17:00:00', NULL),
-(4, 'cscd', 400000, 10, 'csdcasdc', 'sadcasdc', 'dcsacs', 'ascdcdsa', 'dscsac', 24, 3, 1, 3, NULL, '2017-11-04 17:00:00', NULL),
-(5, 'scsadc', 600000, 70, 'sacsac', 'svdsdvs', 'aedwd', 'sdcsa', 'ascas', 2, 3, 1, 2, NULL, '2017-11-02 17:00:00', NULL),
-(6, 'san pham 2', 21021045, 10, 'hnhgn', 'hg ngb', 'fdbdbd', 'dscsc', ' sdvsvd', 23, 3, 1, 1, NULL, NULL, NULL);
+(1, 'Sản Phẩm 1', 200000, 0, 'không có', 'sản phẩm tốt', 'sản phẩm được nhập từ trung quốc', '500gr', '10x10', 100, 5, 1, 1, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `taikhoan`
+-- Table structure for table `users`
 --
 
-CREATE TABLE `taikhoan` (
-  `id_user` int(10) UNSIGNED NOT NULL,
+CREATE TABLE `users` (
+  `id` int(10) UNSIGNED NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `chuc_vu` int(10) UNSIGNED NOT NULL,
   `tich_diem` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `dd_giaohang_md` text COLLATE utf8_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `taikhoan`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `taikhoan` (`id_user`, `email`, `password`, `chuc_vu`, `tich_diem`, `dd_giaohang_md`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'daihuynh2010@gmail.com', 'admin', 3, 0, 'số 1 -võ văn ngân', NULL, NULL, NULL);
+INSERT INTO `users` (`id`, `email`, `password`, `chuc_vu`, `tich_diem`, `dd_giaohang_md`, `remember_token`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 'daihuynh2010@gmail.com', 'admin', 3, 0, 'số 1 -võ văn ngân', NULL, NULL, NULL, NULL);
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `bl_nx_yt`
+-- Indexes for table `bl_nx_yt`
 --
 ALTER TABLE `bl_nx_yt`
   ADD PRIMARY KEY (`id_user`,`id_sp`),
   ADD KEY `bl_nx_yt_id_sp_foreign` (`id_sp`);
 
 --
--- Chỉ mục cho bảng `ct_giohang`
+-- Indexes for table `ct_giohang`
 --
 ALTER TABLE `ct_giohang`
   ADD PRIMARY KEY (`id_gh`,`id_sp`),
   ADD KEY `ct_giohang_id_sp_foreign` (`id_sp`);
 
 --
--- Chỉ mục cho bảng `ct_hoadon`
+-- Indexes for table `ct_hoadon`
 --
 ALTER TABLE `ct_hoadon`
   ADD PRIMARY KEY (`id_hd`,`id_sp`),
   ADD KEY `ct_hoadon_id_sp_foreign` (`id_sp`);
 
 --
--- Chỉ mục cho bảng `ct_mausac_sp`
+-- Indexes for table `ct_mausac_sp`
 --
 ALTER TABLE `ct_mausac_sp`
   ADD PRIMARY KEY (`id_mau`,`id_sp`),
   ADD KEY `ct_mausac_sp_id_sp_foreign` (`id_sp`);
 
 --
--- Chỉ mục cho bảng `giohang`
+-- Indexes for table `giohang`
 --
 ALTER TABLE `giohang`
   ADD PRIMARY KEY (`id_gh`),
   ADD KEY `giohang_id_user_foreign` (`id_user`);
 
 --
--- Chỉ mục cho bảng `hinh_sp`
+-- Indexes for table `hinh_sp`
 --
 ALTER TABLE `hinh_sp`
   ADD PRIMARY KEY (`id_hinh`),
   ADD KEY `hinh_sp_hinh_idsp_foreign` (`hinh_idsp`);
 
 --
--- Chỉ mục cho bảng `hoadon`
+-- Indexes for table `hoadon`
 --
 ALTER TABLE `hoadon`
   ADD PRIMARY KEY (`id_hd`),
   ADD KEY `hoadon_id_user_foreign` (`id_user`);
 
 --
--- Chỉ mục cho bảng `loai_sp`
+-- Indexes for table `loai_sp`
 --
 ALTER TABLE `loai_sp`
   ADD PRIMARY KEY (`id_loaisp`);
 
 --
--- Chỉ mục cho bảng `mausac_sp`
+-- Indexes for table `mausac_sp`
 --
 ALTER TABLE `mausac_sp`
   ADD PRIMARY KEY (`id_mau`);
 
 --
--- Chỉ mục cho bảng `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `nsx`
+-- Indexes for table `nsx`
 --
 ALTER TABLE `nsx`
   ADD PRIMARY KEY (`id_nsx`);
 
 --
--- Chỉ mục cho bảng `sanpham`
+-- Indexes for table `sanpham`
 --
 ALTER TABLE `sanpham`
   ADD PRIMARY KEY (`id_sp`),
@@ -431,112 +410,112 @@ ALTER TABLE `sanpham`
   ADD KEY `sanpham_sp_idloai_foreign` (`sp_idloai`);
 
 --
--- Chỉ mục cho bảng `taikhoan`
+-- Indexes for table `users`
 --
-ALTER TABLE `taikhoan`
-  ADD PRIMARY KEY (`id_user`);
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `giohang`
+-- AUTO_INCREMENT for table `giohang`
 --
 ALTER TABLE `giohang`
   MODIFY `id_gh` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT cho bảng `hinh_sp`
+-- AUTO_INCREMENT for table `hinh_sp`
 --
 ALTER TABLE `hinh_sp`
   MODIFY `id_hinh` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT cho bảng `hoadon`
+-- AUTO_INCREMENT for table `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `id_hd` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_hd` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT cho bảng `loai_sp`
+-- AUTO_INCREMENT for table `loai_sp`
 --
 ALTER TABLE `loai_sp`
-  MODIFY `id_loaisp` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_loaisp` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT cho bảng `mausac_sp`
+-- AUTO_INCREMENT for table `mausac_sp`
 --
 ALTER TABLE `mausac_sp`
   MODIFY `id_mau` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT cho bảng `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
--- AUTO_INCREMENT cho bảng `nsx`
+-- AUTO_INCREMENT for table `nsx`
 --
 ALTER TABLE `nsx`
   MODIFY `id_nsx` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT cho bảng `sanpham`
+-- AUTO_INCREMENT for table `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `id_sp` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_sp` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT cho bảng `taikhoan`
+-- AUTO_INCREMENT for table `users`
 --
-ALTER TABLE `taikhoan`
-  MODIFY `id_user` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `users`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `bl_nx_yt`
+-- Constraints for table `bl_nx_yt`
 --
 ALTER TABLE `bl_nx_yt`
   ADD CONSTRAINT `bl_nx_yt_id_sp_foreign` FOREIGN KEY (`id_sp`) REFERENCES `sanpham` (`id_sp`) ON DELETE CASCADE,
-  ADD CONSTRAINT `bl_nx_yt_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `taikhoan` (`id_user`) ON DELETE CASCADE;
+  ADD CONSTRAINT `bl_nx_yt_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Các ràng buộc cho bảng `ct_giohang`
+-- Constraints for table `ct_giohang`
 --
 ALTER TABLE `ct_giohang`
   ADD CONSTRAINT `ct_giohang_id_gh_foreign` FOREIGN KEY (`id_gh`) REFERENCES `giohang` (`id_gh`) ON DELETE CASCADE,
   ADD CONSTRAINT `ct_giohang_id_sp_foreign` FOREIGN KEY (`id_sp`) REFERENCES `sanpham` (`id_sp`) ON DELETE CASCADE;
 
 --
--- Các ràng buộc cho bảng `ct_hoadon`
+-- Constraints for table `ct_hoadon`
 --
 ALTER TABLE `ct_hoadon`
   ADD CONSTRAINT `ct_hoadon_id_hd_foreign` FOREIGN KEY (`id_hd`) REFERENCES `hoadon` (`id_hd`) ON DELETE CASCADE,
   ADD CONSTRAINT `ct_hoadon_id_sp_foreign` FOREIGN KEY (`id_sp`) REFERENCES `sanpham` (`id_sp`) ON DELETE CASCADE;
 
 --
--- Các ràng buộc cho bảng `ct_mausac_sp`
+-- Constraints for table `ct_mausac_sp`
 --
 ALTER TABLE `ct_mausac_sp`
   ADD CONSTRAINT `ct_mausac_sp_id_mau_foreign` FOREIGN KEY (`id_mau`) REFERENCES `mausac_sp` (`id_mau`) ON DELETE CASCADE,
   ADD CONSTRAINT `ct_mausac_sp_id_sp_foreign` FOREIGN KEY (`id_sp`) REFERENCES `sanpham` (`id_sp`) ON DELETE CASCADE;
 
 --
--- Các ràng buộc cho bảng `giohang`
+-- Constraints for table `giohang`
 --
 ALTER TABLE `giohang`
-  ADD CONSTRAINT `giohang_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `taikhoan` (`id_user`) ON DELETE CASCADE;
+  ADD CONSTRAINT `giohang_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Các ràng buộc cho bảng `hinh_sp`
+-- Constraints for table `hinh_sp`
 --
 ALTER TABLE `hinh_sp`
   ADD CONSTRAINT `hinh_sp_hinh_idsp_foreign` FOREIGN KEY (`hinh_idsp`) REFERENCES `sanpham` (`id_sp`) ON DELETE CASCADE;
 
 --
--- Các ràng buộc cho bảng `hoadon`
+-- Constraints for table `hoadon`
 --
 ALTER TABLE `hoadon`
-  ADD CONSTRAINT `hoadon_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `taikhoan` (`id_user`) ON DELETE CASCADE;
+  ADD CONSTRAINT `hoadon_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Các ràng buộc cho bảng `sanpham`
+-- Constraints for table `sanpham`
 --
 ALTER TABLE `sanpham`
   ADD CONSTRAINT `sanpham_sp_idloai_foreign` FOREIGN KEY (`sp_idloai`) REFERENCES `loai_sp` (`id_loaisp`) ON DELETE CASCADE,

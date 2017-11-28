@@ -1,4 +1,4 @@
-var app = angular.module('bedshop',[]).constant('API_URL',UrlAngular);
+var app = angular.module('bedshop',[]).constant('API_URL',UrlAngular+"angular/");
 
 app.controller('SanPhamControllerNG',function($scope,$http,API_URL){
     $http.get(API_URL+'list-sanpham').then(function(response){
@@ -64,6 +64,7 @@ app.controller('RegisterControllerNG',function($scope,$http,API_URL){
     }
 });
 
+
 app.controller('LoginControllerNG',function($scope,$http,API_URL){
     $scope.login=function(){
         $http({
@@ -72,10 +73,19 @@ app.controller('LoginControllerNG',function($scope,$http,API_URL){
             data:  $.param($scope.taikhoanlogin),
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         })
-        .then(function (){
-            console.log('đăng nhập thành công');
+        .then(function (response){
+            if(response.data.taikhoan){
+                if(response.data.taikhoan.chuc_vu==1)
+                    window.location.href=UrlAngular+"user";
+                if(response.data.taikhoan.chuc_vu==2)
+                    window.location.href=UrlAngular+"manage";
+                if(response.data.taikhoan.chuc_vu==3)
+                    window.location.href=UrlAngular+"admin";
+            }
+            else
+                alert("sai tài khoản hoặc mật khẩu");
         },function(error){
             console.log(error);
-        });;
+        });
     }
 });

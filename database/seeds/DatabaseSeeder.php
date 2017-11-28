@@ -16,12 +16,12 @@ class DatabaseSeeder extends Seeder
         // $this->call(CT_MauSac_SPTableSeeder::class);
         // $this->call(Hinh_SPTableSeeder::class);
         // $this->call(HoaDonTableSeeder::class);
-        // $this->call(Loai_SPTableSeeder::class);
-        // $this->call(MauSac_SPTableSeeder::class);
-        // $this->call(NSXTableSeeder::class);
-        // $this->call(SanPhamTableSeeder::class);
-        // $this->call(TaiKhoanTableSeeder::class);
-        //$this->call(GioHangTableSeeder::class);
+         // $this->call(Loai_SPTableSeeder::class);
+         // $this->call(MauSac_SPTableSeeder::class);
+         // $this->call(NSXTableSeeder::class);
+         // $this->call(SanPhamTableSeeder::class);
+         // $this->call(TaiKhoanTableSeeder::class);
+        // $this->call(GioHangTableSeeder::class);
         // $this->call(CT_GioHangTableSeeder::class);
     }
 }

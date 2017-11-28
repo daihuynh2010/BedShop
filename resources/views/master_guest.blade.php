@@ -140,7 +140,7 @@
      <!--AngularJS-->
     <script src="{{ URL ('app/lib/angular.min.js') }}"></script>
     <script>
-      var UrlAngular="{{URL('/angular')}}/";
+      var UrlAngular="{{URL('/')}}/";
     </script>
     <script src="{{ URL ('app/app.js') }}"></script>
    </body>

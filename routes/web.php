@@ -20,8 +20,8 @@ Route::prefix('angular')->group(function() {
 	Route::get('list-loai_sp/{colum}', 'LoaiSP_Controller@getList' );
 	Route::get('list-sanpham-by-loai/{loai}', 'SanPhamController@getSPByLoai' );
 	Route::get('detail-sanpham/{id}', 'SanPhamController@detailSP' );
-	Route::post('register-user','TaiKhoanController@register');
-	Route::post('login-user','TaiKhoanController@login');
+	Route::post('register-user','UsersController@register');
+	Route::post('login-user','UsersController@login');
 });
 
 //Route guest

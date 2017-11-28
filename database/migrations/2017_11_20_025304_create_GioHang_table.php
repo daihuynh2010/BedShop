@@ -25,7 +25,7 @@ class CreateGioHangTable extends Migration
             $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign('id_user')->references('id_user')->on('TaiKhoan')->onDelete('cascade');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

@@ -46,7 +46,7 @@ class SanPham extends Model
         return $this->belongsToMany('App\GioHang');
     }
 
-    public function TaiKhoan(){
-        return $this->belongsToMany('App\TaiKhoan' ,'bl_nx_yt', 'id_sp', 'id_user')->withPivot('danh_gia','noi_dung','is_thich','created_at');
+    public function Users(){
+        return $this->belongsToMany('App\Users' ,'bl_nx_yt', 'id_sp', 'id')->withPivot('danh_gia','noi_dung','is_thich','created_at');
     }
 }

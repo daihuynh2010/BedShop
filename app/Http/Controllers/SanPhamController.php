@@ -9,6 +9,7 @@ use App\TaiKhoan;
 class SanPhamController extends Controller
 {
     public function getList(){
+        // $sanphamListnew=SanPham::orderBy('created_at','desc')->take(2)->get(); lấy 2 sản phẩm đầu trong danh sách
         $sanphamListnew=SanPham::orderBy('created_at','desc')->get();
         $sanphamListsale=SanPham::orderBy('sp_km','desc')->get();
         // return view('guest.home',['sanphamList'=>$sanphamList]);

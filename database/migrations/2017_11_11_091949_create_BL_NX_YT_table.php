@@ -28,7 +28,7 @@ class CreateBLNXYTTable extends Migration
 
             $table->primary(['id_user','id_sp']);
             $table->foreign('id_sp')->references('id_sp')->on('SanPham')->onDelete('cascade');
-            $table->foreign('id_user')->references('id_user')->on('TaiKhoan')->onDelete('cascade');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
