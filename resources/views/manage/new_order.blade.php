@@ -9,11 +9,11 @@
     	<div class="x_title">
             <h4>Danh Sách Đơn Hàng Mới</h4>
             <div class="clearfix"></div>
-        </div>
-        <div class="x_content">
-            <table id="class-list-table"class="center datatable table table-striped table-bordered jambo_table">
+        </div> 
+        <div class="x_content" ng-controller="ManagerControllerNG">
+            <table id="class-list-table"class="tablelist center datatable table table-striped table-bordered jambo_table">
                 <thead>
-                    <tr class="headings">
+                    <tr class="headings" >
                         <th class="column-title"> STT</th>
                         <th class="column-title"> Mã Đơn Hàng</th>
                         <th class="column-title"> Mã User</th>
@@ -24,18 +24,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    @foreach($hoadonList as $hoadonOB )
+                    <tr >
+                        <td>{{ $loop->index +1 }}</td>
+                        <td>{{ $hoadonOB->id_hd }}</td>
+                        <td>{{ $hoadonOB->id_user }}</td>
+                        <td>{{ number_format($hoadonOB->tongtien)  }}</td>
+                        <td>{{ $hoadonOB->dd_giao_hang }}</td>
+                        <td>{{ $hoadonOB->cach_thanh_toan }}</td>
                         <td class="action-column">
-                            <a class="confim_new_order_button""><i class="fa fa-edit" title="Xác Nhận"></i></a>
-                            <a class="delete_new_order_button"  href="javascript:;"><i class="fa fa-trash" title="Xóa"></i></a>
+                        <!-- ng-click="xacnhan(hoadonOB.id_hd)" -->
+                            <a class="confim_new_order_button" ng-click="xacnhan({{$hoadonOB->id_hd}})"><i class="fa fa-edit" title="Xác Nhận"></i></a>
+                            <a class="delete_new_order_button" ng-click="xoa({{$hoadonOB->id_hd}})"><i class="fa fa-trash" title="Xóa"></i></a>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -44,12 +47,40 @@
 @stop
 
 @section('modal')
-	<!-- Modal delete New Order -->
-	<div id="dialog-confirm-delete-class" class="jquery-ui-dialog" title="Xóa Đơn Hàng?" hidden>
-         <p><span class="ui-icon ui-icon-alert"></span>Bạn có chắc muốn <strong>Xóa Đơn Hàng</strong> này ?</p>
+    <div ng-controller="ManagerControllerNG">
+        <!-- Modal delete New Order -->
+        <script type="text/ng-template" id="DeleteOrder.html">
+            <div class="modal-header">
+            <div class="cancel pull-right">
+            <span class="close" ng-click="cancel()">X</span>
+            </div>
+            <h2 class="modal-title">Xóa Đơn Hàng</h2>
+            </div>
+            <div class="modal-body">
+                <span>Bạn có chắc chắn muốn <strong>Xóa</strong> đơn hàng mã: @{{hoadon.id_hd}}</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btncancel" ng-click="cancel()">Hủy</button>
+                <button type="submit" class="btn btn-success" ng-click="ok()">Xóa</button>
+            </div>
+        </script>
+        <!-- Model Comfim New Order -->
+        <script type="text/ng-template" id="ConfimOrder.html">
+            <div class="modal-header">
+            <div class="cancel pull-right">
+            <span class="close" ng-click="cancel()">X</span>
+            </div>
+            <h2 class="modal-title">Xác Nhận Đơn Hàng</h2>
+            </div>
+            <div class="modal-body">
+                <span>Bạn có chắc chắn muốn <strong>Xác Nhận</strong> đơn hàng mã: @{{hoadon.id_hd}}</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btncancel" ng-click="cancel()">Hủy</button>
+                <button type="submit" class="btn btn-success" ng-click="ok()">Xác Nhận</button>
+            </div>
+        </script>
     </div>
-    <!-- Model Comfim New Order -->
-    <div id="dialog-confirm-class" class="jquery-ui-dialog" title="Xác Nhận Đơn Hàng?" hidden>
-         <p><span class="ui-icon ui-icon-alert"></span>Bạn có chắc muốn <strong>Xác Nhận Đơn Hàng</strong> này ?</p>
-    </div>
+
+   
 @stop

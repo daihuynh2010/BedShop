@@ -66,44 +66,88 @@
             <div class="container">
                <div class="hot-products">
                   <h3 class="title">Mới Nhất </h3>
-                  <div class="control"><a id="prev_hot" class="prev" href="#" style="display: inline;">&lt;</a><a style="display: inline;" id="next_hot" class="next" href="#">&gt;</a></div>
-                  <ul id="hot">
-                     <li> 
+                  <div class="control">
+                      <a id="prev_hot" class="prev" href="#" style="display: block;"></a>
+                      <a style="display: inline;" id="next_hot" class="next" href="#"></a>
+                  </div>
+                  <ul id="hot" >
+                  @php $i=0; @endphp
+                  @foreach($sanphamListnew as $sanphamOb)
+                    @if($i==0)
+                     <li>
                         <div class="row" >
-                           <div class="col-md-3 col-sm-6" ng-repeat="sanphamOb in sanphamListnew">
-                              <div class="products" onclick="location.href ='{{ route('guest_detail_sp_route') }}'" ng-click="detail(sanphamOb.id_sp,sanphamOb.sp_idloai)">
-                                 <div class="offer">- @{{ sanphamOb.sp_km }} %</div>
-                                 <div class="thumbnail"><a href=" {{ route('guest_detail_sp_route') }}" ng-click="detail(sanphamOb.id_sp,sanphamOb.sp_idloai)"><img src="{{ URL ('images/products/small/products-01.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">@{{ sanphamOb.sp_ten }} </div>
-                                 <h4 class="price">@{{ sanphamOb.sp_gia -sanphamOb.sp_gia * sanphamOb.sp_km/100}}</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button" ng-click="detail(sanphamOb.id_sp,sanphamOb.sp_idloai)" onclick="location.href ='{{ route('guest_detail_sp_route') }}'">Mua Ngay</button><button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
+                    @endif
+                           <div class="col-md-3 col-sm-6"  >
+                              <div class="products"  ng-click="detail({{$sanphamOb->id_sp}},{{$sanphamOb->sp_idloai}})">
+                                 <div class="offer" >- {{ $sanphamOb->sp_km }} %</div>
+                                 <div class="thumbnail">
+                                    <a href="" ng-click="detail({{$sanphamOb->id_sp}},{{$sanphamOb->sp_idloai}})">
+                                        @foreach($hinhspList as $hinhOB)
+                                            @if($hinhOB->hinh_idsp==$sanphamOb->id_sp)
+                                        <img   src="{{URL ('images/products/small/'. $hinhOB->vitri_hinh  )}}" alt="">
+                                            @endif
+                                        @endforeach
+                                    </a>
+                                 </div>
+                                 <div  class="productname">{{ $sanphamOb->sp_ten }} </div>
+                                 <h4 class="price">{{ number_format( $sanphamOb->sp_gia - $sanphamOb->sp_gia * $sanphamOb->sp_km/100) }}</h4>
+                                 <div class="button_group">
+                                    <button class="button add-cart" type="button" ng-click="detail({{$sanphamOb->id_sp}},{{$sanphamOb->sp_idloai}})" >Mua Ngay</button>
+                                 </div>
                               </div>
                            </div>
-                          
+                     @if($i==3)
                         </div>
                      </li>
-                     
+                        @php $i=0; @endphp
+                     @else
+                        @php $i++; @endphp
+                     @endif
+                     @endforeach
                   </ul>
                </div>
                <div class="clearfix"></div>
                <div class="featured-products">
                   <h3 class="title">Giảm Giá Mạnh </h3>
-                  <div class="control"><a id="prev_featured" class="prev" href="#">&lt;</a><a id="next_featured" class="next" href="#">&gt;</a></div>
+                  <div class="control">
+                    <a id="prev_featured" class="prev" href="#">&lt;</a>
+                    <a id="next_featured" class="next" href="#">&gt;</a>
+                  </div>
                   <ul id="featured">
+                  @php $x=0; @endphp
+                  @foreach($sanphamListsale as $sanphamOb)
+                    @if($x==0)
                      <li>
-                        <div class="row">
-                           <div class="col-md-3 col-sm-6" ng-repeat="sanphamOb in sanphamListsale">
-                                <div class="products" ng-click="detail(sanphamOb.id_sp,sanphamOb.sp_idloai)" onclick="location.href ='{{ route('guest_detail_sp_route') }}'">
-                                    <div class="offer">- @{{ sanphamOb.sp_km }} %</div>
-                                    <div class="thumbnail"><a href=" {{ route('guest_detail_sp_route') }}" ng-click="detail(sanphamOb.id_sp,sanphamOb.sp_idloai)"><img src="{{ URL ('images/products/small/products-05.png') }}" alt="Product Name"></a></div>
-                                    <div class="productname">@{{ sanphamOb.sp_ten }} </div>
-                                    <h4 class="price">@{{ sanphamOb.sp_gia -sanphamOb.sp_gia * sanphamOb.sp_km/100}}</h4>
-                                <div class="button_group"><button class="button add-cart" type="button" ng-click="detail(sanphamOb.id_sp,sanphamOb.sp_idloai)" onclick="location.href ='{{ route('guest_detail_sp_route') }}';">Mua Ngay</button><button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
-                                </div>
+                        <div class="row" >
+                    @endif
+                           <div class="col-md-3 col-sm-6"  >
+                              <div class="products"  ng-click="detail({{$sanphamOb->id_sp}},{{$sanphamOb->sp_idloai}})">
+                                 <div class="offer" >- {{ $sanphamOb->sp_km }} %</div>
+                                 <div class="thumbnail" >
+                                    <a href="" ng-click="detail({{$sanphamOb->id_sp}},{{$sanphamOb->sp_idloai}})">
+                                        @foreach($hinhspList as $hinhOB)
+                                            @if($hinhOB->hinh_idsp==$sanphamOb->id_sp)
+                                        <img   src="{{URL ('images/products/small/'. $hinhOB->vitri_hinh  )}}" alt="">
+                                            @endif
+                                        @endforeach
+                                    </a>
+                                 </div>
+                                 <div class="productname">{{ $sanphamOb->sp_ten }} </div>
+                                 <h4 class="price">{{ number_format( $sanphamOb->sp_gia - $sanphamOb->sp_gia * $sanphamOb->sp_km/100) }}</h4>
+                                 <div class="button_group">
+                                    <button class="button add-cart" type="button" ng-click="detail({{$sanphamOb->id_sp}},{{$sanphamOb->sp_idloai}})" >Mua Ngay</button>
+                                   
+                                 </div>
+                              </div>
                            </div>
+                     @if($x==3)
                         </div>
                      </li>
-                     
+                        @php $x=0; @endphp
+                     @else
+                        @php $x++; @endphp
+                     @endif
+                     @endforeach
                   </ul>
                </div>
                <div class="clearfix"></div>

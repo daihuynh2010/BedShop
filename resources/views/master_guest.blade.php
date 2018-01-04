@@ -28,14 +28,22 @@
                   <div class="col-md-10 col-sm-10">
                      <div class="header_top">
                         <div class="row">
-                           <div class="col-md-7 col-md-offset-1" style="padding: 0px" >
+                           <div class="col-md-7 col-md-offset-1" style="padding: 0px"  ng-controller="SanPhamControllerNG">
                               <div class="col-md-10" style="padding: 0px;">
-                                 <input style="width: 100%" placeholder="Nhập sản phẩm hay thương hiệu ..." type="text" value="" name="search">
+                                 <input style="width: 100%" ng-model="search" placeholder="Nhập sản phẩm hay thương hiệu ..." type="text" value="" class="search">
                               </div>
-                              <div class="col-md-2" style="padding-top:2px;padding-bottom: 0px;padding-right: 5px;padding-left: 2px;">
+                              <div class="col-md-10 list-search" >
+                                <ul>
+                                  <li ng-click="detail(sanphamOB.id_sp,sanphamOB.sp_idloai)" class="list_result_search" ng-repeat="sanphamOB in sanphamListsearch | filter:search">
+                                    <!-- <img style="height:100%;width:40%" ng-repeat="hinhOB in hinhspList" ng-if="hinhOB.hinh_idsp==sanphamOB.id_sp" src="@{{ URL_image }}@{{ hinhOB.vitri_hinh }}" alt="Product Name">   -->
+                                     <a href="" > @{{ sanphamOB.sp_ten }}</a>
+                                  </li>
+                                </ul>
+                              </div>
+                              <!-- <div class="col-md-2" style="padding-top:2px;padding-bottom: 0px;padding-right: 5px;padding-left: 2px;">
                                  <input style="width: 100%;background-color: #FF3399" class="search-submit" type="submit" value="">
-                              </div>
-                           </div>
+                              </div> -->
+                           </div> 
                            <div class="col-md-3 col-md-offset-1">
                               <ul class="btn btn-block usermenu">
                                  <li><a href="{{ route('guest_login_route') }}" id="LoginModal" class="log ">Đăng Nhập</a></li>
@@ -50,20 +58,39 @@
                         <div class="navbar-collapse collapse navbar-menu" ng-controller="LoaiSanPhamNG">
                            <ul class="nav navbar-nav"> 
                               <li class="active"><a href="{{ route('guest_home_route') }}"  >Trang Chủ</a></li>
-                              <li class="master_dropdow_list"  ng-mouseover="chon('nam')"><a href="#">Thời Trang Nam</a>
+                              <li class="master_dropdow_list" ><a href="#">Thời Trang Nam</a>
                                 <ul class="master_dropdow_list_content" >
-                                  <li class="master_dropdow_child_list" ng-repeat="loaiSP_Ob in loaiSPList" >
-                                    <a ng-click="timkiem(loaiSP_Ob.id_loaisp,'Thời Trang Nam',loaiSP_Ob.loaisp_ten)" href="{{route('guest_home_search_route')}}">@{{ loaiSP_Ob.loaisp_ten }}</a>
-                                  
+                                  <li class="master_dropdow_child_list" ng-repeat="loaiSP_Ob in loaiSPList |filter:'nam'" >
+                                    <a href="" ng-click="timkiem(loaiSP_Ob.id_loaisp,'Thời Trang Nam',loaiSP_Ob.loaisp_ten)" >@{{ loaiSP_Ob.loaisp_ten }}</a>
                                   </li>
                                 </ul>
                               </li>
                               
-                              <li class=""><a href="#">Thời Trang Nữ</a></li>
-                              <li class=""><a href="#">Mỹ Phẩm</a></li>
-                              <li class=""><a href="#">Mới Nhất</a></li>
-                              <li class=""><a href="#">Khuyến Mãi</a></li>>
-                           </ul>
+                              <li class="master_dropdow_list" ><a href="#">Thời Trang Nữ</a>
+                                <ul class="master_dropdow_list_content" >
+                                  <li class="master_dropdow_child_list" ng-repeat="loaiSP_Ob in loaiSPList|filter:'nữ'" >
+                                    <a ng-click="timkiem(loaiSP_Ob.id_loaisp,'Thời Trang Nữ',loaiSP_Ob.loaisp_ten)" href="">@{{ loaiSP_Ob.loaisp_ten }}</a>
+                                  
+                                  </li>
+                                </ul>
+                              </li>
+                              <li class="master_dropdow_list" ><a href="#">Mỹ Phẩm</a>
+                                <ul class="master_dropdow_list_content" >
+                                  <li class="master_dropdow_child_list" ng-repeat="loaiSP_Ob in loaiSPList|filter:'phẩm'" >
+                                    <a ng-click="timkiem(loaiSP_Ob.id_loaisp,'Mỹ Phẩm',loaiSP_Ob.loaisp_ten)" href="">@{{ loaiSP_Ob.loaisp_ten }}</a>
+                                  
+                                  </li>
+                                </ul>
+                              </li>
+                              <li class="master_dropdow_list" ><a href="#">Son Môi</a>
+                                <ul class="master_dropdow_list_content" >
+                                  <li class="master_dropdow_child_list" ng-repeat="loaiSP_Ob in loaiSPList|filter:'son'" >
+                                    <a ng-click="timkiem(loaiSP_Ob.id_loaisp,'Son Môi',loaiSP_Ob.loaisp_ten)" href="">@{{ loaiSP_Ob.loaisp_ten }}</a>
+                                  
+                                  </li>
+                                </ul>
+                              </li>
+                            </ul>
                         </div>
                      </div>
                   </div>
@@ -137,11 +164,14 @@
      <script defer src="{{URL ('js/jquery.flexslider.js') }}"></script>
      <script type="text/javascript" src="{{URL ('js/script.min.js') }}" ></script>
      <script type="text/javascript" src="{{URL ('js/jquery.elevatezoom.js') }}"></script>
+     <!-- zoom image -->
+     <sctipt src="{{URL ('js/jquery.elevatezoom.js') }}"></script>
+     <sctipt src="{{URL ('js/jquery.elevatezoom-3.0.8.min.js') }}"></script>
      <!--AngularJS-->
-    <script src="{{ URL ('app/lib/angular.min.js') }}"></script>
-    <script>
+     <script src="{{ URL ('app/lib/angular.min.js') }}"></script>
+     <script>
       var UrlAngular="{{URL('/')}}/";
-    </script>
-    <script src="{{ URL ('app/app.js') }}"></script>
+     </script>
+     <script src="{{ URL ('app/app.js') }}"></script>
    </body>
 </html>

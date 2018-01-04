@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="bedshop_admin">
    <head>
       <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
       <meta name="description" content="">
@@ -40,8 +40,7 @@
        <link href="{{ URL ('admin_design/custom.css') }}" rel="stylesheet">
    </head>
    <body id="home">
-      <!-- <app-root>Loading.....</app-root> -->
-      <div class="wrapper">
+      <div class="wrapper" >
          <!-- header page -->
           <div class="header" >
             <div class="container">
@@ -52,8 +51,8 @@
                      </div>
                   </div>
                   <div class="col-md-1 col-md-offset-9" style="padding: 30px 30px 0 0;">
-                     <ul class="btn btn-block usermenu">
-                        <li><a href="{{ route('guest_home_route') }}" class="reg">Đăng Xuất</a></li>
+                     <ul class="btn btn-block usermenu" >
+                        <li><a href="{{ route('logout') }}" class="reg">Đăng Xuất</a></li>
                      </ul>
                   </div>
                </div>
@@ -62,7 +61,7 @@
          <!-- main-content -->
           <div class="clearfix"></div>
 
-          <div class="container_fullwidth" style="background-color: #E8E8E8;padding: 0;">
+          <div class="container_fullwidth" style="background-color: #E8E8E8;padding: 0;" >
             <div class="nav-md">
               <div class="container body">
                 <div class="main_container">
@@ -83,7 +82,15 @@
          <!--footer page -->
          
       </div>
-      @yield('modal')
+      @yield('modal') 
+       <!-- bootstrap in angularjs -->
+      <!-- <script src="{{URL ('app/lib/ui-bootstrap-tpls-2.5.0.js')}}"></script> -->
+      <script src="{{ URL ('app/lib/ui-bootstrap-tpls-2.5.0.min.js')}}"></script>
+      <script src="{{ URL ('app/lib/angular-sanitize.js')}}"></script>
+      <script src="{{ URL ('app/lib/angular.js')}}"></script>
+      <script src="{{ URL ('app/lib/angular-animate.js')}}"></script>
+      <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+      
       <!-- Bootstrap core JavaScript==================================================-->
       <script type="text/javascript" src="{{URL ('js/jquery-1.10.2.min.js') }}"></script>
       <script type="text/javascript" src="{{URL ('js/jquery.easing.1.3.js') }}"></script>
@@ -146,7 +153,7 @@
       <!--AngularJS-->
       <script src="{{ URL ('app/lib/angular.min.js') }}"></script>
       <script>
-        var UrlAngular="{{URL('/angular')}}/";
+        var UrlAngular="{{URL('/')}}/";
       </script>
       <script src="{{ URL ('app/app.js') }}"></script>
    </body>

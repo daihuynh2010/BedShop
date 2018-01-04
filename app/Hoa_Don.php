@@ -24,6 +24,6 @@ class Hoa_Don extends Model
 
     public function Users()
     {
-        return $this->belongsTo('App\Users','id_user','id');
+        return $this->belongsTo('App\User','id_user','id');
     }
 }

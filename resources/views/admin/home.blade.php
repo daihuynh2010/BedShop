@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="bedshop_admin">
    <head>
       <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
       <meta name="description" content="">
@@ -39,8 +39,8 @@
        <!-- Custom Theme Style -->
        <link href="{{ URL ('admin_design/custom.css') }}" rel="stylesheet">
    </head>
-   <body id="home">
-      <div class="wrapper">
+   <body id="home" ng-controller="AdminControllerNG">
+      <div class="wrapper"> 
          <!-- header page -->
          <div class="header" >
             <div class="container">
@@ -52,7 +52,7 @@
                   </div>
                   <div class="col-md-1 col-md-offset-9" style="padding: 30px 30px 0 0;">
                      <ul class="btn btn-block usermenu">
-                        <li><a href="{{ route('guest_home_route') }}" class="reg">Đăng Xuất</a></li>
+                        <li><a href="{{ route('logout') }}" class="reg">Đăng Xuất</a></li>
                      </ul>
                   </div>
                </div>
@@ -66,17 +66,17 @@
             <div class="panel_body">
                 <div class="row">
                     <div class="col-md-2 col-sm-2 col-xs-6">
-                        <a id="UserAdd" class="btn btn-block btn-success"><i class="fa fa-plus"></i> Thêm Tài Khoản </a>
+                        <a id="UserAdd" class="btn btn-block btn-success"><i class="fa fa-plus"></i> Thêm Tài Khoản </a>      
                     </div>
                 </div>
             </div>
             </div>
-            <div class="x_panel">
+            <div class="x_panel"  >
                <div class="x_title">
                   <h4>Danh sách Các Tài Khoản</h4>
                   <div class="clearfix"></div>
                </div>
-               <div class="x_content">
+               <div class="x_content" >
                   <table id="datatable-checkbox" class="table table-striped table-bordered jambo_table bulk_action">
                      <thead>
                         <tr class="headings">
@@ -94,22 +94,32 @@
                         </tr>
                      </thead>
                      <tbody>
-                        <tr>
-                           <td>
-                              <input type="checkbox" class="flat" name="table_records" />
-                           </td>
-                           <td>1</td>
-                           <td> Huỳnh QUốc Đại </td>
-                           <td> daihuynh2010@gmai.com </td>
-                           <td> ĐH SPKT TPHCM </td>
-                           <td> 150 </td>
-                           <td> Quản Lý</td>
-                           <td class="action-column">
-                              <a class="edit_user_button" href="#" ><i class="fa fa-edit" title="Chỉnh Sửa"></i></a>
-                              <a class="delete_user_button" href="#"><i class="fa fa-trash" title="Xóa"></i></a>
-                              <a class="send_mail_button" href="#"><i class="fa fa-list" title="Gửi Email"></i></a>
-                           </td>
+                        @foreach($userList as $userOB)
+                        <tr >
+                            <td>
+                            <input type="checkbox" class="flat" name="table_records" />
+                            </td>
+                            <td> {{ $loop->index +1 }}</td>
+                            <td> {{ $userOB->name }} </td>
+                            <td> {{ $userOB->email }} </td>
+                            <td> {{ $userOB->dd_giaohang_md }} </td>
+                            <td> {{ $userOB->tich_diem }} </td>
+                            @if($userOB->chuc_vu==3)
+                            <td > Admin </td>
+                            @endif
+                            @if($userOB->chuc_vu==2)
+                            <td > Quản Lý </td>
+                            @endif
+                            @if($userOB->chuc_vu==1)
+                            <td > Thành Viên </td>
+                            @endif
+                            <td class="action-column">
+                            <a class="edit_user_button" ng-click="edit({{$userOB->id}})" ><i class="fa fa-edit" title="Chỉnh Sửa"></i></a>
+                            <a class="delete_user_button" ng-click="delete({{$userOB->id}})" ><i class="fa fa-trash" title="Xóa"></i></a>
+                            <a class="send_mail_button" ><i class="fa fa-list" title="Gửi Email"></i></a>
+                            </td>
                         </tr>
+                        @endforeach
                      </tbody>
                   </table>
                </div>
@@ -185,36 +195,54 @@
                         <div class="item form-group">
                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Email : </label>
                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" class="form-control"  required >
+                              <input type="text" class="form-control" ng-model="add.email" required >
                            </div>
                         </div>
                         <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3">Mật Khẩu : </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                           <input type="password" class="form-control" ng-model="add.pws" required >
+                        </div>
+                     </div>
+                        <div class="item form-group">
                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Họ Tên : </label>
                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" class="form-control"  required >
+                              <input type="text" class="form-control" ng-model="add.hoten" required >
+                           </div>
+                        </div>
+                        <div class="item form-group">
+                           <label class="control-label col-md-3 col-sm-3 col-xs-3">Số Điện Thoại : </label>
+                           <div class="col-md-6 col-sm-6 col-xs-12">
+                              <input type="number" class="form-control" ng-model="add.sdt" required >
                            </div>
                         </div>
                         <div class="item form-group">
                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Chức Vụ : </label>
                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <select id="ChooseChucVu_Add">
+                              <select id="ChooseChucVu_Add" ng-init="add.chuc_vu='1'" ng-change="chucvu_add(add.chuc_vu)" ng-model="add.chuc_vu">
                                  <option value="1">Thành Viên</option>
                                  <option value="2">Quản Lý</option>
                                  <option value="3">Quản Trị Viên</option>
                               </select>
                            </div>
                         </div>
-                        <div class="item form-group " id="ChooseUser_Add">
+                        <div class="item form-group" >
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Điểm tích lũy : </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="number" class="form-control" ng-model="add.tich_diem" required >
+                            </div>
+                        </div>
+                        <div class="item form-group " >
                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Địa Điểm Giao Hàng :</label>
                            <div class="col-md-6 col-sm-6 col-xs-12"> 
-                              <input type="text" class="form-control"  required >
+                              <input type="text" class="form-control" ng-model="add.dd_giaohang" required >
                            </div>
                         </div>
                         <div class="ln_solid"></div>
                         <div class="form-group">
                            <div class="col-md-12 col-sm-12 col-xs-12 center">
                               <button type="button" class="btn btn-primary btncancel">Cancel</button>
-                              <button type="submit" class="btn btn-success">Submit</button>
+                              <button type="button" class="btn btn-success" ng-click="add()">Submit</button>
                            </div>
                         </div>
                      </form>
@@ -225,60 +253,77 @@
          </div>
       </div>
       <!--  Model Edit User -->
-      <div id="edit_class_modal" class="modal_add_class" style="display: none;">
-        <!-- Modal content -->
-         <div class="modal-content_add_class">
-            <div class="modal-header_add_class">
-               <span class="close_add_class">&times;</span>
-               <h2>Chỉnh Sửa Tài Khoản</h2>
+      <script type="text/ng-template" id="EditUser.html">
+        <div class="modal-header" >
+            <div class="cancel pull-right">
+                <span class="close" ng-click="cancel()">X</span>
             </div>
-            <div class="modal-body_add_class">
-               <div class="x_panel">
-                  <div class="x_content"><br/>
-                     <form class="form-horizontal" action="#" method="POST">
-                        <div class="item form-group">
-                           <label class="control-label col-md-3 col-sm-3 col-xs-3">Email :</label>
-                           <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" class="form-control" required value="daihuynh2010@gmail.com">
-                           </div>
-                        </div>
-                        <div class="item form-group">
-                           <label class="control-label col-md-3 col-sm-3 col-xs-3">Họ Tên :</label>
-                           <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" class="form-control" required value="Huỳnh Quốc Đại">
-                           </div>
-                        </div>
-                        <div class="item form-group">
-                           <label class="control-label col-md-3 col-sm-3 col-xs-3">Chức Vụ : </label>
-                           <div class="col-md-6 col-sm-6 col-xs-12">
-                              <select id="ChooseChucVu_Edit">
-                                 <option value="1">Thành Viên</option>
-                                 <option value="2">Quản Lý</option>
-                                 <option value="3">Quản Trị Viên</option>
-                              </select>
-                           </div>
-                        </div>
-                        <div class="item form-group" id="ChooseUser_Edit">
-                           <label class="control-label col-md-3 col-sm-3 col-xs-3">Địa Điểm Giao Hàng :</label>
-                           <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" class="form-control" required value="ĐH SPKT HCM">
-                           </div>
-                        </div>
-                        <div class="ln_solid"></div>
-                        <div class="form-group">
-                           <div class="col-md-12 col-sm-12 col-xs-12 center">
-                              <button type="button" class="btn btn-primary btncancel">Cancel</button>
-                              <button id="btnSubmit" type="button" class="btn btn-success">Submit</button>
-                           </div>
-                        </div>
-                     </form>
-                 </div>
-             </div>
-            </div>
-            <div class="modal-footer_add_class">
-            </div>
+            <h2 class="modal-title">Thông Tin Tài Khoản</h2>
         </div>
-      </div>
+        <div class="modal-body">
+            <div class="x_panel">
+                    <div class="x_content"><br/>
+                        <form class="form-horizontal" action="" method="POST">
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-3">Email : </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" class="form-control" ng-model="user.email" required >
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-3">Họ Tên : </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" class="form-control" ng-model="user.name"  required >
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-3">Số Điện Thoại : </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" class="form-control" ng-model="user.sdt" required >
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-3">Chức Vụ : </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select  ng-if="user.chuc_vu==1" ng-init="chuc_vu='1'" ng-change="chucvu(chuc_vu)" ng-model="chuc_vu" >
+                                    <option value="1" selected>Thành Viên</option>
+                                    <option value="2">Quản Lý</option>
+                                    <option value="3">Quản Trị Viên</option>
+                                </select>
+                                <select  ng-if="user.chuc_vu==2" ng-init="chuc_vu='2'" ng-change="chucvu(chuc_vu)" ng-model="chuc_vu">
+                                    <option value="1" >Thành Viên</option>
+                                    <option value="2" selected>Quản Lý</option>
+                                    <option value="3">Quản Trị Viên</option>
+                                </select>
+                                <select ng-if="user.chuc_vu==3" ng-init="chuc_vu='3'" ng-change="chucvu(chuc_vu)" ng-model="chuc_vu">
+                                    <option value="1" >Thành Viên</option>
+                                    <option value="2" >Quản Lý</option>
+                                    <option value="3" selected>Quản Trị Viên</option>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-3">Điểm tích lũy : </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="number" class="form-control" ng-model="user.tich_diem" required >
+                                </div>
+                            </div>
+                            <div class="item form-group " id="ChooseUser_Add">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-3">Địa Điểm Giao Hàng :</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12"> 
+                                <input type="text" class="form-control" ng-model="user.dd_giaohang_md" required >
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary btncancel" ng-click="cancel()">Hủy</button>
+            <button type="submit" class="btn btn-success" ng-click="ok()">Submit</button>
+        </div>
+      </script>
       <!-- Model Send Email -->
       <div id="send_mail_modal" class="modal_add_class" style="display: none;">
         <!-- Modal content -->
@@ -319,22 +364,43 @@
         </div>
       </div>
        <!-- Form confirm delete User -->
-      <div id="dialog-confirm-delete-class" class="jquery-ui-dialog" title="Xóa Thành Viên?" hidden>
-         <p><span class="ui-icon ui-icon-alert"></span>Bạn có chắc muốn <strong>Xóa Tài Khoản</strong> này ?</p>
-      </div>
+       <script type="text/ng-template" id="DeleteUser.html">
+        <div class="modal-header">
+            <div class="cancel pull-right">
+            <span class="close" ng-click="cancel()">X</span>
+            </div>
+            <h2 class="modal-title">Xóa Tài Khoản</h2>
+        </div>
+        <div class="modal-body">
+            <span>Bạn có chắc chắn muốn xóa @{{userdelete.email}}</span>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary btncancel" ng-click="cancel()">Hủy</button>
+            <button type="submit" class="btn btn-success" ng-click="ok()">Xoá</button>
+        </div>
+       </script>
       <!-- /Form confirm delete User -->
 
+      <!-- bootstrap in angularjs -->
+      <!-- <script src="{{URL ('app/lib/ui-bootstrap-tpls-2.5.0.js')}}"></script> -->
+      <script src="{{ URL ('app/lib/ui-bootstrap-tpls-2.5.0.min.js')}}"></script>
+      <script src="{{ URL ('app/lib/angular-sanitize.js')}}"></script>
+      <script src="{{ URL ('app/lib/angular.js')}}"></script>
+      <script src="{{ URL ('app/lib/angular-animate.js')}}"></script>
+      <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+
       <!-- Bootstrap core JavaScript==================================================-->
-      <script type="text/javascript" src="{{URL ('js/jquery-1.10.2.min.js') }}"></script>
+      <script type="text/javascript" src="{{URL ('js/jquery-3.2.1.min.js') }}"></script>
       <script type="text/javascript" src="{{URL ('js/jquery.easing.1.3.js') }}"></script>
       <script type="text/javascript" src="{{URL ('js/bootstrap.min.js') }}"></script>
       <script type="text/javascript" src="{{URL ('js/jquery.sequence-min.js') }}"></script>
       <script type="text/javascript" src="{{URL ('js/custom.js') }}"></script>
       <script type="text/javascript" src="{{URL ('js/app.js') }}"></script>
       <script type="text/javascript" src="{{URL ('js/jquery.carouFredSel-6.2.1-packed.js') }}"></script>
-      <script defer src="{{URL ('js/jquery.flexslider.js') }}"></script>
+      <script src="{{URL ('js/jquery.flexslider.js') }}"></script>
       <script type="text/javascript" src="{{URL ('js/script.min.js') }}" ></script>
       <script type="text/javascript" src="{{URL ('js/jquery.elevatezoom.js') }}"></script>
+      
       <!-- jQuery -->
       <script src="{{ URL ('admin_design/vendors/jquery/dist/jquery.min.js') }}"></script>
       <!--JQuery UI -->
@@ -382,8 +448,15 @@
       <!-- TinyMCE -->
       <script src="{{ URL ('admin_design/vendors/tinymce/tinymce.min.js') }}"></script>
       <!-- js-xslx -->
-      <script src="{{ URL ('admin_design/vendors/js-xlsx/dist/xlsx.full.min.js') }}"></script>
+      <!-- <script src="{{ URL ('admin_design/vendors/js-xlsx/dist/xlsx.full.min.js') }}"></script> -->
       <!-- Custom Theme Scripts -->
       <script src="{{ URL ('admin_design/custom.js') }}"></script>
+
+      <!--AngularJS-->
+      <script src="{{ URL ('app/lib/angular.min.js') }}"></script>
+        <script>
+            var UrlAngular="{{URL ('/')}}/";
+        </script>
+        <script src="{{ URL ('app/app.js') }}"></script>
    </body>
 </html>

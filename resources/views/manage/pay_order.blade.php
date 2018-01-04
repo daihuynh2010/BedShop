@@ -10,7 +10,7 @@
             <h4>Danh Sách Đơn Đang Chuyển</h4>
             <div class="clearfix"></div>
         </div>
-        <div class="x_content">
+        <div class="x_content" ng-controller="ThanhToanDonHangControllerNG">
             <table id="class-list-table"class="center datatable table table-striped table-bordered jambo_table">
                 <thead>
                     <tr class="headings">
@@ -24,17 +24,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                @foreach($hoadonList as $hoadonOB)
+                    <tr >
+                        <td>{{ $loop->index +1 }}</td>
+                        <td>{{ $hoadonOB->id_hd }}</td>
+                        <td>{{ $hoadonOB->id_user }}</td>
+                        <td>{{ number_format($hoadonOB->tongtien) }}</td>
+                        <td>{{ $hoadonOB->dd_giao_hang }}</td>
+                        <td>{{ $hoadonOB->cach_thanh_toan }}</td>
                         <td class="action-column">
-                            <a class="delete_user_button""><i class="fa fa-edit" title="Thanh Toán"></i></a>
+                            <a class="delete_user_button" ng-click="thanhtoan({{$hoadonOB->id_hd}})"><i class="fa fa-edit" title="Thanh Toán"></i></a>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -43,8 +45,22 @@
 @stop
 
 @section('modal')
-    <!-- Modal delete New Order -->
-    <div id="dialog-confirm-delete-class" class="jquery-ui-dialog" title="Thanh Toán Đơn Hàng?" hidden>
-         <p><span class="ui-icon ui-icon-alert"></span>Bạn có chắc muốn <strong>Thanh Toán Đơn Hàng</strong> này ?</p>
+    <!-- Modal Kết Thúc Đơn Hàng -->
+    <div ng-controller="ThanhToanDonHangControllerNG">
+        <script type="text/ng-template" id="ThanhToan.html">
+            <div class="modal-header">
+            <div class="cancel pull-right">
+            <span class="close" ng-click="cancel()">X</span>
+            </div>
+            <h2 class="modal-title">Thanh Toán Đơn Hàng</h2>
+            </div>
+            <div class="modal-body">
+                <span>Bạn có chắc chắn muốn <strong>Thanh Toán</strong> đơn hàng có mã: @{{hoadon.id_hd}}</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btncancel" ng-click="cancel()">Hủy</button>
+                <button type="submit" class="btn btn-success" ng-click="ok()">Thanh Toán</button>
+            </div>
+        </script>
     </div>
 @stop

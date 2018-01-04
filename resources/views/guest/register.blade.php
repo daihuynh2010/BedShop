@@ -14,6 +14,14 @@
 		    
 		    <form class="login_form" ng-controller="RegisterControllerNG">
 		    	<div class="row container">
+					<div class="row">
+					    <label class="label_register"  ><b>Họ và Tên :</b></label>
+					    <input class="input_register" id="name" ng-model="taikhoan.name" type="text" placeholder="Họ và Tên"  required>
+				    </div>
+					<div class="row">
+					    <label class="label_register"  ><b>Số Điện Thoại :</b></label>
+					    <input class="input_register" id="sdt" ng-model="taikhoan.sdt" type="number" placeholder="Số Điện Thoại"  required>
+				    </div>
 		    		<div class="row">
 					    <label class="label_register"  ><b>Email :</b></label>
 					    <input class="input_register" id="email" ng-model="taikhoan.email" type="Email" placeholder="Username"  required>
@@ -31,7 +39,7 @@
 					</div>
 					<div class="row">
 					    <label 	   class="label_register"  >Địa chỉ nhận hàng :</label>
-					    <textarea  class="input_register"  style="height: 100px;" ng-model="taikhoan.ddnhanhang" type="text" placeholder="Vui lòng nhập rõ địa chỉ"  required></textarea>
+					    <textarea  class="input_register"  style="height: 50px;" ng-model="taikhoan.ddnhanhang" type="text" placeholder="Vui lòng nhập rõ địa chỉ"  required></textarea>
 					</div>
 
 					<div class="row" style="padding-bottom: 15px;" >
@@ -42,9 +50,6 @@
 						<button class="stylelogin" ng-click="register()">Đăng Ký</button>
 					</div>
 				</div>
-				
-				
-				
 		    </form>
 	   	</div>
 	   	<div class="center">

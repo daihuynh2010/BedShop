@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="bedshop">
    <head>
       <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
       <meta name="description" content="">
@@ -28,18 +28,26 @@
                   <div class="col-md-10 col-sm-10">
                      <div class="header_top">
                         <div class="row">
-                           <div class="col-md-7 col-md-offset-1" style="padding: 0px" >
+                           <div class="col-md-7 col-md-offset-1" style="padding: 0px" ng-controller="SanPhamControllerNG">
                               <div class="col-md-10" style="padding: 0px;">
-                                 <input style="width: 100%" placeholder="Nhập sản phẩm hay thương hiệu ..." type="text" value="" name="search">
+                                <input style="width: 100%" ng-model="search" placeholder="Nhập sản phẩm hay thương hiệu ..." type="text" value="" class="search">
                               </div>
-                              <div class="col-md-2" style="padding-top:2px;padding-bottom: 0px;padding-right: 5px;padding-left: 2px;">
+                              <div class="col-md-10 list-search" >
+                                <ul>
+                                  <li ng-click="detail(sanphamOB.id_sp,sanphamOB.sp_idloai)" class="list_result_search" ng-repeat="sanphamOB in sanphamListnew | filter:search">
+                                    <!-- <img style="height:100%;width:40%" ng-repeat="hinhOB in hinhspList" ng-if="hinhOB.hinh_idsp==sanphamOB.id_sp" src="@{{ URL_image }}@{{ hinhOB.vitri_hinh }}" alt="Product Name">   -->
+                                    <a > @{{ sanphamOB.sp_ten }}</a>
+                                  </li>
+                                </ul>
+                              </div>
+                              <!-- <div class="col-md-2" style="padding-top:2px;padding-bottom: 0px;padding-right: 5px;padding-left: 2px;">
                                  <input style="width: 100%;background-color: #FF3399" class="search-submit" type="submit" value="">
-                              </div>
+                              </div> -->
                            </div>
-                           <div class="col-md-3 col-md-offset-1">
-                              <ul class="btn btn-block usermenu">
-                                 <li><a href="{{ route('user_info_route') }}" id="LoginModal" class="log ">Quốc Đại</a></li><!--thông tin user -->
-                                 <li><a href="{{ route('guest_home_route') }}" class="reg">Đăng Xuất</a></li>
+                           <div class="col-md-3 col-md-offset-1" ng-controller="HoaDonControllerNG">
+                              <ul class="btn btn-block usermenu" width="100%">
+                                 <li><a  href="{{ route('user_info_route') }}" id="LoginModal" class="log ">@{{user.name}}</a></li><!--thông tin user -->
+                                 <li ><a href="{{ route('logout') }}" class="reg">Đăng Xuất</a></li>
                               </ul>
                            </div>
                         </div>
@@ -47,48 +55,66 @@
                      <div class="clearfix"></div>
                      <div class="header_bottom">
                         <ul class="option">
-                           <li class="option-cart">
-                              <a href="#" class="cart-icon"><span class="cart_no">02</span></a>
-                              <ul class="option-cart-item">
-                                 <li>
-                                    <div class="cart-item">
-                                       <div class="image"><img src="{{URL ('images/products/thum/products-01.png') }}" alt=""></div>
+                           <li class="option-cart" ng-controller="HoaDonControllerNG">
+                              <a href="#" class="cart-icon"><span class="cart_no">@{{hoadon.tong_sp}}</span></a>
+                              <ul class="option-cart-item" ng-if="hoadon">
+                                 <li ng-repeat="detail_hoadon in detail_hoadonList" >
+                                    <div class="cart-item" class="row">
+                                       <div class="image">
+                                          <img ng-repeat="hinhOB in hinhspList" ng-if="hinhOB.hinh_idsp==detail_hoadon.pivot.id_sp" src="@{{ URL_image }}thum/@{{ hinhOB.vitri_hinh }}" alt="">
+                                       </div>
                                        <div class="item-description">
-                                          <p class="name">Đầm</p>
-                                          <p>Size: <span class="light-red"> M</span><br>Só lượng: <span class="light-red">01</span></p>
+                                          <p class="name">@{{ detail_hoadon.sp_ten }}</p>
+                                          <p>Size: <span class="light-red">@{{ detail_hoadon.sp_kichthuoc }}</span>
+                                          <br>Só lượng: <span class="light-red">@{{ detail_hoadon.pivot.so_luong }}</span></p>
                                        </div>
                                        <div class="right">
-                                          <p class="price">$30.00</p>
-                                          <a href="#" class="remove"><img src="{{URL ('images/remove.png') }}" alt="remove"></a>
+                                          <a href="" class="remove" ng-click="removeSP(detail_hoadon.id_sp,iduser)"><img src="{{URL ('images/remove.png') }}" alt=""></a>
+                                          <p class="price">@{{ (detail_hoadon.sp_gia -detail_hoadon.sp_gia * detail_hoadon.sp_km/100) *detail_hoadon.pivot.so_luong |number }}</p>
+                                          
                                        </div>
                                     </div>
                                  </li>
-                                 <li>
-                                    <div class="cart-item">
-                                       <div class="image"><img src="{{URL ('images/products/thum/products-02.png') }}" alt=""></div>
-                                       <div class="item-description">
-                                          <p class="name">Đầm</p>
-                                          <p>Size: <span class="light-red"> M</span><br>Só lượng: <span class="light-red">01</span></p>
-                                       </div>
-                                       <div class="right">
-                                          <p class="price">$30.00</p>
-                                          <a href="#" class="remove"><img src="{{URL ('images/remove.png') }}" alt="remove"></a>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li><span class="total">Tổng Tiền <strong>$60.00</strong></span><button class="checkout" onClick="location.href='#'">Thanh toán</button></li>
+                                 <li><span class="total">Tổng Tiền <strong>@{{ hoadon.tongtien |number }}</strong></span><button class="checkout" onClick="location.href ='{{ route('user_buy_sp_route') }}'">Thanh toán</button></li>
                               </ul>
                            </li>
                         </ul>
-                        <div class="navbar-collapse collapse navbar-menu">
-                           <ul class="nav navbar-nav">
-                              <li class="active"><a href="{{ route('user_home_route') }}"  >Trang Chủ</a></li>
-                              <li><a href="#">Thời Trang Nam</a></li>
-                              <li><a href="#">Thời Trang Nữ</a></li>
-                              <li><a href="#">Mỹ Phẩm</a></li>
-                              <li><a href="#">Mới Nhất</a></li>
-                              <li><a href="#">Khuyến Mãi</a></li>>
-                           </ul>
+                        <div class="navbar-collapse collapse navbar-menu" ng-controller="LoaiSanPhamNG">
+                          <ul class="nav navbar-nav"> 
+                            <li class="active"><a href="{{ route('user_home_route') }}"  >Trang Chủ</a></li>
+                            <li class="master_dropdow_list" ><a href="#">Thời Trang Nam</a>
+                              <ul class="master_dropdow_list_content" >
+                                <li class="master_dropdow_child_list" ng-repeat="loaiSP_Ob in loaiSPList |filter:'nam'" >
+                                  <a href="" ng-click="timkiemsp_user(loaiSP_Ob.id_loaisp,'Thời Trang Nam',loaiSP_Ob.loaisp_ten)" >@{{ loaiSP_Ob.loaisp_ten }}</a>
+                                </li>
+                              </ul>
+                            </li>
+                          
+                          <li class="master_dropdow_list" ><a href="#">Thời Trang Nữ</a>
+                            <ul class="master_dropdow_list_content" >
+                              <li class="master_dropdow_child_list" ng-repeat="loaiSP_Ob in loaiSPList|filter:'nữ'" >
+                                <a ng-click="timkiemsp_user(loaiSP_Ob.id_loaisp,'Thời Trang Nữ',loaiSP_Ob.loaisp_ten)" href="">@{{ loaiSP_Ob.loaisp_ten }}</a>
+                              
+                              </li>
+                            </ul>
+                          </li>
+                          <li class="master_dropdow_list" ><a href="#">Mỹ Phẩm</a>
+                            <ul class="master_dropdow_list_content" >
+                              <li class="master_dropdow_child_list" ng-repeat="loaiSP_Ob in loaiSPList|filter:'phẩm'" >
+                                <a ng-click="timkiemsp_user(loaiSP_Ob.id_loaisp,'Mỹ Phẩm',loaiSP_Ob.loaisp_ten)" href="">@{{ loaiSP_Ob.loaisp_ten }}</a>
+                              
+                              </li>
+                            </ul>
+                          </li>
+                          <li class="master_dropdow_list" ><a href="#">Son Môi</a>
+                            <ul class="master_dropdow_list_content" >
+                              <li class="master_dropdow_child_list" ng-repeat="loaiSP_Ob in loaiSPList|filter:'son'" >
+                                <a ng-click="timkiemsp_user(loaiSP_Ob.id_loaisp,'Son Môi',loaiSP_Ob.loaisp_ten)" href="">@{{ loaiSP_Ob.loaisp_ten }}</a>
+                              
+                              </li>
+                            </ul>
+                          </li>
+                          </ul>
                         </div>
                      </div>
                   </div>
@@ -151,20 +177,23 @@
       <!-- modal -->
        @yield('modals')
       <!-- Bootstrap core JavaScript==================================================-->
-     <script type="text/javascript" src="{{URL ('js/jquery-1.10.2.min.js') }}"></script>
+      <!-- <script type="text/javascript" src="{{URL ('js/jquery-1.10.2.min.js') }}"></script> -->
+     <script type="text/javascript" src="{{URL ('js/jquery-3.2.1.min.js') }}"></script>
      <script type="text/javascript" src="{{URL ('js/jquery.easing.1.3.js') }}"></script>
      <script type="text/javascript" src="{{URL ('js/bootstrap.min.js') }}"></script>
      <script type="text/javascript" src="{{URL ('js/jquery.sequence-min.js') }}"></script>
      <script type="text/javascript" src="{{URL ('js/custom.js') }}"></script>
-     <!-- <script type="text/javascript" src="{{URL ('js/app.js') }}"></script> -->
+     <script type="text/javascript" src="{{URL ('js/app.js') }}"></script>
      <script type="text/javascript" src="{{URL ('js/jquery.carouFredSel-6.2.1-packed.js') }}"></script>
      <script defer src="{{URL ('js/jquery.flexslider.js') }}"></script>
      <script type="text/javascript" src="{{URL ('js/script.min.js') }}" ></script>
      <script type="text/javascript" src="{{URL ('js/jquery.elevatezoom.js') }}"></script>
-      <!--AngularJS-->
+     <!-- zoom image -->
+     <sctipt typy="text/javascript" src="{{URL ('js/jquery.elevatezoom.js') }}"></script>
+     <!--AngularJS-->
     <script src="{{ URL ('app/lib/angular.min.js') }}"></script>
     <script>
-      var UrlAngular="{{URL('/angular')}}/";
+      var UrlAngular="{{URL('/')}}/";
     </script>
     <script src="{{ URL ('app/app.js') }}"></script>
    </body>

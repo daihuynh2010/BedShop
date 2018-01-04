@@ -5,7 +5,7 @@
 @section('main_content')
 <div class="clearfix"></div>
 <div class="hom-slider">
-            <div class="container">
+            <!-- <div class="container">
                <div id="sequence">
                   <div class="sequence-prev"><i class="fa fa-angle-left"></i></div>
                   <div class="sequence-next"><i class="fa fa-angle-right"></i></div>
@@ -18,7 +18,7 @@
                         <div class="flat-caption caption3 formLeft delay500 text-center">
                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
                         </div>
-                        <div class="flat-button caption4 formLeft delay600 text-center"><a class="more" href="#">More Details</a></div>
+                        <div class="flat-button caption4 formLeft delay600 text-center"><a class="more" href="#">More detailsp_users</a></div>
                         <div class="flat-image formBottom delay200" data-duration="5" data-bottom="true"><img src="{{ URL ('images/slider-image-01.png') }}" alt=""></div>
                      </li>
                      <li>
@@ -28,7 +28,7 @@
                         <div class="flat-caption caption3 formLeft delay500">
                            <h2>Etiam velit purus, luctus vitae velit sedauctor<br>egestas diam, Etiam velit purus.</h2>
                         </div>
-                        <div class="flat-button caption5 formLeft delay600"><a class="more" href="#">More Details</a></div>
+                        <div class="flat-button caption5 formLeft delay600"><a class="more" href="#">More detailsp_users</a></div>
                         <div class="flat-image formBottom delay200" data-bottom="true"><img src="{{ URL ('images/slider-image-02.png') }}" alt=""></div>
                      </li>
                      <li>
@@ -38,7 +38,7 @@
                         <div class="flat-caption caption3 formLeft delay500 text-center">
                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
                         </div>
-                        <div class="flat-button caption4 formLeft delay600 text-center"><a class="more" href="#">More Details</a></div>
+                        <div class="flat-button caption4 formLeft delay600 text-center"><a class="more" href="#">More detailsp_users</a></div>
                         <div class="flat-image formBottom delay200" data-bottom="true"><img src="{{ URL ('images/slider-image-03.png') }}" alt=""></div>
                      </li>
                   </ul>
@@ -58,246 +58,105 @@
                      </div>
                   </div>
                </div>
-            </div>
+            </div> -->
 </div>
 
 <div class="clearfix"></div>
-<div class="container_fullwidth">
-            <div class="container">
-               <div class="hot-products">
-                  <h3 class="title"><strong>Hot</strong> Products</h3>
-                  <div class="control"><a id="prev_hot" class="prev" href="#">&lt;</a><a id="next_hot" class="next" href="#">&gt;</a></div>
-                  <ul id="hot">
-                     <li>
-                        <div class="row">
-                           <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="offer">- %20</div>
-                                 <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-01.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group">
-                                    <button class="button add-cart" type="button" onclick="location.href ='{{ route('user_detail_sp_route') }}';">
-                                       Mua Ngay
-                                    </button>
-                                    <button class="button wishlist" type="button">
-                                       <i class="fa fa-heart-o"></i>
-                                    </button>
-                                 </div>
-                              </div>
+<div class="container_fullwidth" ng-controller="SanPhamControllerNG">
+    <div class="container">
+        <div class="hot-products">
+            <h3 class="title">Mới Nhất </h3>
+            <div class="control"><a id="prev_hot" class="prev" href="#" style="display: inline;">&lt;</a><a style="display: inline;" id="next_hot" class="next" href="#">&gt;</a></div>
+            <ul id="hot" >
+            @php $i=0; @endphp
+            @foreach($sanphamListnew as $sanphamOb)
+              @if($i==0)
+               <li>
+                  <div class="row" >
+              @endif
+                     <div class="col-md-3 col-sm-6"  >
+                        <div class="products"  ng-click="detailsp_user({{$sanphamOb->id_sp}},{{$sanphamOb->sp_idloai}})">
+                           <div class="offer" >- {{ $sanphamOb->sp_km }} %</div>
+                           <div class="thumbnail">
+                              <a href="" ng-click="detailsp_user({{$sanphamOb->id_sp}},{{$sanphamOb->sp_idloai}})">
+                                  @foreach($hinhspList as $hinhOB)
+                                      @if($hinhOB->hinh_idsp==$sanphamOb->id_sp)
+                                  <img   src="{{URL ('images/products/small/'. $hinhOB->vitri_hinh  )}}" alt="">
+                                      @endif
+                                  @endforeach
+                              </a>
                            </div>
-                           <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-02.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
-                              </div>
-                           </div>
-                           <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="offer">New</div>
-                                 <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-03.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
-                              </div>
-                           </div>
-                           <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-04.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
-                              </div>
+                           <div  class="productname">{{ $sanphamOb->sp_ten }} </div>
+                           <h4 class="price">{{ number_format( $sanphamOb->sp_gia - $sanphamOb->sp_gia * $sanphamOb->sp_km/100) }}</h4>
+                           <div class="button_group">
+                              <button class="button add-cart" type="button" ng-click="detailsp_user({{$sanphamOb->id_sp}},{{$sanphamOb->sp_idloai}})" >Mua Ngay</button>
                            </div>
                         </div>
-                     </li>
-                     <li>
-                        <div class="row">
-                           <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="offer">- %20</div>
-                                 <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-01.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
-                              </div>
+                     </div>
+               @if($i==3)
+                  </div>
+               </li>
+                  @php $i=0; @endphp
+               @else
+                  @php $i++; @endphp
+               @endif
+               @endforeach
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+        <div class="featured-products">
+            <h3 class="title">Giảm Giá Mạnh </h3>
+            <div class="control"><a id="prev_featured" class="prev" href="#">&lt;</a><a id="next_featured" class="next" href="#">&gt;</a></div>
+            <ul id="featured">
+            @php $x=0; @endphp
+            @foreach($sanphamListsale as $sanphamOb)
+              @if($x==0)
+               <li>
+                  <div class="row" >
+              @endif
+                     <div class="col-md-3 col-sm-6"  >
+                        <div class="products"  ng-click="detailsp_user({{$sanphamOb->id_sp}},{{$sanphamOb->sp_idloai}})">
+                           <div class="offer" >- {{ $sanphamOb->sp_km }} %</div>
+                           <div class="thumbnail" >
+                              <a href="" ng-click="detailsp_user({{$sanphamOb->id_sp}},{{$sanphamOb->sp_idloai}})">
+                                  @foreach($hinhspList as $hinhOB)
+                                      @if($hinhOB->hinh_idsp==$sanphamOb->id_sp)
+                                  <img   src="{{URL ('images/products/small/'. $hinhOB->vitri_hinh  )}}" alt="">
+                                      @endif
+                                  @endforeach
+                              </a>
                            </div>
-                           <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-02.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
-                              </div>
-                           </div>
-                           <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="offer">New</div>
-                                 <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-03.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
-                              </div>
-                           </div>
-                           <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-04.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
-                              </div>
+                           <div class="productname">{{ $sanphamOb->sp_ten }} </div>
+                           <h4 class="price">{{ number_format( $sanphamOb->sp_gia - $sanphamOb->sp_gia * $sanphamOb->sp_km/100) }}</h4>
+                           <div class="button_group">
+                              <button class="button add-cart" type="button" ng-click="detailsp_user({{$sanphamOb->id_sp}},{{$sanphamOb->sp_idloai}})" >Mua Ngay</button>
+                             
                            </div>
                         </div>
-                     </li>
-                  </ul>
-               </div>
-               <div class="clearfix"></div>
-               <div class="featured-products">
-                  <h3 class="title"><strong>Featured </strong> Products</h3>
-                  <div class="control"><a id="prev_featured" class="prev" href="#">&lt;</a><a id="next_featured" class="next" href="#">&gt;</a></div>
-                  <ul id="featured">
-                     <li>
-                        <div class="row">
-                           <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-05.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
-                              </div>
-                           </div>
-                           <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-06.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
-                              </div>
-                           </div>
-                           <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="offer">New</div>
-                                 <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-07.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
-                              </div>
-                           </div>
-                           <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-04.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
-                              </div>
-                           </div>
-                        </div>
-                     </li>
-                     <li>
-                        <div class="row">
-                           <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-01.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
-                              </div>
-                           </div>
-                           <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-02.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
-                              </div>
-                           </div>
-                           <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-03.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
-                              </div>
-                           </div>
-                           <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="thumbnail"><a href=" {{ route('user_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-04.png') }}" alt="Product Name"></a></div>
-                                 <div class="productname">Đầm </div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button"onclick="location.href ='{{ route('user_detail_sp_route') }}';">Mua Ngay</button> <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
-                              </div>
-                           </div>
-                        </div>
-                     </li>
-                  </ul>
-               </div>
-               <div class="clearfix"></div>
-               <div class="our-brand">
-                  <h3 class="title">CÁCH THỨC THANH TOÁN</h3>
-                  <div class="control"><a id="prev_brand" class="prev" href="#">&lt;</a><a id="next_brand" class="next" href="#">&gt;</a></div>
-                  <ul id="braldLogo">
-                     <li>
-                        <ul class="brand_item">
-                           <li>
-                              <a href="#">
-                                 <div class="brand-logo"><img src="{{ URL ('images/envato.png') }}" alt=""></div>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <div class="brand-logo"><img src="{{ URL ('images/themeforest.png') }}" alt=""></div>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <div class="brand-logo"><img src="{{ URL ('images/photodune.png') }}" alt=""></div>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <div class="brand-logo"><img src="{{ URL ('images/activeden.png') }}" alt=""></div>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <div class="brand-logo"><img src="{{ URL ('images/envato.png') }}" alt=""></div>
-                              </a>
-                           </li>
-                        </ul>
-                     </li>
-                     <li>
-                        <ul class="brand_item">
-                           <li>
-                              <a href="#">
-                                 <div class="brand-logo"><img src="{{ URL ('images/envato.png') }}" alt=""></div>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <div class="brand-logo"><img src="{{ URL ('images/themeforest.png') }}" alt=""></div>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <div class="brand-logo"><img src="{{ URL ('images/photodune.png') }}" alt=""></div>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <div class="brand-logo"><img src="{{ URL ('images/activeden.png') }}" alt=""></div>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <div class="brand-logo"><img src="{{ URL ('images/envato.png') }}" alt=""></div>
-                              </a>
-                           </li>
-                        </ul>
-                     </li>
-                  </ul>
-               </div>
-            </div>
+                     </div>
+               @if($x==3)
+                  </div>
+               </li>
+                  @php $x=0; @endphp
+               @else
+                  @php $x++; @endphp
+               @endif
+               @endforeach
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+        <div class="our-brand">
+            <h3 class="title">CÁCH THỨC THANH TOÁN</h3>
+            <ul id="braldLogo">
+                <li>
+                    <ul class="brand_item">
+                    <li>
+                            <div class="brand-logo"><img src="{{ URL ('images/envato.png') }}" alt=""></div>
+                    </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
 @stop

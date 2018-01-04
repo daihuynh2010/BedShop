@@ -39,14 +39,10 @@ class SanPham extends Model
     }
 
     public function HoaDon(){
-        return $this->belongsToMany('App\Hoa_Don');
-    }
-
-    public function GioHang(){
-        return $this->belongsToMany('App\GioHang');
+        return $this->belongsToMany('App\Hoa_Don','ct_hoadon','id_sp','id_hd')->withPivot('so_luong','so_tien');;
     }
 
     public function Users(){
-        return $this->belongsToMany('App\Users' ,'bl_nx_yt', 'id_sp', 'id')->withPivot('danh_gia','noi_dung','is_thich','created_at');
+        return $this->belongsToMany('App\User' ,'bl_nx_yt', 'id_sp', 'id_user')->withPivot('danh_gia','noi_dung','is_thich','updated_at');
     }
 }

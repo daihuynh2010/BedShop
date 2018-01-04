@@ -12,36 +12,21 @@
             <div class="col-md-9">
               <div class="products-details">
                 <div class="preview_image">
-                  <div class="preview-small">
-                    <img id="zoom_03" src="{{ URL ('images/products/medium/products-01.jpg') }}" data-zoom-image="{{ URL ('images/products/Large/products-01.jpg') }}" alt="">
+                  <div class="preview-small" >
+                    <div class="zoomWrapper" >
+                      <img id="zoom_03" src="@{{ URL_image }}medium/@{{ hinhsp_chinh.vitri_hinh }}" data-zoom-image="@{{ URL_image }}large/@{{ hinhsp_chinh.vitri_hinh }}" alt=""/>
+                      
+                    </div>
                   </div>
                   <div class="thum-image">
                     <ul id="gallery_01" class="prev-thum">
-                      <li>
-                        <a href="#" data-image="{{ URL ('images/products/medium/products-01.jpg') }}" data-zoom-image="{{ URL ('images/products/Large/products-01.jpg') }}">
-                          <img src="{{ URL ('images/products/thum/products-01.png') }}" alt="">
+                      @foreach($hinhspLisp_orther as $hinhsp_orther)
+                      <li style="height:40px;width:40px">
+                        <a href="" data-image="{{ URL ('images/products/medium/products-01.jpg') }}" data-zoom-image="{{ URL ('images/products/Large/products-01.jpg') }}">
+                          <img src="@{{ URL_image }}thum/{{ $hinhsp_orther->vitri_hinh }}" alt="">
                         </a>
                       </li>
-                      <li>
-                        <a href="#" data-image="{{ URL ('images/products/medium/products-02.jpg') }}" data-zoom-image="{{ URL ('images/products/Large/products-02.jpg') }}">
-                          <img src="{{ URL ('images/products/thum/products-02.png') }}" alt="">
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" data-image="{{ URL ('images/products/medium/products-03.jpg') }}" data-zoom-image="{{ URL ('images/products/Large/products-03.jpg') }}">
-                          <img src="{{ URL ('images/products/thum/products-03.png') }}" alt="">
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" data-image="{{ URL ('images/products/medium/products-04.jpg') }}" data-zoom-image="{{ URL ('images/products/Large/products-04.jpg') }}">
-                          <img src="{{ URL ('images/products/thum/products-04.png') }}" alt="">
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" data-image="{{ URL ('images/products/medium/products-05.jpg') }}" data-zoom-image="{{ URL ('images/products/Large/products-05.jpg') }}">
-                          <img src="{{ URL ('images/products/thum/products-05.png') }}" alt="">
-                        </a>
-                      </li>
+                      @endforeach
                     </ul>
                     <a class="control-left" id="thum-prev" href="javascript:void(0);">
                       <i class="fa fa-chevron-left">
@@ -55,12 +40,31 @@
                 </div>
                 <div class="products-description" >
                   <h3 class="name">@{{Detailsanpham.sp_ten}}</h3>
-                  <p>
-                    <img alt="" src="{{ URL ('images/star.png') }}">
-                    <a class="review_num" href="#">
-                      @{{ bl_nx_yt.length }} đánh giá
-                    </a>
-                  </p>
+                  <div class="row">
+                      <div class="review_num col-md-2"  ng-switch="Detailsanpham.sp_danhgia">
+                        <p class="rating" ng-switch-when="0">
+                          <i class="fa fa-star-o gray"></i><i class="fa fa-star-o gray"></i><i class="fa fa-star-o gray"></i><i class="fa fa-star-o gray"></i><i class="fa fa-star-o gray"></i>
+                        </p>
+                        <p class="rating" ng-switch-when="1">
+                          <i class="fa fa-star light-red"></i><i class="fa fa-star-o gray"></i><i class="fa fa-star-o gray"></i><i class="fa fa-star-o gray"></i><i class="fa fa-star-o gray"></i>
+                        </p>
+                        <p class="rating" ng-switch-when="2">
+                          <i class="fa fa-star light-red"></i><i class="fa fa-star light-red"></i><i class="fa fa-star-o gray"></i><i class="fa fa-star-o gray"></i><i class="fa fa-star-o gray"></i>
+                        </p>
+                        <p class="rating" ng-switch-when="3">
+                          <i class="fa fa-star light-red"></i><i class="fa fa-star light-red"></i><i class="fa fa-star light-red"></i><i class="fa fa-star-o gray"></i><i class="fa fa-star-o gray"></i>
+                        </p>
+                        <p class="rating" ng-switch-when="4">
+                          <i class="fa fa-star light-red"></i><i class="fa fa-star light-red"></i><i class="fa fa-star light-red"></i><i class="fa fa-star light-red"></i><i class="fa fa-star-o gray"></i>
+                        </p>
+                        <p class="rating" ng-switch-when="5">
+                          <i class="fa fa-star light-red"></i><i class="fa fa-star light-red"></i><i class="fa fa-star light-red"></i><i class="fa fa-star light-red"></i><i class="fa fa-star light-red"></i>
+                        </p>
+                      </div>
+                      <div class="review_num col-md-2" style="padding:0px;margin:0px;font-size:14px;">
+                        @{{ bl_nx_yt.length }} đánh giá
+                      </div>  
+                  </div>
                   <p>
                     <span class=" light-red" ng-if="Detailsanpham.sp_soluong>0">
                       Còn @{{Detailsanpham.sp_soluong}} sản phẩm
@@ -77,22 +81,25 @@
                   </p>
                   <hr class="border">
                   <div class="price">
-                    <span class="new_price">@{{ Detailsanpham.sp_gia -Detailsanpham.sp_gia * Detailsanpham.sp_km/100}} VNĐ</span>
-                    <span class="old_price">@{{ Detailsanpham.sp_gia}} VNĐ</span>
+                    <span class="new_price">@{{ Detailsanpham.sp_gia -Detailsanpham.sp_gia * Detailsanpham.sp_km/100 |number}} VNĐ</span>
+                    <span class="old_price">@{{ Detailsanpham.sp_gia |number}} VNĐ</span>
                   </div>
                   <hr class="border">
                   <div class="wided">
                     <div class="qty">
                       Số lượng &nbsp;&nbsp;: 
-                      <input type="text"/>
+                      <input type="number" ng-model="soluong"/>
                     </div>
-                    <div class="button_group">
-                      <button  onclick="location.href ='{{ route('guest_login_route') }}'" class="button" style="border-radius: 0px;background-color: orange" >
-                        Đặt Hàng
-                      </button>
-                      <button class="button favorite">
+                    <button class="button favorite" onclick="location.href ='{{ route('guest_login_route') }}'">
                         <i class="fa fa-heart-o">
                         </i>
+                    </button>
+                    <div class="button_group">
+                      <button  onclick="location.href ='{{ route('guest_login_route') }}'" class="button" style="border-radius: 0px;background-color: orange" >
+                        Thêm vào giỏ
+                      </button>
+                      <button  onclick="location.href ='{{ route('guest_login_route') }}'" class="button" style="border-radius: 0px;background-color: orange" >
+                        Đặt Hàng
                       </button>
                     </div>
                   </div>
@@ -221,93 +228,7 @@
               <div class="clearfix">
               </div>
             </div>
-            <div class="col-md-3">
-              <div class="special-deal leftbar">
-                <h4 class="title">
-                  Sản phẩm bạn đã chọn
-                </h4>
-                <div class="special-item">
-                  <div class="product-image">
-                    <a href="#">
-                      <img src="{{ URL ('images/products/thum/products-01.png') }}" alt="">
-                    </a>
-                  </div>
-                  <div class="product-info">
-                    <p>
-                      Váy
-                    </p>
-                    <h5 class="price">
-                      $300.00
-                    </h5>
-                  </div>
-                </div>
-              </div>
-              <div class="clearfix">
-              </div>
-
-              <div class="clearfix">
-              </div>
-             
-              <div class="clearfix">
-              </div>
-              <!-- <div class="fbl-box leftbar">
-                <h3 class="title">
-                  Facebook
-                </h3>
-                <span class="likebutton">
-                  <a href="#">
-                    <img src="{{ URL ('images/fblike.png') }}" alt="">
-                  </a>
-                </span>
-                <p>
-                  12k people like Flat Shop.
-                </p>
-                <ul>
-                  <li>
-                    <a href="#">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                    </a>
-                  </li>
-                </ul>
-                <div class="fbplug">
-                  <a href="#">
-                    <span>
-                      <img src="{{ URL ('images/fbicon.png') }}" alt="">
-                    </span>
-                    Facebook social plugin
-                  </a>
-                </div>
-              </div> -->
-              <div class="clearfix">
-              </div>
-            </div>
+           
           </div>
           
               <div class="clearfix">
@@ -317,27 +238,48 @@
                   Bạn có thể thích những sản phẩm này
                 </h3>
                 <div class="control">
-                  <a id="prev_hot" class="prev" href="#">
+                  <a  class="prev" href="">
                     &lt;
                   </a>
-                  <a id="next_hot" class="next" href="#">
+                  <a  class="next" href="">
                     &gt;
                   </a>
                 </div>
                 <ul id="hot">
-                  <li>
-                    <div class="row">
-                      <div class="col-md-4 col-sm-4" ng-repeat="sanphamOb in sanphamList">
-                      <div class="products" onclick="location.href ='{{ route('guest_detail_sp_route') }}';">
-                      <div class="offer">- @{{ sanphamOb.sp_km }} %</div>
-                      <div class="thumbnail"><a href=" {{ route('guest_detail_sp_route') }}"><img src="{{ URL ('images/products/small/products-03.png') }}" alt="Product Name"></a></div>
-                      <div class="productname">@{{ sanphamOb.sp_ten }} </div>
-                      <h4 class="price">@{{ sanphamOb.sp_gia -sanphamOb.sp_gia * sanphamOb.sp_km/100}}</h4>
-                      <div class="button_group"><button class="button add-cart" type="button" onclick="location.href ='{{ route('guest_detail_sp_route') }}';">Mua Ngay</button><button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
-                   </div>
-                      </div>
-                    </div>
-                  </li>
+                @php $i=0; @endphp
+                @foreach ($sanphamList as $sanphamOb)
+                      @if($i==0)
+                      <li>
+                          <div class="row" >
+                      @endif
+                         <div class="col-md-3 col-sm-6">
+                            <div class="products" ng-click="detail({{$sanphamOb->id_sp}},{{$sanphamOb->sp_idloai}})">
+                               <div class="offer" >- {{ $sanphamOb->sp_km }} %</div>
+                               <div class="thumbnail">
+                                  <a href=" " ng-click="detail({{$sanphamOb->id_sp}},{{$sanphamOb->sp_idloai}})">
+                                      @foreach($hinhspList as $hinhOB)
+                                          @if($hinhOB->hinh_idsp==$sanphamOb->id_sp)
+                                      <img src="@{{ URL_image }}small/{{ $hinhOB->vitri_hinh }}" >
+                                          @endif
+                                      @endforeach
+                                  </a>
+                               </div>
+                               <div class="productname" >{{ $sanphamOb->sp_ten }} </div>
+                               <h4 class="price" >{{ $sanphamOb->sp_gia - $sanphamOb->sp_gia * $sanphamOb->sp_km/100 }}</h4>
+                               <div class="button_group">
+                                   <button class="button add-cart" ng-click="detail({{$sanphamOb->id_sp}},{{$sanphamOb->sp_idloai}})" type="button" >Mua Ngay</button>
+  
+                               </div>
+                            </div>
+                         </div>
+                         @if($i==3)
+                         </div>
+                      </li>
+                         @php $i=0; @endphp
+                      @else
+                         @php $i++; @endphp
+                      @endif
+                  @endforeach
                 </ul>
               </div>
           <div class="clearfix">

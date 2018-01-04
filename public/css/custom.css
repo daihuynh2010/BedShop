@@ -2,7 +2,7 @@
 .master_dropdow_list{
 	position: relative;
 	display: inline-block;
-	width: 165px;
+	width: auto;
 }
 .master_dropdow_list:hover .master_dropdow_list_content{
 	display: block;
@@ -16,15 +16,29 @@
     top: 100%;
     z-index: 9999;
     background: #7c8490;
-    width:100%;
+    width:auto;
     margin-top: -2px;
     padding-top: 5px;
 }
-.master_dropdow_child_list:hover{
+.master_dropdow_child_list:hover,.list_result_search:hover{
 	background-color: #FF3399;
 }
 .master_dropdow_child_list{
 	width: 100%;
+}
+.list_result_search{width: 100%;padding-left: 5%;height: 30px;}
+.list-search{
+	display: none;
+    position: absolute;
+    top: 100%;
+    z-index: 9999;
+	background: #ffffff;
+	height: auto;
+	font-size: 14px;
+    padding: 5px 0 5px 0;
+}
+.collapse{
+	margin-left: 4%;
 }
 /* Đăng Nhập*/
 .container_login{
@@ -273,7 +287,7 @@
 
 /*change_Pass*/
 .change_pass_row{
-	padding-left: 38%;
+	padding-left: 32%;
 }
 .change_pass_button_luu{
 	width: 200px;
@@ -306,9 +320,6 @@
 	font-size: 18px;
 	font-weight: 400;
 }
-.follow_order_info{
-
-}
 .follow_order_detail_progress{
 	padding: 10px 100px 10px 150px;
 	align-items: center;
@@ -333,4 +344,27 @@
 /*Manager*/
 .manage-child-menu{
 	width: 100%;
+}
+/*user*/
+.cart-item{
+	width:100%;
+}
+.button_like{
+	background: #f7544a;color: #fff;
+	border: 1px solid #fe5252;
+}
+.button_like .fa{color: #fff;}
+
+.button_like:hover{
+	background:#fff;
+	border: 1px solid #cccccc;
+}
+.button_like:hover .fa{
+	color:#f7544a;
+}
+/*detail*/
+.zoomWrapper{
+	height:311px;width:328px;
+}
+.remove{margin-left: 50px;
 }
