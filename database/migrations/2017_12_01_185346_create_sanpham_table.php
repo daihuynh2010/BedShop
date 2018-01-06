@@ -28,7 +28,7 @@ class CreateSanphamTable extends Migration
             $table->string('sp_trongluong');
             $table->string('sp_kichthuoc');
             $table->integer('sp_soluong')->unsigned();
-            $table->integer('sp_somausac')->unsigned();
+            $table->integer('sp_danhgia')->unsigned();
             $table->integer('sp_idnsx')->unsigned();
             $table->integer('sp_idloai')->unsigned();
             $table->softDeletes();

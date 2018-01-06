@@ -13,35 +13,17 @@
             <div class="products-details">
             <div class="preview_image">
               <div class="preview-small">
-                <img id="zoom_03" src="@{{ URL_image }}medium/@{{ hinhsp_chinh.vitri_hinh }}" data-zoom-image="@{{ URL_image }}large/@{{ hinhsp_chinh.vitri_hinh }}" alt="">
+                <img id="zoom_03" ng-src="@{{ URL_image }}medium/@{{ hinhsp_chinh.vitri_hinh }}" data-zoom-image="@{{ URL_image }}large/@{{ hinhsp_chinh.vitri_hinh }}" alt="">
               </div>
               <div class="thum-image">
                 <ul id="gallery_01" class="prev-thum">
-                  <li>
-                    <a href="#" data-image="{{ URL ('images/products/medium/products-01.jpg') }}" data-zoom-image="{{ URL ('images/products/Large/products-01.jpg') }}">
-                      <img src="{{ URL ('images/products/thum/products-01.png') }}" alt="">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" data-image="{{ URL ('images/products/medium/products-02.jpg') }}" data-zoom-image="{{ URL ('images/products/Large/products-02.jpg') }}">
-                      <img src="{{ URL ('images/products/thum/products-02.png') }}" alt="">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" data-image="{{ URL ('images/products/medium/products-03.jpg') }}" data-zoom-image="{{ URL ('images/products/Large/products-03.jpg') }}">
-                      <img src="{{ URL ('images/products/thum/products-03.png') }}" alt="">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" data-image="{{ URL ('images/products/medium/products-04.jpg') }}" data-zoom-image="{{ URL ('images/products/Large/products-04.jpg') }}">
-                      <img src="{{ URL ('images/products/thum/products-04.png') }}" alt="">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" data-image="{{ URL ('images/products/medium/products-05.jpg') }}" data-zoom-image="{{ URL ('images/products/Large/products-05.jpg') }}">
-                      <img src="{{ URL ('images/products/thum/products-05.png') }}" alt="">
-                    </a>
-                  </li>
+                    @foreach($hinhspLisp_orther as $hinhsp_orther)
+                      <li style="height:40px;width:40px">
+                        <a href=""  >
+                          <img ng-src="@{{ URL_image }}thum/{{ $hinhsp_orther->vitri_hinh }}" alt="">
+                        </a>
+                      </li>
+                      @endforeach
                 </ul>
                 <a class="control-left" id="thum-prev" href="javascript:void(0);">
                   <i class="fa fa-chevron-left">
@@ -255,7 +237,7 @@
               <div class="special-item"  ng-repeat="detail_hoadon in detail_hoadonList">
                 <div class="product-image">
                   <a >
-                  <img ng-repeat="hinhOB in hinhspList" ng-if="hinhOB.hinh_idsp==detail_hoadon.pivot.id_sp" src="@{{ URL_image }}thum/@{{ hinhOB.vitri_hinh }}" alt="">
+                  <img ng-repeat="hinhOB in hinhspList" ng-if="hinhOB.hinh_idsp==detail_hoadon.pivot.id_sp" ng-src="@{{ URL_image }}thum/@{{ hinhOB.vitri_hinh }}" alt="">
                   </a>
                 </div>
                 <div class="product-info" style="width:50%;float:left">
@@ -275,61 +257,7 @@
            
             <div class="clearfix">
             </div>
-            <!-- <div class="fbl-box leftbar">
-              <h3 class="title">
-                Facebook
-              </h3>
-              <span class="likebutton">
-                <a href="#">
-                  <img src="{{ URL ('images/fblike.png') }}" alt="">
-                </a>
-              </span>
-              <p>
-                12k people like Flat Shop.
-              </p>
-              <ul>
-                <li>
-                  <a href="#">
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                  </a>
-                </li>
-              </ul>
-              <div class="fbplug">
-                <a href="#">
-                  <span>
-                    <img src="{{ URL ('images/fbicon.png') }}" alt="">
-                  </span>
-                  Facebook social plugin
-                </a>
-              </div>
-            </div> -->
+           
             <div class="clearfix">
             </div>
           </div>
@@ -363,7 +291,7 @@
                                 <a href=" " ng-click="detailsp_user({{$sanphamOb->id_sp}},{{$sanphamOb->sp_idloai}})">
                                     @foreach($hinhspList as $hinhOB)
                                         @if($hinhOB->hinh_idsp==$sanphamOb->id_sp)
-                                    <img src="@{{ URL_image }}small/{{ $hinhOB->vitri_hinh }}" >
+                                    <img ng-src="@{{ URL_image }}small/{{ $hinhOB->vitri_hinh }}" >
                                         @endif
                                     @endforeach
                                 </a>

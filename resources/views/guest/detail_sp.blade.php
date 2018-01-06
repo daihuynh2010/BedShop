@@ -14,7 +14,7 @@
                 <div class="preview_image">
                   <div class="preview-small" >
                     <div class="zoomWrapper" >
-                      <img id="zoom_03" src="@{{ URL_image }}medium/@{{ hinhsp_chinh.vitri_hinh }}" data-zoom-image="@{{ URL_image }}large/@{{ hinhsp_chinh.vitri_hinh }}" alt=""/>
+                      <img id="zoom_03" ng-src="@{{ URL_image }}medium/@{{ hinhsp_chinh.vitri_hinh }}" data-zoom-image="@{{ URL_image }}large/@{{ hinhsp_chinh.vitri_hinh }}" alt=""/>
                       
                     </div>
                   </div>
@@ -23,7 +23,7 @@
                       @foreach($hinhspLisp_orther as $hinhsp_orther)
                       <li style="height:40px;width:40px">
                         <a href="" data-image="{{ URL ('images/products/medium/products-01.jpg') }}" data-zoom-image="{{ URL ('images/products/Large/products-01.jpg') }}">
-                          <img src="@{{ URL_image }}thum/{{ $hinhsp_orther->vitri_hinh }}" alt="">
+                          <img ng-src="@{{ URL_image }}thum/{{ $hinhsp_orther->vitri_hinh }}" alt="">
                         </a>
                       </li>
                       @endforeach
@@ -259,7 +259,7 @@
                                   <a href=" " ng-click="detail({{$sanphamOb->id_sp}},{{$sanphamOb->sp_idloai}})">
                                       @foreach($hinhspList as $hinhOB)
                                           @if($hinhOB->hinh_idsp==$sanphamOb->id_sp)
-                                      <img src="@{{ URL_image }}small/{{ $hinhOB->vitri_hinh }}" >
+                                      <img ng-src="@{{ URL_image }}small/{{ $hinhOB->vitri_hinh }}" >
                                           @endif
                                       @endforeach
                                   </a>

@@ -61,7 +61,7 @@
                                  <li ng-repeat="detail_hoadon in detail_hoadonList" >
                                     <div class="cart-item" class="row">
                                        <div class="image">
-                                          <img ng-repeat="hinhOB in hinhspList" ng-if="hinhOB.hinh_idsp==detail_hoadon.pivot.id_sp" src="@{{ URL_image }}thum/@{{ hinhOB.vitri_hinh }}" alt="">
+                                          <img ng-repeat="hinhOB in hinhspList" ng-if="hinhOB.hinh_idsp==detail_hoadon.pivot.id_sp" ng-src="@{{ URL_image }}thum/@{{ hinhOB.vitri_hinh }}" alt="">
                                        </div>
                                        <div class="item-description">
                                           <p class="name">@{{ detail_hoadon.sp_ten }}</p>
@@ -189,7 +189,8 @@
      <script type="text/javascript" src="{{URL ('js/script.min.js') }}" ></script>
      <script type="text/javascript" src="{{URL ('js/jquery.elevatezoom.js') }}"></script>
      <!-- zoom image -->
-     <sctipt typy="text/javascript" src="{{URL ('js/jquery.elevatezoom.js') }}"></script>
+     <!-- <sctipt typy="text/javascript" src="{{URL ('js/jquery.elevateZoom.js') }}"></script> -->
+     <!-- <sctipt typy="text/javascript" src="{{URL ('js/jquery.elevateZoom-3.0.8.js') }}"></script> -->
      <!--AngularJS-->
     <script src="{{ URL ('app/lib/angular.min.js') }}"></script>
     <script>

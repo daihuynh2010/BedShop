@@ -165,8 +165,8 @@
      <script type="text/javascript" src="{{URL ('js/script.min.js') }}" ></script>
      <script type="text/javascript" src="{{URL ('js/jquery.elevatezoom.js') }}"></script>
      <!-- zoom image -->
-     <sctipt src="{{URL ('js/jquery.elevatezoom.js') }}"></script>
-     <sctipt src="{{URL ('js/jquery.elevatezoom-3.0.8.min.js') }}"></script>
+     <!-- <sctipt src="{{URL ('js/jquery.elevatezoom.js') }}"></script> -->
+     <!-- <sctipt src="{{URL ('js/jquery.elevatezoom-3.0.8.min.js') }}"></script> -->
      <!--AngularJS-->
      <script src="{{ URL ('app/lib/angular.min.js') }}"></script>
      <script>

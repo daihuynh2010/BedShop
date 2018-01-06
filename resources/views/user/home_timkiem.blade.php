@@ -28,7 +28,7 @@
                      <a href="" ng-click="detailsp_user({{$sanphamOb->id_sp}},{{$sanphamOb->sp_idloai}})">
                          @foreach($hinhspList as $hinhOB)
                              @if($hinhOB->hinh_idsp==$sanphamOb->id_sp)
-                         <img   src="{{URL ('images/products/small/'. $hinhOB->vitri_hinh  )}}" alt="">
+                         <img ng-src="{{URL ('images/products/small/'. $hinhOB->vitri_hinh  )}}" alt="">
                              @endif
                          @endforeach
                      </a>

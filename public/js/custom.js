@@ -85,4 +85,5 @@ else
     console.log("Không load được ảnh");
 }
 /*detail*/
-// $('#zoom').elevateZoom()
+(function($) {
+$('#zoom').elevateZoom();})

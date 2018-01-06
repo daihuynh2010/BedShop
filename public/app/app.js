@@ -73,7 +73,7 @@ app.controller('SanPhamTimKiemByLoaiControllerNG',function($scope,$http,API_URL)
 app.controller('DetailSanPhamControllerNG',function($scope,$http,API_URL){
     var idsp=localStorage.getItem('idsp');
     var iduser=localStorage.getItem('iduser');
-    // console.log(iduser);
+    // console.log(idsp);
     $http.get(API_URL+'detail-sanpham/'+idsp).then(function(response){
         $scope.Detailsanpham=response.data.sanphamDetail;
         $scope.bl_nx_yt=response.data.bl_nx_yt;
@@ -87,8 +87,8 @@ app.controller('DetailSanPhamControllerNG',function($scope,$http,API_URL){
                 $scope.isthich=$scope.bl_nx_yt[i].pivot.is_thich;
         }
     });
-    $scope.soluong=1;
     $scope.iduser=localStorage.getItem('iduser');
+    $scope.soluong=1;
     $scope.dathang=function(iduser,idsp,gia){
         $http({
             method :'POST',
@@ -101,7 +101,7 @@ app.controller('DetailSanPhamControllerNG',function($scope,$http,API_URL){
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         })
         .then(function (response){
-            console.log(response.data);
+            // console.log(response.data);
         },function(error){
             console.log(error);
         });
@@ -119,7 +119,7 @@ app.controller('DetailSanPhamControllerNG',function($scope,$http,API_URL){
         })
         .then(function (response){
             // console.log(response.data);
-            window.location.href=UrlAngular+"user/detail";
+            location.reload();
         },function(error){
             console.log(error);
         });
@@ -138,7 +138,7 @@ app.controller('DetailSanPhamControllerNG',function($scope,$http,API_URL){
         })
         .then(function (response){
             alert("Đánh giá thành công")
-            window.location.href=UrlAngular+"user/detail";
+            location.reload();
         },function(error){
             console.log(error);
         });
@@ -155,7 +155,8 @@ app.controller('DetailSanPhamControllerNG',function($scope,$http,API_URL){
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         })
         .then(function (response){
-            window.location.href=UrlAngular+"user/detail";
+            console.log(response.data);
+            // location.reload();
         },function(error){
             console.log(error);
         });
@@ -305,7 +306,7 @@ app.controller('UserController',function($scope,$http,API_URL){
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         })
         .then(function (response){
-            // console.log(response.data);
+            // window.location.href=UrlAngular+"user/info";
             alert('Thay đổi thành công');
         },function(error){
             console.log(error);
@@ -392,64 +393,6 @@ app.controller('ForgotPasswordControllerNG',function($scope,$http,API_URL){
     }
 });
 
-// app.controller('AdminHomeControllerNG',function($scope,$http,API_URL){
-//     $scope.add=function(){
-//         $http({
-//             method :'POST',
-//             url : API_URL + 'register-user',
-//             data:  $.param({
-//                 'email':$scope.add.email,
-//                 'pws':$scope.add.pws,
-//                 'name':$scope.add.hoten,
-//                 'sdt':$scope.add.sdt,
-//                 'chuc_vu':$scope.add.chuc_vu,
-//                 'tich_diem':parseInt($scope.add.tich_diem),
-//                 'dd_giaohang_md':$scope.add.dd_giaohang
-//             }),
-//             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-//         })
-//         .then(function (response){
-//             // console.log(response.data);
-//             alert('Thêm thành công');
-//             window.location.href=UrlAngular+"admin/admin";
-//         },function(error){
-//             console.log(error);
-//         });
-//     }
-
-//     $scope.edit=function(id){
-//         // localStorage.setItem('iduser_edit', id);
-//         // console.log(id);
-//         $http.get(API_URL+'info-user/'+id).then(function(response){
-//             $scope.user=response.data.user;
-//             console.log($scope.user);
-//         }).catch(angular.noop);
-//         $scope.save = function() {
-//             $http({
-//                 method:'POST',
-//                 url:API_URL+'update-info/'+id,
-//                 data:  $.param({
-//                     'iduser':id,
-//                     'name': $scope.user.name,
-//                     'email':$scope.user.email,
-//                     'chuc_vu':$scope.chuc_vu,
-//                     'tich_diem':parseInt($scope.user.tich_diem),
-//                     'dd_giaohang':$scope.user.dd_giaohang_md,
-//                     'sdt':$scope.user.sdt
-//                     }),
-//                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-//             })
-//             .then(function (response){
-//                 // console.log(response.data);
-//                 alert('Thay đổi thành công');
-//                 window.location.href=UrlAngular+"admin/";
-//             },function(error){
-//                 console.log(error);
-//             });
-//         };
-//         $scope.chucvu=function(chuc_vu){$scope.chuc_vu=chuc_vu;}
-//     }
-// });
 
 var appadmin = angular.module('bedshop_admin',['ui.bootstrap']).constant('API_URL',UrlAngular+"angular/");
 appadmin.controller('AdminControllerNG',function($scope,$http,API_URL,$uibModal){
