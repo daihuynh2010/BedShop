@@ -1,6 +1,6 @@
 @extends('master_guest')
 
-@section('title', "BedShop | Login")
+@section('title', "FlatShop | Login")
 
 
 @section('main_content')
@@ -42,18 +42,19 @@
 		    </form>
 	   	</div>
 	   	<div class="center">
-	   		<p class="or_center">OR</p>
+	   		<!-- <p class="or_center">OR</p> -->
+			   <p class="or_center"></p>
 	   		<div class="inner">
 
 	   		</div>
 
 	   	</div>
-	   	<div class="right">
+	   	<!-- <div class="right">
 	   		<h4 style="padding-left: 10px;">Đăng Nhập Bằng</h4>
 	   		<hr class="in_lineblock"></hr>
 	   		<div class="social_inner">
 	   			<div class="fb_wrapper">
-	   				<a href="" >
+	   				<a href="{{ route('login_facebook',['social'=> 'facebook']) }}" >
 		   				<img style=" width: 30%;" src="{{URL ('images/facebook_icon.png ') }}">
 		   				<span style="color: #3B5997;font-weight: 700;margin-left: 15px;text-align: center;font-size: 12px;">Facebook</span>
 	   				</a>
@@ -65,7 +66,7 @@
 	   				</a>
 	   			</div>
 	   		</div>
-	   	</div>
+	   	</div> -->
 	</div> 
 
 </div>

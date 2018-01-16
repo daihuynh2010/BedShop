@@ -1,6 +1,6 @@
 @extends('master_guest')
 
-@section('title', "BedShop | Home")
+@section('title', "FlatShop | Home")
 
 @section('main_content')
 <div class="clearfix"></div>

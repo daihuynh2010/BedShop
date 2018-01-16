@@ -46,6 +46,8 @@ Route::prefix('angular')->group(function() {
 	Route::get('delete-sanpham/{id}','SanPhamController@deleteSP');
 	Route::post('add-sanpham','SanPhamController@themSP');
 	Route::post('edit-sanpham/{id}','SanPhamController@editSP');	
+	Route::post('add-list-sanpham','SanPhamController@AddList')->name('post_list_sanpham');	
+	Route::post('submit-list-sanpham','SanPhamController@postSubmitsanphamList')->name('submit_list_sanpham');	
 });
 //Route guest
 Route::prefix('guest')->group(function() {
@@ -71,6 +73,8 @@ Route::get('logout','UserController@logout')->name('logout');
 Route::get('register', function(){
 	return view('guest.register');
 })->name('guest_register_route');
+Route::get('redirect/{social}', 'FacebookController@redirect')->name('login_facebook');
+Route::get('callback/{social}', 'FacebookController@callback');
 
 
 Route::group(['middleware' => 'user'], function(){
@@ -132,6 +136,10 @@ Route::group(['middleware' => 'manager'], function(){
 		Route::get('add-product', function(){
 			return view('manage.add_product');
 		})->name('manage_add_product');
+
+		Route::get('add-list-product', function(){
+			return view('manage.add_list_product');
+		})->name('manage_add_list_product');
 
 		Route::get('edit-product',function(){
 			return view('manage.edit_product');

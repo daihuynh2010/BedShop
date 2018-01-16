@@ -12,6 +12,7 @@ use Storage;
 use Image;
 use File;
 use Excel;
+use DB;
 use Illuminate\Support\Str;
 
 
@@ -93,7 +94,7 @@ class SanPhamController extends Controller
         $sanphamDetail=SanPham::orderBy('id_sp',$id)->find($id);
         $sanphamList=SanPham::orderBy('created_at','desc')->where('sp_idloai',$sanphamDetail->sp_idloai)->get();
         $hinhspList=Hinh_SP::orderBy('id_hinh','asc')->where('is_hinhchinh',1)->get();
-        $hinhspLisp_orther=Hinh_SP::orderBy('id_hinh','asc')->where('is_hinhchinh',0)->get();
+        $hinhspLisp_orther=Hinh_SP::orderBy('id_hinh','asc')->where('hinh_idsp',$id)->where('is_hinhchinh',0)->get();
         return view('guest.detail_sp',compact('sanphamList','hinhspList','hinhspLisp_orther')); 
     }
 
@@ -141,7 +142,7 @@ class SanPhamController extends Controller
     }
 
     public function thichSP(Request $request){
-        // return((int)$request->thich);
+        return($request);
         $sanpham=SanPham::find($request->idsp);
         $user=User::find($request->iduser);
         $bl=$user->SanPham->where('id_sp',$request->idsp)->first();
@@ -307,6 +308,114 @@ class SanPhamController extends Controller
                     });
                 });
             })->export('xlsx');
+        }
+    }
+
+    public function AddList(Request $request){
+        if($request->hasFile('import')) {
+            $result = Excel::load($request->import, function($reader) {
+            })->get()->toArray();
+            $sanphamList = [];
+            foreach($result as $sanpham) {
+                $sanpham = array_values($sanpham);
+                $newsanpham = new sanpham;
+                $newsanpham->sp_ten = $sanpham[0];
+                $newsanpham->sp_gia = $sanpham[1];
+                $newsanpham->sp_km = $sanpham[2];
+                $newsanpham->sp_hsd = $sanpham[3];
+                $newsanpham->sp_mota = $sanpham[4];
+                $newsanpham->sp_gioithieu = $sanpham[5];
+                $newsanpham->sp_trongluong = $sanpham[6];
+                $newsanpham->sp_kichthuoc = $sanpham[7];
+                $newsanpham->sp_soluong = $sanpham[8];
+                $newsanpham->sp_danhgia = $sanpham[9];
+                $newsanpham->sp_idnsx = $sanpham[10];
+                $newsanpham->sp_idloai = $sanpham[11];
+                
+                array_push($sanphamList, $newsanpham);
+            }
+            $errors = [];
+            $nsx_name = [];
+            $loaisp_name = [];
+            //Check error
+            foreach($sanphamList as $sanpham) {
+                //check tồn tại sinh viên
+                $check = SanPham::find($sanpham->id_sp);
+                if(!is_null($check)) {
+                    array_push($errors, "Mã ".$sanpham->id_sp." đã tồn tại.");
+                }
+
+                $nsx = NSX::where('id_nsx', $sanpham->sp_idnsx)->first();
+                if(is_null($nsx)) {
+                    array_push($errors, "Nhà Sản Xuất ".$sanpham->sp_idnsx." không tồn tại.");
+                    // array_push($nsx_name, NULL);
+                } else {
+                    $sanpham->sp_idnsx = $nsx->id_nsx;
+                    array_push($nsx_name, $nsx->nsx_ten);
+                }
+
+                $loaisp = Loai_SP::where('id_loaisp', $sanpham->sp_idloai)->first();
+                if(is_null($loaisp)) {
+                    array_push($errors, "Loại Sản phẩm ".$sanpham->sp_idloai." không tồn tại.");
+                    // array_push($loaisp_name, NULL);
+                } else {
+                    $sanpham->sp_idloai = $loaisp->id_loaisp;
+                    array_push($loaisp_name, $loaisp->loaisp_ten);
+                }
+            }
+
+            $this->data['sanphamList'] = $sanphamList;
+            $this->data['errors'] = $errors;
+            $this->data['nsx_name'] = $nsx_name;
+            $this->data['loaisp_name'] = $loaisp_name;
+
+            return view('manage.add_list_product', $this->data);
+        }
+    }
+
+    public function postSubmitsanphamList(Request $request) {
+        DB::beginTransaction();
+        try {
+            $sp_ten_arr = $request->sp_ten;
+            $sp_idloai_arr = $request->sp_idloai;
+            $sp_gia_arr = $request->sp_gia;
+            $sp_idnsx_arr = $request->sp_idnsx;
+            $sp_soluong_arr = $request->sp_soluong;
+            $sp_hsd_arr = $request->sp_hsd;
+            $sp_km_arr = $request->sp_km;
+            $sp_mota_arr = $request->sp_mota;
+            $sp_gioithieu_arr = $request->sp_gioithieu;
+            $sp_trongluong_arr = $request->sp_trongluong;
+            $sp_kichthuoc_arr = $request->sp_kichthuoc;
+            $sp_danhgia_arr = $request->sp_danhgia;
+
+            for($i = 0; $i < count($request->sp_ten); $i++) {
+                $sanpham = new SanPham;
+                $sanpham->sp_ten = $sp_ten_arr[$i];
+                $sanpham->sp_idloai = $sp_idloai_arr[$i];
+                $sanpham->sp_gia = $sp_gia_arr[$i];
+                $sanpham->sp_idnsx = $sp_idnsx_arr[$i];
+                $sanpham->sp_soluong = $sp_soluong_arr[$i];
+                $sanpham->sp_hsd = $sp_hsd_arr[$i];
+                $sanpham->sp_km = $sp_km_arr[$i];
+                $sanpham->sp_mota = $sp_mota_arr[$i];
+                $sanpham->sp_gioithieu = $sp_gioithieu_arr[$i];
+                $sanpham->sp_trongluong = $sp_trongluong_arr[$i];
+                $sanpham->sp_kichthuoc = $sp_kichthuoc_arr[$i];
+                $sanpham->sp_danhgia = $sp_danhgia_arr[$i];
+
+
+                $sanpham->save();
+            }
+
+            DB::commit();
+            return redirect()->route('manage_list_product');
+        } catch(Exception $e) {
+            DB::rollBack();
+            $this->data['error'] = $e->getMessage();
+            $this->data['result'] = false;
+            return $this->data;
+
         }
     }
 }

@@ -1,6 +1,6 @@
 @extends('master_guest')
 
-@section('title', "BedShop | Register")
+@section('title', "FlatShop | Register")
 
 
 @section('main_content')
@@ -53,10 +53,11 @@
 		    </form>
 	   	</div>
 	   	<div class="center">
-	   		<p class="or_center">OR</p>
+	   		<!-- <p class="or_center">OR</p> -->
+			   <p class="or_center"></p>
 	   		<div class="inner"></div>
 	   	</div>
-	   	<div class="right">
+	   	<!-- <div class="right">
 	   		<h4 style="padding-left: 10px;">Đăng Nhập Bằng</h4>
 	   		<hr class="in_lineblock"></hr>
 	   		<div class="social_inner">
@@ -73,7 +74,7 @@
 	   				</a>
 	   			</div>
 	   		</div>
-	   	</div>
+	   	</div> -->
 	</div>
 </div>
 @stop

@@ -5,7 +5,7 @@
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="shortcut icon" href="{{ URL ('images/favicon.png') }}"> <!-- icon title -->
-      <title>BedShop | Admin</title>
+      <title>FlatShop | Admin</title>
       <link href="{{ URL('css/bootstrap.css') }}" rel="stylesheet">
       <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,500italic,100italic,100' rel='stylesheet' type='text/css'>
       <link href="{{ URL ('css/font-awesome.min.css') }}" rel="stylesheet">
@@ -116,7 +116,7 @@
                             <td class="action-column">
                             <a class="edit_user_button" ng-click="edit({{$userOB->id}})" ><i class="fa fa-edit" title="Chỉnh Sửa"></i></a>
                             <a class="delete_user_button" ng-click="delete({{$userOB->id}})" ><i class="fa fa-trash" title="Xóa"></i></a>
-                            <a class="send_mail_button" ><i class="fa fa-list" title="Gửi Email"></i></a>
+                            <!-- <a class="send_mail_button" ><i class="fa fa-list" title="Gửi Email"></i></a> -->
                             </td>
                         </tr>
                         @endforeach

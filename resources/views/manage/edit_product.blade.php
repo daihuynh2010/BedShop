@@ -1,6 +1,6 @@
 @extends('master_manager')
 
-@section('title', "BedShop | Product")
+@section('title', "FlatShop | Product")
 
 @section('main_content')
 

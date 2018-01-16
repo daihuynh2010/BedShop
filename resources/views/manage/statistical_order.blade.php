@@ -1,6 +1,6 @@
 @extends('master_manager')
 
-@section('title', "BedShop | Statistical Order")
+@section('title', "FlatShop | Statistical Order")
 
 @section('main_content')
 
@@ -23,6 +23,7 @@
                         <th class="column-title"> Địa Điểm Nhận Hàng</th>
                         <th class="column-title"> Cách Thanh Toán</th>
                         <th class="column-title"> Tình Trạng Đơn Hàng</th>
+                        <th class="column-title"> Ngày xuất</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,6 +38,7 @@
                         <td>{{ $hoadonOB->dd_giao_hang }}</td>
                         <td>{{ $hoadonOB->cach_thanh_toan }}</td>
                         <td>{{ $hoadonOB->tinh_trang_hang }}</td>
+                        <td>{{ $hoadonOB->created_at }}</td>
                     </tr>
                 @endforeach
                 </tbody>

@@ -1,6 +1,6 @@
 @extends('master_guest')
 
-@section('title', "BedShop | Forgot-Password")
+@section('title', "FlatShop | Forgot-Password")
 
 
 @section('main_content')

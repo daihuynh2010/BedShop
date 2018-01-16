@@ -1,6 +1,6 @@
 @extends('master_user')
 
-@section('title', "BedShop | Change-Password")
+@section('title', "FlatShop | Change-Password")
 
 @section('main_content')
 

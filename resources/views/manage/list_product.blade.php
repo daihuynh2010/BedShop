@@ -1,6 +1,6 @@
 @extends('master_manager')
 
-@section('title', "BedShop | Product")
+@section('title', "FlatShop | Product")
 
 @section('main_content')
 
@@ -69,11 +69,11 @@
           <a href="{{ route('manage_add_product') }}" class="btn btn-block btn-success"><i class="fa fa-user"></i> Thêm 1 Sản Phẩm </a>
         </div>
         <div class="col-md-2 col-md-offset-1 col-sm-2 col-xs-6">
-          <a href="#" class="btn btn-block btn-success"><i class="fa fa-users"></i> Nhập file Sản Phẩm </a>
+          <a href="{{ route('manage_add_list_product')}}" class="btn btn-block btn-success"><i class="fa fa-users"></i> Nhập file Sản Phẩm </a>
         </div>                       
-        <div class="col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-1 col-xs-6">
+        <!-- <div class="col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-1 col-xs-6">
           <a href="#" class="btn btn-block btn-danger" disabled><i class="fa fa-trash"></i> Xóa Sản Phẩm được chọn </a>
-        </div>
+        </div> -->
         <div class="col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-1 col-xs-6">
           <a href="{{ route('export_list_sp') }}" class="btn btn-block btn-info">Xuất ra file Excel</a>
         </div>

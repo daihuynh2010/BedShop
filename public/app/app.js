@@ -685,6 +685,7 @@ appadmin.controller('SanPhamManageControllerNG',function($scope,$http,API_URL,$u
         localStorage.setItem('idsp_edit',id);
         window.location.href=UrlAngular+"manage/edit-product";
     }
+
 });
 
 appadmin.controller('EditSanPhamControllerNG',function($scope,$http,API_URL,$uibModal){

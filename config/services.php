@@ -35,4 +35,10 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'facebook' => [
+        'client_id' => '1747970738608377',
+        'client_secret' => '7b2a68a27f310fa9c5cf7bcab67cb33c',
+        'redirect' => 'http://localhost/BedShop/public/callback/facebook',
+    ],
+
 ];

@@ -166,7 +166,8 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
         Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class,  
-        Maatwebsite\Excel\ExcelServiceProvider::class,      
+        Maatwebsite\Excel\ExcelServiceProvider::class, 
+        Laravel\Socialite\SocialiteServiceProvider::class,     
         /*
          * Package Service Providers...
          */
@@ -235,6 +236,7 @@ return [
         'Gravatar' => Thomaswelton\LaravelGravatar\Facades\Gravatar::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],
 
 ];

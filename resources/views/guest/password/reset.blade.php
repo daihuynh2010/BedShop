@@ -1,7 +1,7 @@
 
 @extends('master_guest')
 
-@section('title', "BedShop | Reset-Password")
+@section('title', "FlatShop | Reset-Password")
 
 
 @section('main_content')

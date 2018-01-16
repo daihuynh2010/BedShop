@@ -1,6 +1,6 @@
 @extends('master_manager')
 
-@section('title', "BedShop | New Order")
+@section('title', "FlatShop | New Order")
 
 @section('main_content')
 
@@ -20,6 +20,7 @@
                         <th class="column-title"> Tổng Tiền</th>
                         <th class="column-title"> Địa Điểm Nhận Hàng</th>
                         <th class="column-title"> Cách Thanh Toán</th>
+                        <th class="column-title"> Ngày xuất</th>
                         <th class="column-title"> Action</th>
                     </tr>
                 </thead>
@@ -32,6 +33,7 @@
                         <td>{{ number_format($hoadonOB->tongtien)  }}</td>
                         <td>{{ $hoadonOB->dd_giao_hang }}</td>
                         <td>{{ $hoadonOB->cach_thanh_toan }}</td>
+                        <td>{{ $hoadonOB->created_at }}</td>
                         <td class="action-column">
                         <!-- ng-click="xacnhan(hoadonOB.id_hd)" -->
                             <a class="confim_new_order_button" ng-click="xacnhan({{$hoadonOB->id_hd}})"><i class="fa fa-edit" title="Xác Nhận"></i></a>
